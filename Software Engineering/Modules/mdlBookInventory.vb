@@ -1,0 +1,3 @@
+﻿Module mdlBookInventory
+
+End Module
