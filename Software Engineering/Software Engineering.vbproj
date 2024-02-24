@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,10 +94,154 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Book Inventory\frmAddBooks.Designer.vb">
+      <DependentUpon>frmAddBooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmAddBooks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmBookInventory.Designer.vb">
+      <DependentUpon>frmBookInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmBookInventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmCopiesInfo.Designer.vb">
+      <DependentUpon>frmCopiesInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmCopiesInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmDistinctInfo.Designer.vb">
+      <DependentUpon>frmDistinctInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmDistinctInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmBorrowBooks.Designer.vb">
+      <DependentUpon>frmBorrowBooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmBorrowBooks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmIssuedBooks.Designer.vb">
+      <DependentUpon>frmIssuedBooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmIssuedBooks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmPullout.Designer.vb">
+      <DependentUpon>frmPullout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmPullout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmReturnBooks.Designer.vb">
+      <DependentUpon>frmReturnBooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmReturnBooks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmAddBorrowers.Designer.vb">
+      <DependentUpon>frmAddBorrowers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmAddBorrowers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmBorrowers.Designer.vb">
+      <DependentUpon>frmBorrowers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmBorrowers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmBorrowersInfo.Designer.vb">
+      <DependentUpon>frmBorrowersInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmBorrowersInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddAuthors.Designer.vb">
+      <DependentUpon>frmAddAuthors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddAuthors.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddGenre.Designer.vb">
+      <DependentUpon>frmAddGenre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddGenre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddPublishers.Designer.vb">
+      <DependentUpon>frmAddPublishers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddPublishers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddShelf.Designer.vb">
+      <DependentUpon>frmAddShelf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddShelf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddSuppliers.Designer.vb">
+      <DependentUpon>frmAddSuppliers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddSuppliers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddUsers.Designer.vb">
+      <DependentUpon>frmAddUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmAddUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmMaintenance.Designer.vb">
+      <DependentUpon>frmMaintenance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\frmMaintenance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Others\frmAccountSettings.Designer.vb">
+      <DependentUpon>frmAccountSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Others\frmAccountSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Others\frmAuditTrail.Designer.vb">
+      <DependentUpon>frmAuditTrail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Others\frmAuditTrail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Others\frmDashboard.Designer.vb">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Others\frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Others\frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Others\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Others\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Others\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\mdlBorrowSetup.vb" />
+    <Compile Include="Modules\mdlBorrower.vb" />
+    <Compile Include="Modules\mdlBookInventory.vb" />
+    <Compile Include="Modules\mdlMaintenance.vb" />
+    <Compile Include="Modules\mdlOthers.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -96,6 +255,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Maintenance\frmAddAuthors.resx">
+      <DependentUpon>frmAddAuthors.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmAddGenre.resx">
+      <DependentUpon>frmAddGenre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmAddPublishers.resx">
+      <DependentUpon>frmAddPublishers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmAddShelf.resx">
+      <DependentUpon>frmAddShelf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmAddSuppliers.resx">
+      <DependentUpon>frmAddSuppliers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmAddUsers.resx">
+      <DependentUpon>frmAddUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Others\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmMaintenance.resx">
+      <DependentUpon>frmMaintenance.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -115,6 +298,27 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Databases\dbLMS.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Databases\dbLMS_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>dbLMS.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

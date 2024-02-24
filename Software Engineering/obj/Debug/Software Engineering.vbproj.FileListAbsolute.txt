@@ -1,0 +1,24 @@
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.vbproj.AssemblyReference.cache
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmMain.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmMaintenance.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.Resources.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.vbproj.GenerateResource.cache
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.vbproj.CoreCompileInputs.cache
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Databases\dbLMS.mdf
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Databases\dbLMS_log.ldf
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Software Engineering.exe.config
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Software Engineering.exe
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Software Engineering.pdb
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Software Engineering.xml
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\Guna.UI2.dll
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.vbproj.CopyComplete
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.exe
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.xml
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software Engineering.pdb
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddUsers.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddSuppliers.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddAuthors.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddPublishers.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddGenre.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddShelf.resources
