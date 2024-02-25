@@ -24,6 +24,8 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnMaintenance = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Panel7 = New System.Windows.Forms.Panel()
@@ -32,8 +34,7 @@ Partial Class frmMain
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.panelDisplay = New System.Windows.Forms.Panel()
-        Me.btnDashboard = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnMaintenance = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnBookInventory = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -42,6 +43,7 @@ Partial Class frmMain
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btnBookInventory)
         Me.Panel1.Controls.Add(Me.btnMaintenance)
         Me.Panel1.Controls.Add(Me.btnDashboard)
         Me.Panel1.Controls.Add(Me.Panel3)
@@ -50,6 +52,38 @@ Partial Class frmMain
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(300, 898)
         Me.Panel1.TabIndex = 0
+        '
+        'btnMaintenance
+        '
+        Me.btnMaintenance.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnMaintenance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnMaintenance.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnMaintenance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnMaintenance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnMaintenance.FillColor = System.Drawing.Color.Transparent
+        Me.btnMaintenance.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnMaintenance.ForeColor = System.Drawing.Color.White
+        Me.btnMaintenance.Location = New System.Drawing.Point(0, 320)
+        Me.btnMaintenance.Name = "btnMaintenance"
+        Me.btnMaintenance.Size = New System.Drawing.Size(300, 70)
+        Me.btnMaintenance.TabIndex = 1
+        Me.btnMaintenance.Text = "Maintenance"
+        '
+        'btnDashboard
+        '
+        Me.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
+        Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnDashboard.ForeColor = System.Drawing.Color.White
+        Me.btnDashboard.Location = New System.Drawing.Point(0, 250)
+        Me.btnDashboard.Name = "btnDashboard"
+        Me.btnDashboard.Size = New System.Drawing.Size(300, 70)
+        Me.btnDashboard.TabIndex = 0
+        Me.btnDashboard.Text = "Dashboard"
         '
         'Panel3
         '
@@ -126,37 +160,21 @@ Partial Class frmMain
         Me.panelDisplay.Size = New System.Drawing.Size(1298, 893)
         Me.panelDisplay.TabIndex = 2
         '
-        'btnDashboard
+        'btnBookInventory
         '
-        Me.btnDashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnDashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnDashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnDashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnDashboard.FillColor = System.Drawing.Color.Transparent
-        Me.btnDashboard.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnDashboard.ForeColor = System.Drawing.Color.White
-        Me.btnDashboard.Location = New System.Drawing.Point(0, 250)
-        Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Size = New System.Drawing.Size(300, 70)
-        Me.btnDashboard.TabIndex = 0
-        Me.btnDashboard.Text = "Dashboard"
-        '
-        'btnMaintenance
-        '
-        Me.btnMaintenance.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnMaintenance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnMaintenance.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnMaintenance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnMaintenance.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnMaintenance.FillColor = System.Drawing.Color.Transparent
-        Me.btnMaintenance.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnMaintenance.ForeColor = System.Drawing.Color.White
-        Me.btnMaintenance.Location = New System.Drawing.Point(0, 320)
-        Me.btnMaintenance.Name = "btnMaintenance"
-        Me.btnMaintenance.Size = New System.Drawing.Size(300, 70)
-        Me.btnMaintenance.TabIndex = 1
-        Me.btnMaintenance.Text = "Maintenance"
+        Me.btnBookInventory.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnBookInventory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnBookInventory.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnBookInventory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnBookInventory.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnBookInventory.FillColor = System.Drawing.Color.Transparent
+        Me.btnBookInventory.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnBookInventory.ForeColor = System.Drawing.Color.White
+        Me.btnBookInventory.Location = New System.Drawing.Point(0, 390)
+        Me.btnBookInventory.Name = "btnBookInventory"
+        Me.btnBookInventory.Size = New System.Drawing.Size(300, 70)
+        Me.btnBookInventory.TabIndex = 2
+        Me.btnBookInventory.Text = "Book Entry"
         '
         'frmMain
         '
@@ -188,4 +206,5 @@ Partial Class frmMain
     Friend WithEvents panelDisplay As Panel
     Friend WithEvents btnDashboard As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnMaintenance As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnBookInventory As Guna.UI2.WinForms.Guna2Button
 End Class

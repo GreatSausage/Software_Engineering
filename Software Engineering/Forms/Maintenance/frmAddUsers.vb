@@ -50,7 +50,7 @@ Public Class frmAddUsers
     End Sub
 
     Private Sub LetterOnly(sender As Object, e As KeyPressEventArgs) Handles txtFirstname.KeyPress, txtLastname.KeyPress
-        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar = " " Then
+        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso Not e.KeyChar = " " Then
             e.Handled = True
         End If
     End Sub
@@ -60,5 +60,6 @@ Public Class frmAddUsers
             e.Handled = True
         End If
     End Sub
+
 
 End Class

@@ -11,4 +11,8 @@
     Private Sub btnMaintenance_Click(sender As Object, e As EventArgs) Handles btnMaintenance.Click
         DisplayFormPanel(frmMaintenance, panelDisplay)
     End Sub
+
+    Private Sub btnBookInventory_Click(sender As Object, e As EventArgs) Handles btnBookInventory.Click
+        DisplayFormPanel(frmBookInventory, panelDisplay)
+    End Sub
 End Class

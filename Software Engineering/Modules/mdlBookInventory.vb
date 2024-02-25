@@ -1,3 +1,191 @@
-﻿Module mdlBookInventory
+﻿Imports System.Data.SqlClient
+Imports Guna.UI2.WinForms.Suite
+Imports System.Globalization
+Imports System.Collections.ObjectModel
+Imports System.Web.WebSockets
 
+Module mdlBookInventory
+
+    Dim connString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\Databases\dbLMS.mdf;Integrated Security=True"
+
+#Region "Book Inventory"
+    Public Function DisplayAlphabeticalData(tblName As String, columnName As String) As DataTable
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand($"SELECT * FROM {tblName} ORDER BY {columnName}", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Function DisplayBooks() As DataTable
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+                                                a.authorName,
+                                                p.publisherName,
+                                                (SELECT COUNT(c.copyID) FROM tblCopies c WHERE c.bookID = b.bookID) AS totalCopies,
+                                                SUM(CASE WHEN c.status = 'Available' THEN 1 ELSE 0 END) AS availableCopies,
+                                                SUM(CASE WHEN c.status = 'Borrowed' THEN 1 ELSE 0 END) AS borrowedCopies
+                                         FROM tblBooks b 
+                                         INNER JOIN tblAuthors a ON b.authorID = a.authorID
+                                         INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
+                                         LEFT JOIN tblCopies c ON b.bookID = c.bookID
+                                         GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+                                                  a.authorName,
+                                                  p.publisherName", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
+
+
+    Public Sub AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedTitle As String = textInfo.ToTitleCase(title.ToLower())
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Dim titleExists As Boolean = False
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE bookTitle = @title", connection)
+                checkCommand.Parameters.AddWithValue("@title", capitalizedTitle)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                titleExists = count > 0
+            End Using
+
+            If titleExists Then
+                MessageBox.Show("Book title already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            Dim isbnExists As Boolean = False
+            Using checkCommandTwo As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE isbn = @isbn", connection)
+                checkCommandTwo.Parameters.AddWithValue("@isbn", isbn)
+                Dim count As Integer = Convert.ToInt32(checkCommandTwo.ExecuteScalar())
+                isbnExists = count > 0
+            End Using
+
+            If isbnExists Then
+                MessageBox.Show("Book ISBN already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+
+            Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, yearPublished) 
+                                             VALUES (@title, @isbn, @authorID, @publisherID, @yearPublished)", connection)
+                With command.Parameters
+                    .AddWithValue("@title", capitalizedTitle)
+                    .AddWithValue("@isbn", isbn)
+                    .AddWithValue("@authorID", authorID)
+                    .AddWithValue("@publisherID", publisherID)
+                    .AddWithValue("@yearPublished", yearPublished)
+                End With
+                command.ExecuteNonQuery()
+                MessageBox.Show("Book has added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                Dim dtBooks As DataTable = DisplayBooks()
+                frmBookInventory.dgBooks.DataSource = dtBooks
+            End Using
+        End Using
+    End Sub
+#End Region
+
+#Region "Copies Inventory"
+    Public Function GetBookTitle(isbn As String) As String
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT bookTitle FROM tblBooks WHERE isbn = @isbn", connection)
+                command.Parameters.AddWithValue("@isbn", isbn)
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        Return reader.GetString(0)
+                    End If
+                End Using
+            End Using
+        End Using
+        Return Nothing
+    End Function
+
+    Public Function GetBookID(isbn As String) As Integer
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT bookID FROM tblBooks WHERE isbn = @isbn", connection)
+                command.Parameters.AddWithValue("@isbn", isbn)
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        Return reader.GetInt32(0)
+                    End If
+                End Using
+            End Using
+        End Using
+        Return Nothing
+    End Function
+    Public Function DisplaySuppliers()
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT supplierName, supplierID FROM tblSuppliers", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Function DisplayCopies() As DataTable
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT c.copyID, c.accessionNo,
+                                                    b.bookTitle, s.supplierName,
+                                                    c.price, c.acquisitionType, c.acquisitionDate, c.status
+                                             FROM tblCopies c
+                                             INNER JOIN tblBooks b ON c.bookID = b.bookID
+                                             INNER JOIN tblSuppliers s ON c.supplierID = s.supplierID", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Function AccessionGenerator() As String
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("UPDATE tblAccessionGenerator SET AccessionSequence = AccessionSequence + 1; 
+                                             SELECT AccessionSequence FROM tblAccessionGenerator", connection)
+                Dim acs As Integer = CInt(command.ExecuteScalar())
+                Dim formatted As String = String.Format("ACN-{0:D5}", acs)
+                Return formatted
+            End Using
+        End Using
+    End Function
+
+    Public Sub AddCopies(accessionNo As String, bookID As Integer, supplierID As Integer, price As Decimal, acquisitionType As String)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("INSERT INTO tblCopies (accessionNo, bookID, supplierID, price, acquisitionType) 
+                                             VALUES (@accessionNo, @bookID, @supplierID, @price, @acquisitionType)", connection)
+                With command.Parameters
+                    .AddWithValue("@accessionNo", accessionNo)
+                    .AddWithValue("@bookID", bookID)
+                    .AddWithValue("@supplierID", supplierID)
+                    .AddWithValue("@price", price)
+                    .AddWithValue("@acquisitionType", acquisitionType)
+                End With
+                command.ExecuteNonQuery()
+
+                Dim dtCopies As DataTable = DisplayCopies()
+                frmBookInventory.dgCopies.DataSource = dtCopies
+
+                Dim dtBooks As DataTable = DisplayBooks()
+                frmBookInventory.dgBooks.DataSource = dtBooks
+            End Using
+        End Using
+    End Sub
+#End Region
 End Module
+
