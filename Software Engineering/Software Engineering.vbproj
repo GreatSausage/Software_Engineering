@@ -124,6 +124,18 @@
     <Compile Include="Forms\Book Inventory\frmDistinctInfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Book Inventory\frmFindAuthor.Designer.vb">
+      <DependentUpon>frmFindAuthor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmFindAuthor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmFindPublisher.Designer.vb">
+      <DependentUpon>frmFindPublisher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmFindPublisher.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Borrow Setup\frmBorrowBooks.Designer.vb">
       <DependentUpon>frmBorrowBooks.vb</DependentUpon>
     </Compile>
@@ -269,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Book Inventory\frmBookInventory.resx">
       <DependentUpon>frmBookInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Book Inventory\frmFindAuthor.resx">
+      <DependentUpon>frmFindAuthor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Book Inventory\frmFindPublisher.resx">
+      <DependentUpon>frmFindPublisher.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Maintenance\frmAddAuthors.resx">
       <DependentUpon>frmAddAuthors.vb</DependentUpon>

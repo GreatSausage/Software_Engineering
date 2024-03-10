@@ -31,22 +31,6 @@ Partial Class frmBookInventory
         Me.Guna2TabControl1 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.tabBookInventory = New System.Windows.Forms.TabPage()
         Me.dgBooks = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnAddBook = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.tabCopies = New System.Windows.Forms.TabPage()
-        Me.dgCopies = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.copyID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.accessionNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.bookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.supplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.acquisitionType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.acquisitionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.distinctBookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.distinctISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.distinctTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,6 +40,22 @@ Partial Class frmBookInventory
         Me.totalCopies = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.availableCopies = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.borrowedCopies = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnAddBook = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tabCopies = New System.Windows.Forms.TabPage()
+        Me.dgCopies = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.copyID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.accessionNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.bookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.supplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.acquisitionType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.acquisitionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Guna2TabControl1.SuspendLayout()
         Me.tabBookInventory.SuspendLayout()
         CType(Me.dgBooks, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,6 +165,77 @@ Partial Class frmBookInventory
         Me.dgBooks.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgBooks.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'distinctBookID
+        '
+        Me.distinctBookID.DataPropertyName = "bookID"
+        Me.distinctBookID.HeaderText = "Book ID"
+        Me.distinctBookID.MinimumWidth = 6
+        Me.distinctBookID.Name = "distinctBookID"
+        Me.distinctBookID.ReadOnly = True
+        '
+        'distinctISBN
+        '
+        Me.distinctISBN.DataPropertyName = "isbn"
+        Me.distinctISBN.HeaderText = "ISBN"
+        Me.distinctISBN.MinimumWidth = 6
+        Me.distinctISBN.Name = "distinctISBN"
+        Me.distinctISBN.ReadOnly = True
+        '
+        'distinctTitle
+        '
+        Me.distinctTitle.DataPropertyName = "bookTitle"
+        Me.distinctTitle.HeaderText = "Title"
+        Me.distinctTitle.MinimumWidth = 6
+        Me.distinctTitle.Name = "distinctTitle"
+        Me.distinctTitle.ReadOnly = True
+        '
+        'distinctAuthor
+        '
+        Me.distinctAuthor.DataPropertyName = "authorName"
+        Me.distinctAuthor.HeaderText = "Author"
+        Me.distinctAuthor.MinimumWidth = 6
+        Me.distinctAuthor.Name = "distinctAuthor"
+        '
+        'distinctPublisher
+        '
+        Me.distinctPublisher.DataPropertyName = "publisherName"
+        Me.distinctPublisher.HeaderText = "Publisher"
+        Me.distinctPublisher.MinimumWidth = 6
+        Me.distinctPublisher.Name = "distinctPublisher"
+        Me.distinctPublisher.Visible = False
+        '
+        'yearPublished
+        '
+        Me.yearPublished.DataPropertyName = "yearPublished"
+        Me.yearPublished.HeaderText = "Year Published"
+        Me.yearPublished.MinimumWidth = 6
+        Me.yearPublished.Name = "yearPublished"
+        Me.yearPublished.Visible = False
+        '
+        'totalCopies
+        '
+        Me.totalCopies.DataPropertyName = "totalCopies"
+        Me.totalCopies.HeaderText = "Total Copies"
+        Me.totalCopies.MinimumWidth = 6
+        Me.totalCopies.Name = "totalCopies"
+        Me.totalCopies.ReadOnly = True
+        '
+        'availableCopies
+        '
+        Me.availableCopies.DataPropertyName = "availableCopies"
+        Me.availableCopies.HeaderText = "Available Copies"
+        Me.availableCopies.MinimumWidth = 6
+        Me.availableCopies.Name = "availableCopies"
+        Me.availableCopies.ReadOnly = True
+        '
+        'borrowedCopies
+        '
+        Me.borrowedCopies.DataPropertyName = "borrowedCopies"
+        Me.borrowedCopies.HeaderText = "Borrowed"
+        Me.borrowedCopies.MinimumWidth = 6
+        Me.borrowedCopies.Name = "borrowedCopies"
+        Me.borrowedCopies.ReadOnly = True
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.btnAddBook)
@@ -269,40 +340,6 @@ Partial Class frmBookInventory
         Me.dgCopies.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgCopies.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Guna2Button1)
-        Me.Panel3.Controls.Add(Me.Panel4)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1590, 50)
-        Me.Panel3.TabIndex = 3
-        '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(1355, 0)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(235, 45)
-        Me.Guna2Button1.TabIndex = 1
-        Me.Guna2Button1.Text = "ADD COPIES"
-        '
-        'Panel4
-        '
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(0, 45)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1590, 5)
-        Me.Panel4.TabIndex = 0
-        '
         'copyID
         '
         Me.copyID.DataPropertyName = "copyID"
@@ -362,76 +399,39 @@ Partial Class frmBookInventory
         Me.status.MinimumWidth = 6
         Me.status.Name = "status"
         '
-        'distinctBookID
+        'Panel3
         '
-        Me.distinctBookID.DataPropertyName = "bookID"
-        Me.distinctBookID.HeaderText = "Book ID"
-        Me.distinctBookID.MinimumWidth = 6
-        Me.distinctBookID.Name = "distinctBookID"
-        Me.distinctBookID.ReadOnly = True
+        Me.Panel3.Controls.Add(Me.Guna2Button1)
+        Me.Panel3.Controls.Add(Me.Panel4)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1590, 50)
+        Me.Panel3.TabIndex = 3
         '
-        'distinctISBN
+        'Guna2Button1
         '
-        Me.distinctISBN.DataPropertyName = "isbn"
-        Me.distinctISBN.HeaderText = "ISBN"
-        Me.distinctISBN.MinimumWidth = 6
-        Me.distinctISBN.Name = "distinctISBN"
-        Me.distinctISBN.ReadOnly = True
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Location = New System.Drawing.Point(1355, 0)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(235, 45)
+        Me.Guna2Button1.TabIndex = 1
+        Me.Guna2Button1.Text = "ADD COPIES"
         '
-        'distinctTitle
+        'Panel4
         '
-        Me.distinctTitle.DataPropertyName = "bookTitle"
-        Me.distinctTitle.HeaderText = "Title"
-        Me.distinctTitle.MinimumWidth = 6
-        Me.distinctTitle.Name = "distinctTitle"
-        Me.distinctTitle.ReadOnly = True
-        '
-        'distinctAuthor
-        '
-        Me.distinctAuthor.DataPropertyName = "authorName"
-        Me.distinctAuthor.HeaderText = "Author"
-        Me.distinctAuthor.MinimumWidth = 6
-        Me.distinctAuthor.Name = "distinctAuthor"
-        '
-        'distinctPublisher
-        '
-        Me.distinctPublisher.DataPropertyName = "publisherName"
-        Me.distinctPublisher.HeaderText = "Publisher"
-        Me.distinctPublisher.MinimumWidth = 6
-        Me.distinctPublisher.Name = "distinctPublisher"
-        Me.distinctPublisher.Visible = False
-        '
-        'yearPublished
-        '
-        Me.yearPublished.DataPropertyName = "yearPublished"
-        Me.yearPublished.HeaderText = "Year Published"
-        Me.yearPublished.MinimumWidth = 6
-        Me.yearPublished.Name = "yearPublished"
-        Me.yearPublished.Visible = False
-        '
-        'totalCopies
-        '
-        Me.totalCopies.DataPropertyName = "totalCopies"
-        Me.totalCopies.HeaderText = "Total Copies"
-        Me.totalCopies.MinimumWidth = 6
-        Me.totalCopies.Name = "totalCopies"
-        Me.totalCopies.ReadOnly = True
-        '
-        'availableCopies
-        '
-        Me.availableCopies.DataPropertyName = "availableCopies"
-        Me.availableCopies.HeaderText = "Available Copies"
-        Me.availableCopies.MinimumWidth = 6
-        Me.availableCopies.Name = "availableCopies"
-        Me.availableCopies.ReadOnly = True
-        '
-        'borrowedCopies
-        '
-        Me.borrowedCopies.DataPropertyName = "borrowedCopies"
-        Me.borrowedCopies.HeaderText = "Borrowed"
-        Me.borrowedCopies.MinimumWidth = 6
-        Me.borrowedCopies.Name = "borrowedCopies"
-        Me.borrowedCopies.ReadOnly = True
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(0, 45)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(1590, 5)
+        Me.Panel4.TabIndex = 0
         '
         'frmBookInventory
         '

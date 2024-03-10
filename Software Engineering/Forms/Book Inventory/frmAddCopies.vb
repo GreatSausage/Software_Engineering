@@ -24,28 +24,32 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If String.IsNullOrEmpty(txtISBN.Text) OrElse
-           String.IsNullOrEmpty(txtPrice.Text) Then
-            MessageBox.Show("Please fill in the necessary fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        If rbPurchased.Checked AndAlso String.IsNullOrEmpty(txtPrice.Text) Then
+            MessageBox.Show("Please fill in the necessary fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            Dim copiesToAdd As Integer = Convert.ToInt32(txtCopiesToAdd.Value)
-            Dim bookID As Integer = Convert.ToInt32(GetBookID(txtISBN.Text))
-            Dim supplierID As Integer = Convert.ToInt32(txtSupplier.SelectedValue)
-            Dim price As Decimal = Convert.ToDecimal(txtPrice.Text)
-            Dim type As String = ""
-
-            If rbDonated.Checked Then
-                type = "Donated"
+            If String.IsNullOrEmpty(txtISBN.Text) OrElse
+                   String.IsNullOrEmpty(txtPrice.Text) Then
+                MessageBox.Show("Please fill in the necessary fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                type = "Purchased"
-            End If
-            For i As Integer = 1 To copiesToAdd
-                Dim acn As String = AccessionGenerator()
-                AddCopies(acn, bookID, supplierID, price, Type)
-            Next
-            MessageBox.Show("Copies added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Me.Close()
-        End If
+                Dim copiesToAdd As Integer = Convert.ToInt32(txtCopiesToAdd.Value)
+                Dim bookID As Integer = Convert.ToInt32(GetBookID(txtISBN.Text))
+                Dim supplierID As Integer = Convert.ToInt32(txtSupplier.SelectedValue)
+                Dim price As Decimal = Convert.ToDecimal(txtPrice.Text)
+                Dim type As String = ""
 
+                If rbDonated.Checked Then
+                    type = "Donated"
+                Else
+                    type = "Purchased"
+                End If
+                For i As Integer = 1 To copiesToAdd
+                    Dim acn As String = AccessionGenerator()
+                    AddCopies(acn, bookID, supplierID, price, type)
+                Next
+                MessageBox.Show("Copies added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            End If
+        End If
     End Sub
 End Class

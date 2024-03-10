@@ -46,7 +46,7 @@ Module mdlBookInventory
     End Function
 
 
-    Public Sub AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String)
+    Public Sub AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, genreID As Integer)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedTitle As String = textInfo.ToTitleCase(title.ToLower())
@@ -77,13 +77,14 @@ Module mdlBookInventory
                 Return
             End If
 
-            Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, yearPublished) 
-                                             VALUES (@title, @isbn, @authorID, @publisherID, @yearPublished)", connection)
+            Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, genreID, yearPublished) 
+                                             VALUES (@title, @isbn, @authorID, @publisherID, @genreID, @yearPublished)", connection)
                 With command.Parameters
                     .AddWithValue("@title", capitalizedTitle)
                     .AddWithValue("@isbn", isbn)
                     .AddWithValue("@authorID", authorID)
                     .AddWithValue("@publisherID", publisherID)
+                    .AddWithValue("@genreID", genreID)
                     .AddWithValue("@yearPublished", yearPublished)
                 End With
                 command.ExecuteNonQuery()
