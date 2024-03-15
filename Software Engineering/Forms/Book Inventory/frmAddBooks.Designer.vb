@@ -210,6 +210,7 @@ Partial Class frmAddBooks
         Me.txtYearPublished.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtYearPublished.Location = New System.Drawing.Point(5, 393)
         Me.txtYearPublished.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtYearPublished.MaxLength = 4
         Me.txtYearPublished.Name = "txtYearPublished"
         Me.txtYearPublished.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtYearPublished.PlaceholderText = ""
@@ -287,7 +288,6 @@ Partial Class frmAddBooks
         Me.txtAuthorID.Size = New System.Drawing.Size(67, 20)
         Me.txtAuthorID.TabIndex = 26
         Me.txtAuthorID.Text = "authorID"
-        Me.txtAuthorID.Visible = False
         '
         'txtPublisherID
         '
@@ -298,7 +298,6 @@ Partial Class frmAddBooks
         Me.txtPublisherID.Size = New System.Drawing.Size(85, 20)
         Me.txtPublisherID.TabIndex = 27
         Me.txtPublisherID.Text = "publisherID"
-        Me.txtPublisherID.Visible = False
         '
         'txtGenre
         '
@@ -336,7 +335,6 @@ Partial Class frmAddBooks
         Me.txtGenreID.Size = New System.Drawing.Size(62, 20)
         Me.txtGenreID.TabIndex = 31
         Me.txtGenreID.Text = "genreID"
-        Me.txtGenreID.Visible = False
         '
         'frmAddBooks
         '

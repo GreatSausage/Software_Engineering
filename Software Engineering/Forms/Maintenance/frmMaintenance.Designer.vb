@@ -85,13 +85,13 @@ Partial Class frmMaintenance
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.tabBookshelves = New System.Windows.Forms.TabPage()
         Me.dgBookshelves = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel12 = New System.Windows.Forms.Panel()
         Me.shelfID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.shelfNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.shelfDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.shelfLocation = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Guna2TabControl1.SuspendLayout()
         Me.tabUser.SuspendLayout()
         CType(Me.dgUser, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -872,6 +872,34 @@ Partial Class frmMaintenance
         Me.dgBookshelves.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgBookshelves.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'shelfID
+        '
+        Me.shelfID.DataPropertyName = "shelfID"
+        Me.shelfID.HeaderText = "Shelf ID"
+        Me.shelfID.MinimumWidth = 6
+        Me.shelfID.Name = "shelfID"
+        '
+        'shelfNo
+        '
+        Me.shelfNo.DataPropertyName = "shelfNo"
+        Me.shelfNo.HeaderText = "Shelf No."
+        Me.shelfNo.MinimumWidth = 6
+        Me.shelfNo.Name = "shelfNo"
+        '
+        'shelfDescription
+        '
+        Me.shelfDescription.DataPropertyName = "description"
+        Me.shelfDescription.HeaderText = "Description"
+        Me.shelfDescription.MinimumWidth = 6
+        Me.shelfDescription.Name = "shelfDescription"
+        '
+        'shelfLocation
+        '
+        Me.shelfLocation.DataPropertyName = "location"
+        Me.shelfLocation.HeaderText = "Location"
+        Me.shelfLocation.MinimumWidth = 6
+        Me.shelfLocation.Name = "shelfLocation"
+        '
         'Panel11
         '
         Me.Panel11.Controls.Add(Me.Guna2Button4)
@@ -905,34 +933,6 @@ Partial Class frmMaintenance
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(1590, 5)
         Me.Panel12.TabIndex = 0
-        '
-        'shelfID
-        '
-        Me.shelfID.DataPropertyName = "shelfID"
-        Me.shelfID.HeaderText = "Shelf ID"
-        Me.shelfID.MinimumWidth = 6
-        Me.shelfID.Name = "shelfID"
-        '
-        'shelfNo
-        '
-        Me.shelfNo.DataPropertyName = "shelfNo"
-        Me.shelfNo.HeaderText = "Shelf No."
-        Me.shelfNo.MinimumWidth = 6
-        Me.shelfNo.Name = "shelfNo"
-        '
-        'shelfDescription
-        '
-        Me.shelfDescription.DataPropertyName = "description"
-        Me.shelfDescription.HeaderText = "Description"
-        Me.shelfDescription.MinimumWidth = 6
-        Me.shelfDescription.Name = "shelfDescription"
-        '
-        'shelfLocation
-        '
-        Me.shelfLocation.DataPropertyName = "location"
-        Me.shelfLocation.HeaderText = "Location"
-        Me.shelfLocation.MinimumWidth = 6
-        Me.shelfLocation.Name = "shelfLocation"
         '
         'frmMaintenance
         '

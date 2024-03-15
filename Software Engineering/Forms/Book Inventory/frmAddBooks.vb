@@ -10,9 +10,7 @@
         If Integer.TryParse(txtYearPublished.Text, yearPublished) Then
             If yearPublished > DateTime.Now.Year Then
                 MessageBox.Show("Invalid Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Else
-            If String.IsNullOrEmpty(txtISBN.Text) OrElse
+            ElseIf String.IsNullOrEmpty(txtISBN.Text) OrElse
                 String.IsNullOrEmpty(txtTitle.Text) OrElse
                 String.IsNullOrEmpty(txtYearPublished.Text) Then
                 MessageBox.Show("Please fill in the necessary details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -21,7 +19,6 @@
                 Me.Close()
             End If
         End If
-
     End Sub
 
     Private Sub frmAddBooks_Load(sender As Object, e As EventArgs) Handles Me.Load

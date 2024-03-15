@@ -232,7 +232,7 @@ Partial Class frmAddCopies
         Me.txtSupplier.ItemHeight = 30
         Me.txtSupplier.Location = New System.Drawing.Point(5, 248)
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(350, 36)
+        Me.txtSupplier.Size = New System.Drawing.Size(348, 36)
         Me.txtSupplier.TabIndex = 25
         '
         'Label6

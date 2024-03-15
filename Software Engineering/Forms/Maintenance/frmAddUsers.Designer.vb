@@ -22,7 +22,7 @@ Partial Class frmAddUsers
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblUsers = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtFirstname = New Guna.UI2.WinForms.Guna2TextBox()
@@ -45,18 +45,18 @@ Partial Class frmAddUsers
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblUsers
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(750, 50)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "ADD NEW USER"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.lblUsers.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblUsers.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsers.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblUsers.Location = New System.Drawing.Point(0, 0)
+        Me.lblUsers.Name = "lblUsers"
+        Me.lblUsers.Size = New System.Drawing.Size(750, 50)
+        Me.lblUsers.TabIndex = 0
+        Me.lblUsers.Text = "ADD NEW USER"
+        Me.lblUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnClose
         '
@@ -403,7 +403,7 @@ Partial Class frmAddUsers
         Me.Controls.Add(Me.txtFirstname)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblUsers)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAddUsers"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -412,7 +412,7 @@ Partial Class frmAddUsers
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblUsers As Label
     Friend WithEvents btnClose As LinkLabel
     Friend WithEvents Label2 As Label
     Friend WithEvents txtFirstname As Guna.UI2.WinForms.Guna2TextBox

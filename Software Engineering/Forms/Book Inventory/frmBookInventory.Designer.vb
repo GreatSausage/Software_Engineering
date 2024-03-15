@@ -45,6 +45,9 @@ Partial Class frmBookInventory
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tabCopies = New System.Windows.Forms.TabPage()
         Me.dgCopies = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.copyID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.accessionNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,9 +56,6 @@ Partial Class frmBookInventory
         Me.acquisitionType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.acquisitionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Guna2TabControl1.SuspendLayout()
         Me.tabBookInventory.SuspendLayout()
         CType(Me.dgBooks, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -340,65 +340,6 @@ Partial Class frmBookInventory
         Me.dgCopies.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgCopies.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'copyID
-        '
-        Me.copyID.DataPropertyName = "copyID"
-        Me.copyID.HeaderText = "Copy ID"
-        Me.copyID.MinimumWidth = 6
-        Me.copyID.Name = "copyID"
-        Me.copyID.Visible = False
-        '
-        'accessionNo
-        '
-        Me.accessionNo.DataPropertyName = "accessionNo"
-        Me.accessionNo.HeaderText = "Accession No."
-        Me.accessionNo.MinimumWidth = 6
-        Me.accessionNo.Name = "accessionNo"
-        '
-        'bookTitle
-        '
-        Me.bookTitle.DataPropertyName = "bookTitle"
-        Me.bookTitle.HeaderText = "Title"
-        Me.bookTitle.MinimumWidth = 6
-        Me.bookTitle.Name = "bookTitle"
-        '
-        'supplierName
-        '
-        Me.supplierName.DataPropertyName = "supplierName"
-        Me.supplierName.HeaderText = "Supplier"
-        Me.supplierName.MinimumWidth = 6
-        Me.supplierName.Name = "supplierName"
-        Me.supplierName.Visible = False
-        '
-        'price
-        '
-        Me.price.DataPropertyName = "price"
-        Me.price.HeaderText = "Price"
-        Me.price.MinimumWidth = 6
-        Me.price.Name = "price"
-        Me.price.Visible = False
-        '
-        'acquisitionType
-        '
-        Me.acquisitionType.DataPropertyName = "acquisitionType"
-        Me.acquisitionType.HeaderText = "Acquisition Type"
-        Me.acquisitionType.MinimumWidth = 6
-        Me.acquisitionType.Name = "acquisitionType"
-        '
-        'acquisitionDate
-        '
-        Me.acquisitionDate.DataPropertyName = "acquisitionDate"
-        Me.acquisitionDate.HeaderText = "Acquisition Date"
-        Me.acquisitionDate.MinimumWidth = 6
-        Me.acquisitionDate.Name = "acquisitionDate"
-        '
-        'status
-        '
-        Me.status.DataPropertyName = "status"
-        Me.status.HeaderText = "Status"
-        Me.status.MinimumWidth = 6
-        Me.status.Name = "status"
-        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.Guna2Button1)
@@ -432,6 +373,73 @@ Partial Class frmBookInventory
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1590, 5)
         Me.Panel4.TabIndex = 0
+        '
+        'copyID
+        '
+        Me.copyID.DataPropertyName = "copyID"
+        Me.copyID.HeaderText = "Copy ID"
+        Me.copyID.MinimumWidth = 6
+        Me.copyID.Name = "copyID"
+        Me.copyID.ReadOnly = True
+        Me.copyID.Visible = False
+        '
+        'accessionNo
+        '
+        Me.accessionNo.DataPropertyName = "accessionNo"
+        Me.accessionNo.HeaderText = "Accession No."
+        Me.accessionNo.MinimumWidth = 6
+        Me.accessionNo.Name = "accessionNo"
+        Me.accessionNo.ReadOnly = True
+        '
+        'bookTitle
+        '
+        Me.bookTitle.DataPropertyName = "bookTitle"
+        Me.bookTitle.HeaderText = "Title"
+        Me.bookTitle.MinimumWidth = 6
+        Me.bookTitle.Name = "bookTitle"
+        Me.bookTitle.ReadOnly = True
+        '
+        'supplierName
+        '
+        Me.supplierName.DataPropertyName = "supplierName"
+        Me.supplierName.HeaderText = "Supplier"
+        Me.supplierName.MinimumWidth = 6
+        Me.supplierName.Name = "supplierName"
+        Me.supplierName.ReadOnly = True
+        Me.supplierName.Visible = False
+        '
+        'price
+        '
+        Me.price.DataPropertyName = "price"
+        Me.price.HeaderText = "Price"
+        Me.price.MinimumWidth = 6
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        Me.price.Visible = False
+        '
+        'acquisitionType
+        '
+        Me.acquisitionType.DataPropertyName = "acquisitionType"
+        Me.acquisitionType.HeaderText = "Acquisition Type"
+        Me.acquisitionType.MinimumWidth = 6
+        Me.acquisitionType.Name = "acquisitionType"
+        Me.acquisitionType.ReadOnly = True
+        '
+        'acquisitionDate
+        '
+        Me.acquisitionDate.DataPropertyName = "acquisitionDate"
+        Me.acquisitionDate.HeaderText = "Acquisition Date"
+        Me.acquisitionDate.MinimumWidth = 6
+        Me.acquisitionDate.Name = "acquisitionDate"
+        Me.acquisitionDate.ReadOnly = True
+        '
+        'status
+        '
+        Me.status.DataPropertyName = "status"
+        Me.status.HeaderText = "Status"
+        Me.status.MinimumWidth = 6
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
         '
         'frmBookInventory
         '
