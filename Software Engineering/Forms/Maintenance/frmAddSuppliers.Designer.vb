@@ -22,7 +22,7 @@ Partial Class frmAddSuppliers
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblSupplier = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.txtSupplierName = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -31,20 +31,23 @@ Partial Class frmAddSuppliers
         Me.txtAddress = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
+        Me.txtSupplierID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblSupplier
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(749, 50)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "ADD SUPPLIER"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblSupplier.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.lblSupplier.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblSupplier.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSupplier.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblSupplier.Location = New System.Drawing.Point(0, 0)
+        Me.lblSupplier.Name = "lblSupplier"
+        Me.lblSupplier.Size = New System.Drawing.Size(749, 50)
+        Me.lblSupplier.TabIndex = 1
+        Me.lblSupplier.Text = "ADD SUPPLIER"
+        Me.lblSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnClose
         '
@@ -176,12 +179,56 @@ Partial Class frmAddSuppliers
         Me.btnSave.TabIndex = 21
         Me.btnSave.Text = "SAVE"
         '
+        'btnUpdate
+        '
+        Me.btnUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnUpdate.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.White
+        Me.btnUpdate.Location = New System.Drawing.Point(576, 177)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(167, 44)
+        Me.btnUpdate.TabIndex = 26
+        Me.btnUpdate.Text = "SAVE"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDelete.FillColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.White
+        Me.btnDelete.Location = New System.Drawing.Point(393, 177)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(167, 44)
+        Me.btnDelete.TabIndex = 25
+        Me.btnDelete.Text = "DELETE"
+        '
+        'txtSupplierID
+        '
+        Me.txtSupplierID.AutoSize = True
+        Me.txtSupplierID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSupplierID.Location = New System.Drawing.Point(1, 56)
+        Me.txtSupplierID.Name = "txtSupplierID"
+        Me.txtSupplierID.Size = New System.Drawing.Size(77, 20)
+        Me.txtSupplierID.TabIndex = 27
+        Me.txtSupplierID.Text = "supplierID"
+        Me.txtSupplierID.Visible = False
+        '
         'frmAddSuppliers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(749, 227)
+        Me.ClientSize = New System.Drawing.Size(749, 228)
         Me.ControlBox = False
+        Me.Controls.Add(Me.txtSupplierID)
+        Me.Controls.Add(Me.btnUpdate)
+        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtAddress)
         Me.Controls.Add(Me.Label5)
@@ -190,7 +237,7 @@ Partial Class frmAddSuppliers
         Me.Controls.Add(Me.txtSupplierName)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblSupplier)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAddSuppliers"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -199,7 +246,7 @@ Partial Class frmAddSuppliers
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblSupplier As Label
     Friend WithEvents btnClose As LinkLabel
     Friend WithEvents txtSupplierName As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label
@@ -208,4 +255,7 @@ Partial Class frmAddSuppliers
     Friend WithEvents txtAddress As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents txtSupplierID As Label
 End Class

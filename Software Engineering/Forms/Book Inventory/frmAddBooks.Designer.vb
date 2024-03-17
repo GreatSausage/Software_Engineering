@@ -43,6 +43,9 @@ Partial Class frmAddBooks
         Me.txtGenre = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtGenreID = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtShelfNo = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.txtShelfID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -237,7 +240,7 @@ Partial Class frmAddBooks
         Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(5, 517)
+        Me.btnSave.Location = New System.Drawing.Point(5, 584)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(350, 44)
         Me.btnSave.TabIndex = 23
@@ -288,6 +291,7 @@ Partial Class frmAddBooks
         Me.txtAuthorID.Size = New System.Drawing.Size(67, 20)
         Me.txtAuthorID.TabIndex = 26
         Me.txtAuthorID.Text = "authorID"
+        Me.txtAuthorID.Visible = False
         '
         'txtPublisherID
         '
@@ -298,6 +302,7 @@ Partial Class frmAddBooks
         Me.txtPublisherID.Size = New System.Drawing.Size(85, 20)
         Me.txtPublisherID.TabIndex = 27
         Me.txtPublisherID.Text = "publisherID"
+        Me.txtPublisherID.Visible = False
         '
         'txtGenre
         '
@@ -335,13 +340,55 @@ Partial Class frmAddBooks
         Me.txtGenreID.Size = New System.Drawing.Size(62, 20)
         Me.txtGenreID.TabIndex = 31
         Me.txtGenreID.Text = "genreID"
+        Me.txtGenreID.Visible = False
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(1, 512)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(69, 20)
+        Me.Label8.TabIndex = 32
+        Me.Label8.Text = "Shelf No:"
+        '
+        'txtShelfNo
+        '
+        Me.txtShelfNo.BackColor = System.Drawing.Color.Transparent
+        Me.txtShelfNo.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtShelfNo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.txtShelfNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.txtShelfNo.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtShelfNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtShelfNo.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtShelfNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.txtShelfNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtShelfNo.ItemHeight = 30
+        Me.txtShelfNo.Location = New System.Drawing.Point(5, 535)
+        Me.txtShelfNo.Name = "txtShelfNo"
+        Me.txtShelfNo.Size = New System.Drawing.Size(348, 36)
+        Me.txtShelfNo.TabIndex = 33
+        '
+        'txtShelfID
+        '
+        Me.txtShelfID.AutoSize = True
+        Me.txtShelfID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtShelfID.Location = New System.Drawing.Point(233, 61)
+        Me.txtShelfID.Name = "txtShelfID"
+        Me.txtShelfID.Size = New System.Drawing.Size(62, 20)
+        Me.txtShelfID.TabIndex = 34
+        Me.txtShelfID.Text = "genreID"
+        Me.txtShelfID.Visible = False
         '
         'frmAddBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(360, 567)
+        Me.ClientSize = New System.Drawing.Size(360, 634)
         Me.ControlBox = False
+        Me.Controls.Add(Me.txtShelfID)
+        Me.Controls.Add(Me.txtShelfNo)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtGenreID)
         Me.Controls.Add(Me.txtGenre)
         Me.Controls.Add(Me.Label7)
@@ -390,4 +437,7 @@ Partial Class frmAddBooks
     Friend WithEvents txtGenre As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtGenreID As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtShelfNo As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents txtShelfID As Label
 End Class

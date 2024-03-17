@@ -22,7 +22,7 @@ Partial Class frmAddAuthors
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblAuthors = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.txtAuthors = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -32,18 +32,18 @@ Partial Class frmAddAuthors
         Me.txtAuthorID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblAuthors
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(359, 50)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "ADD AUTHORS"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblAuthors.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.lblAuthors.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblAuthors.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAuthors.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblAuthors.Location = New System.Drawing.Point(0, 0)
+        Me.lblAuthors.Name = "lblAuthors"
+        Me.lblAuthors.Size = New System.Drawing.Size(359, 50)
+        Me.lblAuthors.TabIndex = 2
+        Me.lblAuthors.Text = "ADD AUTHORS"
+        Me.lblAuthors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnClose
         '
@@ -146,6 +146,7 @@ Partial Class frmAddAuthors
         Me.txtAuthorID.Size = New System.Drawing.Size(57, 16)
         Me.txtAuthorID.TabIndex = 25
         Me.txtAuthorID.Text = "authorID"
+        Me.txtAuthorID.Visible = False
         '
         'frmAddAuthors
         '
@@ -153,14 +154,14 @@ Partial Class frmAddAuthors
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(359, 205)
         Me.ControlBox = False
-        Me.Controls.Add(Me.txtAuthorID)
         Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.txtAuthorID)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtAuthors)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnClose)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblAuthors)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAddAuthors"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -169,7 +170,7 @@ Partial Class frmAddAuthors
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblAuthors As Label
     Friend WithEvents btnClose As LinkLabel
     Friend WithEvents txtAuthors As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label

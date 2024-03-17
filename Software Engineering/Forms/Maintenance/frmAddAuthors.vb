@@ -18,4 +18,22 @@
         End If
     End Sub
 
+    Public Sub SetSelectedAuthorMaintenance(authorID As Integer, authorName As String)
+        txtAuthors.Text = authorName
+        txtAuthorID.Text = authorID
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If String.IsNullOrEmpty(txtAuthors.Text) Then
+            MessageBox.Show("Please fill in the necessary field.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            UpdateAuthors(txtAuthorID.Text, txtAuthors.Text)
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        DeleteAuthors(txtAuthorID.Text)
+        Me.Close()
+    End Sub
 End Class

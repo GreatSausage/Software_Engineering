@@ -17,6 +17,7 @@ Module mdlMaintenance
         End Using
     End Function
 
+
 #Region "User Maintenance"
     Public Function DisplayUsers() As DataTable
         Using connection As SqlConnection = ConnectionOpen(connString)
@@ -102,6 +103,13 @@ Module mdlMaintenance
 #End Region
 
 #Region "Suppliers"
+
+    Public Sub SupplierDatatable()
+        Dim dtSupplier As DataTable = DisplayData("tblSuppliers")
+        frmMaintenance.dgSuppliers.DataSource = dtSupplier
+    End Sub
+
+    'ADD SUPPLIERS
     Public Sub AddSuppliers(supplierName As String, contactNumber As String, address As String)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
@@ -137,9 +145,65 @@ Module mdlMaintenance
             End Using
         End Using
     End Sub
+
+    'UPDATE SUPPLIERS
+    Public Sub UpdateSuppliers(supplierID As Integer, supplierName As String, contact As String, address As String)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedSupplier As String = textInfo.ToTitleCase(supplierName.ToLower)
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using command As New SqlCommand("UPDATE tblSuppliers SET supplierName = @supplierName,
+                                                                     contactNumber = @contactNo, 
+                                                                     address = @address 
+                                             WHERE supplierID = @supplierID", connection)
+                command.Parameters.AddWithValue("@supplierID", supplierID)
+                command.Parameters.AddWithValue("@supplierName", capitalizedSupplier)
+                command.Parameters.AddWithValue("@contactNo", contact)
+                command.Parameters.AddWithValue("@address", address)
+
+                command.ExecuteNonQuery()
+                MessageBox.Show("Supplier updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                SupplierDatatable()
+            End Using
+
+        End Using
+
+    End Sub
+
+    Public Sub DeleteSuppliers(supplierID As Integer)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblCopies WHERE supplierID = @supplierID", connection)
+                checkCommand.Parameters.AddWithValue("@supplierID", supplierID)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MessageBox.Show("Supplier cannot be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    Using command As New SqlCommand("DELETE FROM tblSuppliers WHERE supplierID = @supplierID", connection)
+                        command.Parameters.AddWithValue("@supplierID", supplierID)
+                        command.ExecuteNonQuery()
+                        MessageBox.Show("Supplier has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        SupplierDatatable()
+                    End Using
+                End If
+            End Using
+        End Using
+    End Sub
+
 #End Region
 
 #Region "Authors"
+
+    Public Sub AuthorDatatable()
+        Dim dtAuthors As DataTable = DisplayData("tblAuthors")
+        frmMaintenance.dgAuthors.DataSource = dtAuthors
+    End Sub
+
+    'ADD AUTHORS
     Public Sub AddAuthors(authorName As String)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
@@ -164,14 +228,62 @@ Module mdlMaintenance
                 command.ExecuteNonQuery()
                 MessageBox.Show("Author/s added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                Dim dtAuthors As DataTable = DisplayData("tblAuthors")
-                frmMaintenance.dgAuthors.DataSource = dtAuthors
+                AuthorDatatable()
             End Using
         End Using
     End Sub
+
+    'UPDATE AUTHORS
+    Public Sub UpdateAuthors(authorID As Integer, authorName As String)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedAuthors As String = textInfo.ToTitleCase(authorName.ToLower)
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using command As New SqlCommand("UPDATE tblAuthors SET authorName = @authorName WHERE authorID = @authorID", connection)
+                command.Parameters.AddWithValue("@authorID", authorID)
+                command.Parameters.AddWithValue("@authorName", capitalizedAuthors)
+                command.ExecuteNonQuery()
+                MessageBox.Show("Author updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                AuthorDatatable()
+            End Using
+
+        End Using
+
+    End Sub
+
+    'DELETE AUTHORS
+    Public Sub DeleteAuthors(authorID As Integer)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE authorID = @authorID", connection)
+                checkCommand.Parameters.AddWithValue("@authorID", authorID)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MessageBox.Show("Author cannot be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    Using command As New SqlCommand("DELETE FROM tblAuthors WHERE authorID = @authorID", connection)
+                        command.Parameters.AddWithValue("@authorID", authorID)
+                        command.ExecuteNonQuery()
+                        MessageBox.Show("Author has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        AuthorDatatable()
+                    End Using
+                End If
+            End Using
+        End Using
+    End Sub
+
 #End Region
 
 #Region "Publishers"
+    Public Sub PublisherDatatable()
+        Dim dtPublisher As DataTable = DisplayData("tblPublishers")
+        frmMaintenance.dgPublishers.DataSource = dtPublisher
+    End Sub
+
     Public Sub AddPublishers(publisherName As String)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
@@ -196,14 +308,60 @@ Module mdlMaintenance
                 command.ExecuteNonQuery()
                 MessageBox.Show("Publisher/s added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                Dim dtPublishers As DataTable = DisplayData("tblPublishers")
-                frmMaintenance.dgPublishers.DataSource = dtPublishers
+                PublisherDatatable()
             End Using
         End Using
     End Sub
+
+    Public Sub UpdatePublisher(publisherID As Integer, PublisherName As String)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedPublisher As String = textInfo.ToTitleCase(PublisherName.ToLower)
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using command As New SqlCommand("UPDATE tblPublishers SET publisherName = @publisherName WHERE publisherID = @publisherID", connection)
+                command.Parameters.AddWithValue("@publisherID", publisherID)
+                command.Parameters.AddWithValue("@publisherName", capitalizedPublisher)
+                command.ExecuteNonQuery()
+                MessageBox.Show("Publisher updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                PublisherDatatable()
+            End Using
+
+        End Using
+
+    End Sub
+
+    Public Sub DeletePublisher(publisherID As Integer)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE publisherID = @publisherID", connection)
+                checkCommand.Parameters.AddWithValue("@publisherID", publisherID)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MessageBox.Show("Publisher cannot be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    Using command As New SqlCommand("DELETE FROM tblPublishers WHERE publisherID = @publisherID", connection)
+                        command.Parameters.AddWithValue("@publisherID", publisherID)
+                        command.ExecuteNonQuery()
+                        MessageBox.Show("Publisher has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        PublisherDatatable()
+                    End Using
+                End If
+            End Using
+        End Using
+    End Sub
+
 #End Region
 
 #Region "Genres"
+    Public Sub GenreDatatable()
+        Dim dtGenre As DataTable = DisplayData("tblGenres")
+        frmMaintenance.dgGenres.DataSource = dtGenre
+    End Sub
     Public Sub AddGenre(genreName As String, description As String)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
@@ -230,14 +388,63 @@ Module mdlMaintenance
                 command.ExecuteNonQuery()
                 MessageBox.Show("Genre added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                Dim dtGenres As DataTable = DisplayData("tblGenres")
-                frmMaintenance.dgGenres.DataSource = dtGenres
+                GenreDatatable()
+            End Using
+        End Using
+    End Sub
+
+    Public Sub UpdateGenre(genreID As Integer, genreName As String, description As String)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedGenre As String = textInfo.ToTitleCase(genreName.ToLower)
+        Dim capitalizedDescription As String = textInfo.ToTitleCase(description.ToLower)
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using command As New SqlCommand("UPDATE tblGenres SET genreName = @genreName,
+                                                                 description = @description    
+                                             WHERE genreID = @genreID", connection)
+                command.Parameters.AddWithValue("@genreID", genreID)
+                command.Parameters.AddWithValue("@genreName", capitalizedGenre)
+                command.Parameters.AddWithValue("@description", capitalizedDescription)
+                command.ExecuteNonQuery()
+                MessageBox.Show("Genre updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                PublisherDatatable()
+            End Using
+
+        End Using
+
+    End Sub
+
+    Public Sub DeleteGenre(genreID As Integer)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE genreID = @genreID", connection)
+                checkCommand.Parameters.AddWithValue("@genreID", genreID)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MessageBox.Show("Genre cannot be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    Using command As New SqlCommand("DELETE FROM tblGenres WHERE genreID = @genreID", connection)
+                        command.Parameters.AddWithValue("@genreID", genreID)
+                        command.ExecuteNonQuery()
+                        MessageBox.Show("Genre has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        GenreDatatable()
+                    End Using
+                End If
             End Using
         End Using
     End Sub
 #End Region
 
 #Region "Bookshelves"
+    Public Sub ShelfDatatable()
+        Dim dtShelf As DataTable = DisplayData("tblBookshelves")
+        frmMaintenance.dgBookshelves.DataSource = dtShelf
+    End Sub
 
     Public Sub AddBookshelves(shelfNo As String, description As String, location As String)
         Dim cultureInfo As New CultureInfo("en-US")
@@ -269,8 +476,53 @@ Module mdlMaintenance
                 command.ExecuteNonQuery()
                 MessageBox.Show("Bookshelf added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                Dim shelfDt As DataTable = DisplayData("tblBookshelves")
-                frmMaintenance.dgBookshelves.DataSource = shelfDt
+                ShelfDatatable()
+            End Using
+        End Using
+    End Sub
+
+    Public Sub UpdateBookshelf(shelfID As Integer, description As String, location As String)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedlocation As String = textInfo.ToTitleCase(location.ToLower)
+        Dim capitalizedDescription As String = textInfo.ToTitleCase(description.ToLower)
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using command As New SqlCommand("UPDATE tblBookshelves SET description = @description,
+                                                                       location = @location     
+                                             WHERE shelfID = @shelfID", connection)
+                command.Parameters.AddWithValue("@shelfID", shelfID)
+                command.Parameters.AddWithValue("@description", capitalizedDescription)
+                command.Parameters.AddWithValue("@location", capitalizedlocation)
+                command.ExecuteNonQuery()
+                MessageBox.Show("Shelf updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ShelfDatatable()
+            End Using
+
+        End Using
+
+    End Sub
+
+    Public Sub DeleteShelf(shelfID As Integer)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE shelfID = @shelfID", connection)
+                checkCommand.Parameters.AddWithValue("@shelfID", shelfID)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+
+                If count > 0 Then
+                    MessageBox.Show("Shelf cannot be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    Using command As New SqlCommand("DELETE FROM tblBookshelves WHERE shelfID = @shelfID", connection)
+                        command.Parameters.AddWithValue("@shelfID", shelfID)
+                        command.ExecuteNonQuery()
+                        MessageBox.Show("Shelf has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        ShelfDatatable()
+                    End Using
+                End If
             End Using
         End Using
     End Sub

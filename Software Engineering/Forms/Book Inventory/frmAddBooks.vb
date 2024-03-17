@@ -15,7 +15,7 @@
                 String.IsNullOrEmpty(txtYearPublished.Text) Then
                 MessageBox.Show("Please fill in the necessary details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text)
+                AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
                 Me.Close()
             End If
         End If
@@ -36,6 +36,11 @@
         txtGenre.DataSource = dtGenre
         txtGenre.DisplayMember = "genreName"
         txtGenre.ValueMember = "genreID"
+
+        Dim dtShelf As DataTable = DisplayShelves()
+        txtShelfNo.DataSource = dtShelf
+        txtShelfNo.DisplayMember = "shelfNo"
+        txtShelfNo.ValueMember = "shelfID"
     End Sub
 
     Private Sub btnFindAuthor_Click(sender As Object, e As EventArgs) Handles btnFindAuthor.Click
@@ -66,6 +71,10 @@
 
     Private Sub txtGenre_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtGenre.SelectedValueChanged
         txtGenreID.Text = txtGenre.SelectedValue.ToString
+    End Sub
+
+    Private Sub txtShelfNo_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtShelfNo.SelectedValueChanged
+        txtShelfID.Text = txtShelfNo.SelectedValue.ToString
     End Sub
 
     Private Sub DigitOnly(sender As Object, e As KeyPressEventArgs) Handles txtISBN.KeyPress, txtYearPublished.KeyPress

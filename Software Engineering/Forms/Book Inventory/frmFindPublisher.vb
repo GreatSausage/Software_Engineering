@@ -1,5 +1,5 @@
 ﻿Public Class frmFindPublisher
-    Private Sub dgAuthor_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgPublisher.CellContentClick
+    Private Sub dgPublisher_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgPublisher.CellContentClick
         If e.RowIndex >= 0 Then
             Dim row As DataGridViewRow = dgPublisher.Rows(e.RowIndex)
             Dim publisherName As String = row.Cells("publisherName").Value.ToString

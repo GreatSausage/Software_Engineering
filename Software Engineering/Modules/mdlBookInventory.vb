@@ -21,6 +21,18 @@ Module mdlBookInventory
         End Using
     End Function
 
+    Public Function DisplayShelves() As DataTable
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT shelfID, shelfNo FROM tblBookshelves", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
+
     Public Function DisplayBooks() As DataTable
         Using connection As SqlConnection = ConnectionOpen(connString)
             Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished,
@@ -46,7 +58,7 @@ Module mdlBookInventory
     End Function
 
 
-    Public Sub AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, genreID As Integer)
+    Public Sub AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, genreID As Integer, shelfID As Integer)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedTitle As String = textInfo.ToTitleCase(title.ToLower())
@@ -77,8 +89,8 @@ Module mdlBookInventory
                 Return
             End If
 
-            Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, genreID, yearPublished) 
-                                             VALUES (@title, @isbn, @authorID, @publisherID, @genreID, @yearPublished)", connection)
+            Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, genreID, yearPublished, shelfID) 
+                                             VALUES (@title, @isbn, @authorID, @publisherID, @genreID, @yearPublished, @shelfID)", connection)
                 With command.Parameters
                     .AddWithValue("@title", capitalizedTitle)
                     .AddWithValue("@isbn", isbn)
@@ -86,6 +98,7 @@ Module mdlBookInventory
                     .AddWithValue("@publisherID", publisherID)
                     .AddWithValue("@genreID", genreID)
                     .AddWithValue("@yearPublished", yearPublished)
+                    .AddWithValue("@shelfID", shelfID)
                 End With
                 command.ExecuteNonQuery()
                 MessageBox.Show("Book has added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)

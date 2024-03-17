@@ -3,7 +3,7 @@
         Me.Close()
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblSupplier.Click
 
     End Sub
 
@@ -38,5 +38,28 @@
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If String.IsNullOrEmpty(txtSupplierName.Text) OrElse
+           String.IsNullOrEmpty(txtContact.Text) OrElse
+           String.IsNullOrEmpty(txtAddress.Text) Then
+            MessageBox.Show("Please fill in the necessary fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            UpdateSuppliers(txtsupplierID.text, txtSupplierName.Text, txtContact.Text, txtAddress.Text)
+            Me.Close()
+        End If
+    End Sub
+
+    Public Sub SetSelectedSuppliersMaintenance(authorID As Integer, authorName As String, contactNo As String, address As String)
+        txtSupplierName.Text = authorName
+        txtSupplierID.Text = authorID
+        txtContact.Text = contactNo
+        txtAddress.Text = address
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        DeleteSuppliers(txtSupplierID.Text)
+        Me.Close()
     End Sub
 End Class

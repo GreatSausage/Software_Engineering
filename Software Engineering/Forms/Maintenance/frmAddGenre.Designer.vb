@@ -22,27 +22,30 @@ Partial Class frmAddGenre
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblGenre = New System.Windows.Forms.Label()
         Me.txtGenre = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.txtDescription = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtGenreID = New System.Windows.Forms.Label()
+        Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblGenre
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(360, 50)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "ADD GENRE"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblGenre.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.lblGenre.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblGenre.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGenre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblGenre.Location = New System.Drawing.Point(0, 0)
+        Me.lblGenre.Name = "lblGenre"
+        Me.lblGenre.Size = New System.Drawing.Size(360, 50)
+        Me.lblGenre.TabIndex = 3
+        Me.lblGenre.Text = "ADD GENRE"
+        Me.lblGenre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtGenre
         '
@@ -140,19 +143,63 @@ Partial Class frmAddGenre
         Me.Label3.TabIndex = 24
         Me.Label3.Text = "Description:"
         '
+        'txtGenreID
+        '
+        Me.txtGenreID.AutoSize = True
+        Me.txtGenreID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGenreID.Location = New System.Drawing.Point(1, 56)
+        Me.txtGenreID.Name = "txtGenreID"
+        Me.txtGenreID.Size = New System.Drawing.Size(62, 20)
+        Me.txtGenreID.TabIndex = 26
+        Me.txtGenreID.Text = "genreID"
+        Me.txtGenreID.Visible = False
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnUpdate.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.Color.White
+        Me.btnUpdate.Location = New System.Drawing.Point(188, 228)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(167, 44)
+        Me.btnUpdate.TabIndex = 28
+        Me.btnUpdate.Text = "SAVE"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnDelete.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnDelete.FillColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.ForeColor = System.Drawing.Color.White
+        Me.btnDelete.Location = New System.Drawing.Point(5, 228)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(167, 44)
+        Me.btnDelete.TabIndex = 27
+        Me.btnDelete.Text = "DELETE"
+        '
         'frmAddGenre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(360, 278)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnUpdate)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.txtGenreID)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.txtGenre)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblGenre)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAddGenre"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -161,11 +208,14 @@ Partial Class frmAddGenre
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblGenre As Label
     Friend WithEvents txtGenre As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents btnClose As LinkLabel
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtDescription As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents txtGenreID As Label
+    Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
 End Class
