@@ -48,15 +48,27 @@
 
         Dim copiesToAdd As Integer = Convert.ToInt32(txtCopiesToAdd.Value)
         Dim bookID As Integer = Convert.ToInt32(GetBookID(txtISBN.Text))
-        Dim supplierID As Integer = Convert.ToInt32(txtSupplier.SelectedValue)
         Dim type As String = If(rbDonated.Checked, "Donated", "Purchased")
 
         For i As Integer = 1 To copiesToAdd
             Dim acn As String = AccessionGenerator()
-            AddCopies(acn, bookID, supplierID, price, type)
+            AddCopies(acn, bookID, txtSupplierID.Text, price, type)
         Next
 
         MessageBox.Show("Copies added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.Close()
+    End Sub
+
+    Private Sub btnFindSuppliers_Click(sender As Object, e As EventArgs) Handles btnFindSuppliers.Click
+        frmFindSuppliers.Show()
+    End Sub
+
+    Public Sub SetSelectedSupplier(supplierID As Integer, supplierName As String)
+        txtSupplier.Text = supplierName
+        txtSupplierID.Text = supplierID
+    End Sub
+
+    Private Sub txtSupplier_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtSupplier.SelectedValueChanged
+        txtSupplierID.Text = txtSupplier.SelectedValue.ToString
     End Sub
 End Class

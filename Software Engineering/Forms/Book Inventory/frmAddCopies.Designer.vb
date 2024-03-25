@@ -22,6 +22,7 @@ Partial Class frmAddCopies
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddCopies))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.txtISBN = New Guna.UI2.WinForms.Guna2TextBox()
@@ -37,6 +38,8 @@ Partial Class frmAddCopies
         Me.txtSupplier = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtCopiesToAdd = New Guna.UI2.WinForms.Guna2NumericUpDown()
+        Me.btnFindSuppliers = New Guna.UI2.WinForms.Guna2Button()
+        Me.txtSupplierID = New System.Windows.Forms.Label()
         CType(Me.txtCopiesToAdd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -232,7 +235,7 @@ Partial Class frmAddCopies
         Me.txtSupplier.ItemHeight = 30
         Me.txtSupplier.Location = New System.Drawing.Point(5, 248)
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(348, 36)
+        Me.txtSupplier.Size = New System.Drawing.Size(290, 36)
         Me.txtSupplier.TabIndex = 25
         '
         'Label6
@@ -261,12 +264,42 @@ Partial Class frmAddCopies
         Me.txtCopiesToAdd.UpDownButtonForeColor = System.Drawing.Color.White
         Me.txtCopiesToAdd.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'btnFindSuppliers
+        '
+        Me.btnFindSuppliers.BackgroundImage = CType(resources.GetObject("btnFindSuppliers.BackgroundImage"), System.Drawing.Image)
+        Me.btnFindSuppliers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnFindSuppliers.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnFindSuppliers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnFindSuppliers.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnFindSuppliers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnFindSuppliers.FillColor = System.Drawing.Color.Transparent
+        Me.btnFindSuppliers.FocusedColor = System.Drawing.Color.Transparent
+        Me.btnFindSuppliers.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnFindSuppliers.ForeColor = System.Drawing.Color.White
+        Me.btnFindSuppliers.HoverState.FillColor = System.Drawing.Color.Transparent
+        Me.btnFindSuppliers.Location = New System.Drawing.Point(301, 248)
+        Me.btnFindSuppliers.Name = "btnFindSuppliers"
+        Me.btnFindSuppliers.Size = New System.Drawing.Size(54, 44)
+        Me.btnFindSuppliers.TabIndex = 28
+        '
+        'txtSupplierID
+        '
+        Me.txtSupplierID.AutoSize = True
+        Me.txtSupplierID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSupplierID.Location = New System.Drawing.Point(1, 61)
+        Me.txtSupplierID.Name = "txtSupplierID"
+        Me.txtSupplierID.Size = New System.Drawing.Size(77, 20)
+        Me.txtSupplierID.TabIndex = 29
+        Me.txtSupplierID.Text = "supplierID"
+        '
         'frmAddCopies
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(360, 525)
         Me.ControlBox = False
+        Me.Controls.Add(Me.txtSupplierID)
+        Me.Controls.Add(Me.btnFindSuppliers)
         Me.Controls.Add(Me.txtCopiesToAdd)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtSupplier)
@@ -306,4 +339,6 @@ Partial Class frmAddCopies
     Friend WithEvents txtSupplier As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txtCopiesToAdd As Guna.UI2.WinForms.Guna2NumericUpDown
+    Friend WithEvents btnFindSuppliers As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents txtSupplierID As Label
 End Class

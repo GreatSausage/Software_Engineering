@@ -152,6 +152,7 @@ Module mdlBookInventory
             End Using
         End Using
     End Sub
+
 #End Region
 
 #Region "Copies Inventory"
@@ -241,6 +242,28 @@ Module mdlBookInventory
 
                 Dim dtBooks As DataTable = DisplayBooks()
                 frmBookInventory.dgBooks.DataSource = dtBooks
+            End Using
+        End Using
+    End Sub
+
+    Public Sub SearchSuppliers(datagridview As DataGridView, search As String)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Dim query As String = "SELECT supplierName, publisherID FROM tblPublishers "
+
+            If Not String.IsNullOrEmpty(search) Then
+                query += " WHERE supplierName LIKE @search"
+            End If
+
+            Using command As New SqlCommand(query, connection)
+                If Not String.IsNullOrEmpty(search) Then
+                    command.Parameters.AddWithValue("@search", "%" & search & "%")
+                End If
+
+                Using adapter As New SqlDataAdapter(command)
+                    Dim ds As New DataSet
+                    adapter.Fill(ds)
+                    datagridview.DataSource = ds.Tables(0)
+                End Using
             End Using
         End Using
     End Sub

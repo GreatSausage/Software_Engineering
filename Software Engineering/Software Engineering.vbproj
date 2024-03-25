@@ -136,6 +136,12 @@
     <Compile Include="Forms\Book Inventory\frmFindPublisher.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Book Inventory\frmFindSuppliers.Designer.vb">
+      <DependentUpon>frmFindSuppliers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmFindSuppliers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Borrow Setup\frmBorrowBooks.Designer.vb">
       <DependentUpon>frmBorrowBooks.vb</DependentUpon>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Book Inventory\frmFindPublisher.resx">
       <DependentUpon>frmFindPublisher.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Book Inventory\frmFindSuppliers.resx">
+      <DependentUpon>frmFindSuppliers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Borrowers\frmAddBorrowers.resx">
       <DependentUpon>frmAddBorrowers.vb</DependentUpon>
