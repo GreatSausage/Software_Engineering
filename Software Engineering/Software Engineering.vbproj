@@ -166,16 +166,16 @@
     <Compile Include="Forms\Borrowers\frmAddBorrowers.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Borrowers\frmBorrowers.Designer.vb">
-      <DependentUpon>frmBorrowers.vb</DependentUpon>
+    <Compile Include="Forms\Borrowers\frmAddGrade.Designer.vb">
+      <DependentUpon>frmAddGrade.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Borrowers\frmBorrowers.vb">
+    <Compile Include="Forms\Borrowers\frmAddGrade.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Borrowers\frmBorrowersInfo.Designer.vb">
-      <DependentUpon>frmBorrowersInfo.vb</DependentUpon>
+    <Compile Include="Forms\Borrowers\frmAddSection.Designer.vb">
+      <DependentUpon>frmAddSection.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Borrowers\frmBorrowersInfo.vb">
+    <Compile Include="Forms\Borrowers\frmAddSection.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Maintenance\frmAddAuthors.Designer.vb">
@@ -214,10 +214,10 @@
     <Compile Include="Forms\Maintenance\frmAddUsers.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Maintenance\frmMaintenance.Designer.vb">
-      <DependentUpon>frmMaintenance.vb</DependentUpon>
+    <Compile Include="Forms\Maintenance\frmMainte.Designer.vb">
+      <DependentUpon>frmMainte.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Maintenance\frmMaintenance.vb">
+    <Compile Include="Forms\Maintenance\frmMainte.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Others\frmAccountSettings.Designer.vb">
@@ -288,6 +288,15 @@
     <EmbeddedResource Include="Forms\Book Inventory\frmFindPublisher.resx">
       <DependentUpon>frmFindPublisher.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrowers\frmAddBorrowers.resx">
+      <DependentUpon>frmAddBorrowers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrowers\frmAddGrade.resx">
+      <DependentUpon>frmAddGrade.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrowers\frmAddSection.resx">
+      <DependentUpon>frmAddSection.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Maintenance\frmAddAuthors.resx">
       <DependentUpon>frmAddAuthors.vb</DependentUpon>
     </EmbeddedResource>
@@ -306,11 +315,11 @@
     <EmbeddedResource Include="Forms\Maintenance\frmAddUsers.resx">
       <DependentUpon>frmAddUsers.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\frmMainte.resx">
+      <DependentUpon>frmMainte.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Others\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Maintenance\frmMaintenance.resx">
-      <DependentUpon>frmMaintenance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -353,5 +362,6 @@
       <DependentUpon>dbLMS.mdf</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

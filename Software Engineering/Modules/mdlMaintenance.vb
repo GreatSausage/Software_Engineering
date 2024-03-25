@@ -106,7 +106,7 @@ Module mdlMaintenance
 
     Public Sub SupplierDatatable()
         Dim dtSupplier As DataTable = DisplayData("tblSuppliers")
-        frmMaintenance.dgSuppliers.DataSource = dtSupplier
+        frmMainte.dgSuppliers.DataSource = dtSupplier
     End Sub
 
     'ADD SUPPLIERS
@@ -141,7 +141,7 @@ Module mdlMaintenance
                 MessageBox.Show("Supplier added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Dim dtSupplier As DataTable = DisplayData("tblSuppliers")
-                frmMaintenance.dgSuppliers.DataSource = dtSupplier
+                frmMainte.dgSuppliers.DataSource = dtSupplier
             End Using
         End Using
     End Sub
@@ -200,7 +200,7 @@ Module mdlMaintenance
 
     Public Sub AuthorDatatable()
         Dim dtAuthors As DataTable = DisplayData("tblAuthors")
-        frmMaintenance.dgAuthors.DataSource = dtAuthors
+        frmMainte.dgAuthors.DataSource = dtAuthors
     End Sub
 
     'ADD AUTHORS
@@ -281,7 +281,7 @@ Module mdlMaintenance
 #Region "Publishers"
     Public Sub PublisherDatatable()
         Dim dtPublisher As DataTable = DisplayData("tblPublishers")
-        frmMaintenance.dgPublishers.DataSource = dtPublisher
+        frmMainte.dgPublishers.DataSource = dtPublisher
     End Sub
 
     Public Sub AddPublishers(publisherName As String)
@@ -360,7 +360,7 @@ Module mdlMaintenance
 #Region "Genres"
     Public Sub GenreDatatable()
         Dim dtGenre As DataTable = DisplayData("tblGenres")
-        frmMaintenance.dgGenres.DataSource = dtGenre
+        frmMainte.dgGenres.DataSource = dtGenre
     End Sub
     Public Sub AddGenre(genreName As String, description As String)
         Dim cultureInfo As New CultureInfo("en-US")
@@ -410,7 +410,7 @@ Module mdlMaintenance
                 command.ExecuteNonQuery()
                 MessageBox.Show("Genre updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                PublisherDatatable()
+                GenreDatatable()
             End Using
 
         End Using
@@ -443,7 +443,7 @@ Module mdlMaintenance
 #Region "Bookshelves"
     Public Sub ShelfDatatable()
         Dim dtShelf As DataTable = DisplayData("tblBookshelves")
-        frmMaintenance.dgBookshelves.DataSource = dtShelf
+        frmMainte.dgBookshelves.DataSource = dtShelf
     End Sub
 
     Public Sub AddBookshelves(shelfNo As String, description As String, location As String)

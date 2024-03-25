@@ -226,10 +226,10 @@ Partial Class frmAddSuppliers
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(749, 228)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtSupplierID)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtAddress)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtContact)

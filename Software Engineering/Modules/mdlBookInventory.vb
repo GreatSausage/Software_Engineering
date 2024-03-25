@@ -108,6 +108,50 @@ Module mdlBookInventory
             End Using
         End Using
     End Sub
+
+    Public Sub SearchAuthors(datagridview As DataGridView, search As String)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Dim query As String = "SELECT authorName, authorID FROM tblAuthors "
+
+            If Not String.IsNullOrEmpty(search) Then
+                query += " WHERE authorName LIKE @search"
+            End If
+
+            Using command As New SqlCommand(query, connection)
+                If Not String.IsNullOrEmpty(search) Then
+                    command.Parameters.AddWithValue("@search", "%" & search & "%")
+                End If
+
+                Using adapter As New SqlDataAdapter(command)
+                    Dim ds As New DataSet
+                    adapter.Fill(ds)
+                    datagridview.DataSource = ds.Tables(0)
+                End Using
+            End Using
+        End Using
+    End Sub
+
+    Public Sub SearchPublishers(datagridview As DataGridView, search As String)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Dim query As String = "SELECT publisherName, publisherID FROM tblPublishers "
+
+            If Not String.IsNullOrEmpty(search) Then
+                query += " WHERE publisherName LIKE @search OR publisherID LIKE @search"
+            End If
+
+            Using command As New SqlCommand(query, connection)
+                If Not String.IsNullOrEmpty(search) Then
+                    command.Parameters.AddWithValue("@search", "%" & search & "%")
+                End If
+
+                Using adapter As New SqlDataAdapter(command)
+                    Dim ds As New DataSet
+                    adapter.Fill(ds)
+                    datagridview.DataSource = ds.Tables(0)
+                End Using
+            End Using
+        End Using
+    End Sub
 #End Region
 
 #Region "Copies Inventory"
