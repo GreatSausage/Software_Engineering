@@ -154,6 +154,12 @@
     <Compile Include="Forms\Borrow Setup\frmIssuedBooks.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Borrow Setup\frmIssueReturn.Designer.vb">
+      <DependentUpon>frmIssueReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmIssueReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Borrow Setup\frmPullout.Designer.vb">
       <DependentUpon>frmPullout.vb</DependentUpon>
     </Compile>
@@ -170,6 +176,12 @@
       <DependentUpon>frmAddBorrowers.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Borrowers\frmAddBorrowers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmAddFaculty.Designer.vb">
+      <DependentUpon>frmAddFaculty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrowers\frmAddFaculty.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Borrowers\frmAddGrade.Designer.vb">
@@ -297,8 +309,14 @@
     <EmbeddedResource Include="Forms\Book Inventory\frmFindSuppliers.resx">
       <DependentUpon>frmFindSuppliers.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrow Setup\frmIssueReturn.resx">
+      <DependentUpon>frmIssueReturn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Borrowers\frmAddBorrowers.resx">
       <DependentUpon>frmAddBorrowers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrowers\frmAddFaculty.resx">
+      <DependentUpon>frmAddFaculty.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Borrowers\frmAddGrade.resx">
       <DependentUpon>frmAddGrade.vb</DependentUpon>

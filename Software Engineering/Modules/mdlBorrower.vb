@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Collections.Specialized.BitVector32
+Imports System.Data.SqlClient
 Imports System.Globalization
 
 Module mdlBorrower
@@ -28,8 +29,34 @@ Module mdlBorrower
         Dim capitalizedLastName As String = textInfo.ToTitleCase(lastName.ToLower())
 
         Using connection As SqlConnection = ConnectionOpen(connString)
-            Using command As New SqlCommand("INSERT INTO tblBorrowers (studentID, firstName, lastName, gradeID, sectionID, guardianContact) 
-                                             VALUES (@studentID, @firstName, @lastName, @gradeID, @sectionID, @guardianContact)", connection)
+
+            Dim nameExists As Boolean = False
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBorrowers WHERE (firstName = @firstName AND lastName = @lastName)", connection)
+                checkCommand.Parameters.AddWithValue("@firstName", firstName)
+                checkCommand.Parameters.AddWithValue("@lastName", lastName)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                nameExists = count > 0
+            End Using
+
+            If nameExists Then
+                MessageBox.Show("User with the same first name or last name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            Dim contactExists As Boolean = False
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBorrowers WHERE guardianContact = @contact", connection)
+                checkCommand.Parameters.AddWithValue("@contact", guardianContact)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                contactExists = count > 0
+            End Using
+
+            If contactExists Then
+                MessageBox.Show("Contact number already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            Using command As New SqlCommand("INSERT INTO tblBorrowers (studentID, firstName, lastName, gradeID, sectionID, guardianContact, borrowerType) 
+                                             VALUES (@studentID, @firstName, @lastName, @gradeID, @sectionID, @guardianContact, 'Student')", connection)
                 With command.Parameters
                     .AddWithValue("@studentID", studentID)
                     .AddWithValue("@firstName", capitalizedFirstName)
@@ -176,6 +203,54 @@ Module mdlBorrower
                 command.ExecuteNonQuery()
                 MessageBox.Show("Section added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 SectionDatatable()
+            End Using
+        End Using
+    End Sub
+#End Region
+
+#Region "Faculty"
+
+    Public Sub FacultyDatatable()
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT borrowerID, firstName, lastName, guardianContact, borrowerType FROM tblBorrowers WHERE borrowerType = 'Faculty'", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    frmMainte.dgFaculty.DataSource = dt
+                End Using
+            End Using
+        End Using
+    End Sub
+    Public Sub AddFaculty(firstname As String, lastname As String, phoneNumber As String)
+
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedFirstname As String = textInfo.ToTitleCase(firstname.ToLower())
+        Dim capitalizedLastname As String = textInfo.ToTitleCase(lastname.ToLower())
+
+        Using connection As SqlConnection = ConnectionOpen(connString)
+
+            Dim contactExists As Boolean = False
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBorrowers WHERE guardianContact = @contact", connection)
+                checkCommand.Parameters.AddWithValue("@contact", phoneNumber)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                contactExists = count > 0
+            End Using
+
+            If contactExists Then
+                MessageBox.Show("Contact already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+            Using command As New SqlCommand("INSERT INTO tblBorrowers (firstName, lastName, guardianContact, borrowerType) 
+                                             VALUES (@firstName, @lastName, @phoneNumber, 'Faculty')", connection)
+                With command.Parameters
+                    .AddWithValue("@firstName", capitalizedFirstname)
+                    .AddWithValue("@lastName", capitalizedLastname)
+                    .AddWithValue("@phoneNumber", phoneNumber)
+                End With
+                command.ExecuteNonQuery()
+                MessageBox.Show("Faculty added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                FacultyDatatable()
             End Using
         End Using
     End Sub

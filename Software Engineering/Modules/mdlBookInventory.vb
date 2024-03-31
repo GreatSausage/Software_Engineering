@@ -248,7 +248,7 @@ Module mdlBookInventory
 
     Public Sub SearchSuppliers(datagridview As DataGridView, search As String)
         Using connection As SqlConnection = ConnectionOpen(connString)
-            Dim query As String = "SELECT supplierName, publisherID FROM tblPublishers "
+            Dim query As String = "SELECT supplierName, supplierID FROM tblSuppliers "
 
             If Not String.IsNullOrEmpty(search) Then
                 query += " WHERE supplierName LIKE @search"

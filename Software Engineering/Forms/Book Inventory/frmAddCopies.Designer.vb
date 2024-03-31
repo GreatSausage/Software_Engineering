@@ -291,6 +291,7 @@ Partial Class frmAddCopies
         Me.txtSupplierID.Size = New System.Drawing.Size(77, 20)
         Me.txtSupplierID.TabIndex = 29
         Me.txtSupplierID.Text = "supplierID"
+        Me.txtSupplierID.Visible = False
         '
         'frmAddCopies
         '

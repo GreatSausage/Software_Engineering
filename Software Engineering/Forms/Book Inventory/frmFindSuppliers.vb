@@ -19,4 +19,12 @@ Public Class frmFindSuppliers
             Me.Close()
         End If
     End Sub
+
+    Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
+        Me.Close()
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        SearchSuppliers(dgSupplier, txtSearch.Text)
+    End Sub
 End Class

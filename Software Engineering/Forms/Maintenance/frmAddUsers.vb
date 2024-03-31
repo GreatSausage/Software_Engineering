@@ -18,7 +18,7 @@ Public Class frmAddUsers
         Else
             AddUser(txtFirstname.Text, txtLastname.Text, txtPhoneNumber.Text, txtUsername.Text, txtPassword.Text, txtAnswer.Text, txtQuestions.Text, roleID, roleName)
             Dim dtUsers As DataTable = DisplayUsers()
-            'frmMaintenance.dgUser.DataSource = dtUsers
+            frmMainte.dgUsers.DataSource = dtUsers
         End If
     End Sub
 

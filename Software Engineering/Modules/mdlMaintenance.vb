@@ -81,6 +81,18 @@ Module mdlMaintenance
                 Return
             End If
 
+            Dim phoneExists As Boolean = False
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblUsers WHERE phoneNumber = @phoneNumber", connection)
+                checkCommand.Parameters.AddWithValue("@phoneNumber", phoneNumber)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                phoneExists = count > 0
+            End Using
+
+            If phoneExists Then
+                MessageBox.Show("Phone number already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
             Using command As New SqlCommand("INSERT INTO tblUsers(firstName, lastName, phoneNumber, userName, password, securityAnswer, securityQuestion, roleID) 
                                          VALUES (@firstName, @lastName, @phoneNumber, @userName, @password, @answer, @question, @roleID)", connection)
 
@@ -127,6 +139,18 @@ Module mdlMaintenance
 
             If supplierExists Then
                 MessageBox.Show("Supplier already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            Dim contactExists As Boolean = False
+            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblSuppliers WHERE contactNumber = @contact", connection)
+                checkCommand.Parameters.AddWithValue("@contact", contactNumber)
+                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
+                contactExists = count > 0
+            End Using
+
+            If contactExists Then
+                MessageBox.Show("Contact number already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
 
