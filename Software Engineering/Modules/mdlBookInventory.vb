@@ -193,12 +193,19 @@ Module mdlBookInventory
 
     Public Function DisplayCopies() As DataTable
         Using connection As SqlConnection = ConnectionOpen(connString)
-            Using command As New SqlCommand("SELECT c.copyID, c.accessionNo,
-                                                    b.bookTitle, s.supplierName,
-                                                    c.price, c.acquisitionType, c.acquisitionDate, c.status
-                                             FROM tblCopies c
-                                             INNER JOIN tblBooks b ON c.bookID = b.bookID
-                                             INNER JOIN tblSuppliers s ON c.supplierID = s.supplierID", connection)
+            Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn,
+                                            a.authorName,
+                                            COUNT(c.copyID) AS totalCopies,
+                                            SUM(CASE WHEN c.status = 'Available' THEN 1 ELSE 0 END) AS availableCopies,
+                                            SUM(CASE WHEN c.status = 'Borrowed' THEN 1 ELSE 0 END) AS borrowedCopies
+                                         FROM tblBooks b 
+                                         INNER JOIN tblAuthors a ON b.authorID = a.authorID
+                                         INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
+                                         LEFT JOIN tblCopies c ON b.bookID = c.bookID
+                                         GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+                                                  a.authorName,
+                                                  p.publisherName
+                                         HAVING COUNT(c.copyID) > 0", connection)
                 Using adapter As New SqlDataAdapter(command)
                     Dim dt As New DataTable
                     adapter.Fill(dt)
@@ -207,6 +214,7 @@ Module mdlBookInventory
             End Using
         End Using
     End Function
+
 
     Public Function AccessionGenerator() As String
         Using connection As SqlConnection = ConnectionOpen(connString)

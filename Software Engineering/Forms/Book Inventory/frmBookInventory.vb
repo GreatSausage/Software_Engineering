@@ -10,6 +10,9 @@
     Private Sub frmBookInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim booksDt As DataTable = DisplayBooks()
         dgBooks.DataSource = booksDt
+
+        Dim copiesDt As DataTable = DisplayCopies()
+        dgCopies.DataSource = copiesDt
     End Sub
 
 End Class
