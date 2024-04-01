@@ -36,4 +36,16 @@
             Me.Close()
         End If
     End Sub
+
+    Private Sub AntiDoubleSpace(sender As Object, e As KeyPressEventArgs) Handles txtFirstname.KeyPress, txtGuardianContact.KeyPress, txtLastname.KeyPress, txtStudentID.KeyPress
+        If e.KeyChar = " " AndAlso txtFirstname.Text.EndsWith(" ") Then
+            e.Handled = True
+        ElseIf e.KeyChar = " " AndAlso txtGuardianContact.Text.EndsWith(" ") Then
+            e.Handled = True
+        ElseIf e.KeyChar = " " AndAlso txtLastname.Text.EndsWith(" ") Then
+            e.Handled = True
+        ElseIf e.KeyChar = " " AndAlso txtStudentID.Text.EndsWith(" ") Then
+            e.Handled = True
+        End If
+    End Sub
 End Class
