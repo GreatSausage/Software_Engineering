@@ -24,7 +24,6 @@ Partial Class frmAddBooks
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddBooks))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.txtISBN = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtTitle = New Guna.UI2.WinForms.Guna2TextBox()
@@ -46,6 +45,10 @@ Partial Class frmAddBooks
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtShelfNo = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.txtShelfID = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.txtInitialCopies = New Guna.UI2.WinForms.Guna2NumericUpDown()
+        CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -56,25 +59,10 @@ Partial Class frmAddBooks
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(360, 50)
+        Me.Label1.Size = New System.Drawing.Size(744, 50)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "ADD BOOK"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'btnClose
-        '
-        Me.btnClose.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnClose.AutoSize = True
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btnClose.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline
-        Me.btnClose.LinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnClose.Location = New System.Drawing.Point(307, 9)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(48, 16)
-        Me.btnClose.TabIndex = 4
-        Me.btnClose.TabStop = True
-        Me.btnClose.Text = "[close]"
-        Me.btnClose.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         '
         'txtISBN
         '
@@ -147,7 +135,7 @@ Partial Class frmAddBooks
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(1, 225)
+        Me.Label4.Location = New System.Drawing.Point(385, 81)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(57, 20)
         Me.Label4.TabIndex = 13
@@ -165,7 +153,7 @@ Partial Class frmAddBooks
         Me.txtAuthor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.txtAuthor.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtAuthor.ItemHeight = 30
-        Me.txtAuthor.Location = New System.Drawing.Point(5, 248)
+        Me.txtAuthor.Location = New System.Drawing.Point(389, 104)
         Me.txtAuthor.Name = "txtAuthor"
         Me.txtAuthor.Size = New System.Drawing.Size(290, 36)
         Me.txtAuthor.TabIndex = 14
@@ -182,7 +170,7 @@ Partial Class frmAddBooks
         Me.txtPublisher.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.txtPublisher.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtPublisher.ItemHeight = 30
-        Me.txtPublisher.Location = New System.Drawing.Point(5, 320)
+        Me.txtPublisher.Location = New System.Drawing.Point(389, 176)
         Me.txtPublisher.Name = "txtPublisher"
         Me.txtPublisher.Size = New System.Drawing.Size(290, 36)
         Me.txtPublisher.TabIndex = 17
@@ -191,7 +179,7 @@ Partial Class frmAddBooks
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(1, 297)
+        Me.Label5.Location = New System.Drawing.Point(385, 153)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(72, 20)
         Me.Label5.TabIndex = 16
@@ -211,7 +199,7 @@ Partial Class frmAddBooks
         Me.txtYearPublished.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtYearPublished.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtYearPublished.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtYearPublished.Location = New System.Drawing.Point(5, 393)
+        Me.txtYearPublished.Location = New System.Drawing.Point(5, 249)
         Me.txtYearPublished.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtYearPublished.MaxLength = 4
         Me.txtYearPublished.Name = "txtYearPublished"
@@ -225,7 +213,7 @@ Partial Class frmAddBooks
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(1, 369)
+        Me.Label6.Location = New System.Drawing.Point(1, 225)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(108, 20)
         Me.Label6.TabIndex = 19
@@ -240,7 +228,7 @@ Partial Class frmAddBooks
         Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(5, 584)
+        Me.btnSave.Location = New System.Drawing.Point(389, 372)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(350, 44)
         Me.btnSave.TabIndex = 23
@@ -259,7 +247,7 @@ Partial Class frmAddBooks
         Me.btnFindAuthor.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnFindAuthor.ForeColor = System.Drawing.Color.White
         Me.btnFindAuthor.HoverState.FillColor = System.Drawing.Color.Transparent
-        Me.btnFindAuthor.Location = New System.Drawing.Point(301, 248)
+        Me.btnFindAuthor.Location = New System.Drawing.Point(685, 104)
         Me.btnFindAuthor.Name = "btnFindAuthor"
         Me.btnFindAuthor.Size = New System.Drawing.Size(54, 44)
         Me.btnFindAuthor.TabIndex = 24
@@ -277,7 +265,7 @@ Partial Class frmAddBooks
         Me.btnFindPublisher.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnFindPublisher.ForeColor = System.Drawing.Color.White
         Me.btnFindPublisher.HoverState.FillColor = System.Drawing.Color.Transparent
-        Me.btnFindPublisher.Location = New System.Drawing.Point(301, 320)
+        Me.btnFindPublisher.Location = New System.Drawing.Point(685, 176)
         Me.btnFindPublisher.Name = "btnFindPublisher"
         Me.btnFindPublisher.Size = New System.Drawing.Size(54, 44)
         Me.btnFindPublisher.TabIndex = 25
@@ -316,7 +304,7 @@ Partial Class frmAddBooks
         Me.txtGenre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.txtGenre.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtGenre.ItemHeight = 30
-        Me.txtGenre.Location = New System.Drawing.Point(5, 464)
+        Me.txtGenre.Location = New System.Drawing.Point(389, 248)
         Me.txtGenre.Name = "txtGenre"
         Me.txtGenre.Size = New System.Drawing.Size(348, 36)
         Me.txtGenre.TabIndex = 29
@@ -325,7 +313,7 @@ Partial Class frmAddBooks
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1, 441)
+        Me.Label7.Location = New System.Drawing.Point(385, 225)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(51, 20)
         Me.Label7.TabIndex = 28
@@ -346,7 +334,7 @@ Partial Class frmAddBooks
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(1, 512)
+        Me.Label8.Location = New System.Drawing.Point(385, 297)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(69, 20)
         Me.Label8.TabIndex = 32
@@ -364,7 +352,7 @@ Partial Class frmAddBooks
         Me.txtShelfNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.txtShelfNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtShelfNo.ItemHeight = 30
-        Me.txtShelfNo.Location = New System.Drawing.Point(5, 535)
+        Me.txtShelfNo.Location = New System.Drawing.Point(389, 320)
         Me.txtShelfNo.Name = "txtShelfNo"
         Me.txtShelfNo.Size = New System.Drawing.Size(348, 36)
         Me.txtShelfNo.TabIndex = 33
@@ -380,12 +368,56 @@ Partial Class frmAddBooks
         Me.txtShelfID.Text = "genreID"
         Me.txtShelfID.Visible = False
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(1, 297)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(98, 20)
+        Me.Label9.TabIndex = 36
+        Me.Label9.Text = "Initial Copies:"
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Location = New System.Drawing.Point(5, 372)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(350, 44)
+        Me.Guna2Button1.TabIndex = 38
+        Me.Guna2Button1.Text = "CANCEL"
+        '
+        'txtInitialCopies
+        '
+        Me.txtInitialCopies.BackColor = System.Drawing.Color.Transparent
+        Me.txtInitialCopies.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtInitialCopies.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtInitialCopies.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtInitialCopies.Location = New System.Drawing.Point(5, 321)
+        Me.txtInitialCopies.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtInitialCopies.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.txtInitialCopies.Name = "txtInitialCopies"
+        Me.txtInitialCopies.Size = New System.Drawing.Size(350, 44)
+        Me.txtInitialCopies.TabIndex = 39
+        Me.txtInitialCopies.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtInitialCopies.UpDownButtonForeColor = System.Drawing.Color.White
+        Me.txtInitialCopies.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'frmAddBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(360, 634)
+        Me.ClientSize = New System.Drawing.Size(744, 423)
         Me.ControlBox = False
+        Me.Controls.Add(Me.txtInitialCopies)
+        Me.Controls.Add(Me.Guna2Button1)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtShelfID)
         Me.Controls.Add(Me.txtShelfNo)
         Me.Controls.Add(Me.Label8)
@@ -407,18 +439,17 @@ Partial Class frmAddBooks
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtISBN)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAddBooks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents btnClose As LinkLabel
     Friend WithEvents txtISBN As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtTitle As Guna.UI2.WinForms.Guna2TextBox
@@ -440,4 +471,7 @@ Partial Class frmAddBooks
     Friend WithEvents Label8 As Label
     Friend WithEvents txtShelfNo As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents txtShelfID As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents txtInitialCopies As Guna.UI2.WinForms.Guna2NumericUpDown
 End Class

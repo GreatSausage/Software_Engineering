@@ -37,17 +37,13 @@ Module mdlBookInventory
         Using connection As SqlConnection = ConnectionOpen(connString)
             Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished,
                                                 a.authorName,
-                                                p.publisherName,
-                                                (SELECT COUNT(c.copyID) FROM tblCopies c WHERE c.bookID = b.bookID) AS totalCopies,
-                                                SUM(CASE WHEN c.status = 'Available' THEN 1 ELSE 0 END) AS availableCopies,
-                                                SUM(CASE WHEN c.status = 'Borrowed' THEN 1 ELSE 0 END) AS borrowedCopies
-                                         FROM tblBooks b 
-                                         INNER JOIN tblAuthors a ON b.authorID = a.authorID
-                                         INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
-                                         LEFT JOIN tblCopies c ON b.bookID = c.bookID
-                                         GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
-                                                  a.authorName,
-                                                  p.publisherName", connection)
+                                                p.publisherName 
+                                             FROM tblBooks b 
+                                             INNER JOIN tblAuthors a ON b.authorID = a.authorID
+                                             INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
+                                             GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+                                                      a.authorName,
+                                                      p.publisherName", connection)
                 Using adapter As New SqlDataAdapter(command)
                     Dim dt As New DataTable
                     adapter.Fill(dt)
@@ -58,7 +54,7 @@ Module mdlBookInventory
     End Function
 
 
-    Public Sub AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, genreID As Integer, shelfID As Integer)
+    Public Function AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, genreID As Integer, shelfID As Integer) As Integer
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedTitle As String = textInfo.ToTitleCase(title.ToLower())
@@ -74,7 +70,6 @@ Module mdlBookInventory
 
             If titleExists Then
                 MessageBox.Show("Book title already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
             End If
 
             Dim isbnExists As Boolean = False
@@ -86,10 +81,10 @@ Module mdlBookInventory
 
             If isbnExists Then
                 MessageBox.Show("Book ISBN already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return
             End If
 
             Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, genreID, yearPublished, shelfID) 
+                                             OUTPUT INSERTED.bookID 
                                              VALUES (@title, @isbn, @authorID, @publisherID, @genreID, @yearPublished, @shelfID)", connection)
                 With command.Parameters
                     .AddWithValue("@title", capitalizedTitle)
@@ -100,14 +95,14 @@ Module mdlBookInventory
                     .AddWithValue("@yearPublished", yearPublished)
                     .AddWithValue("@shelfID", shelfID)
                 End With
-                command.ExecuteNonQuery()
+                Return Convert.ToInt32(command.ExecuteScalar())
                 MessageBox.Show("Book has added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Dim dtBooks As DataTable = DisplayBooks()
                 frmBookInventory.dgBooks.DataSource = dtBooks
             End Using
         End Using
-    End Sub
+    End Function
 
     Public Sub SearchAuthors(datagridview As DataGridView, search As String)
         Using connection As SqlConnection = ConnectionOpen(connString)
@@ -234,6 +229,25 @@ Module mdlBookInventory
                     .AddWithValue("@supplierID", supplierID)
                     .AddWithValue("@price", price)
                     .AddWithValue("@acquisitionType", acquisitionType)
+                End With
+                command.ExecuteNonQuery()
+
+                Dim dtCopies As DataTable = DisplayCopies()
+                frmBookInventory.dgCopies.DataSource = dtCopies
+
+                Dim dtBooks As DataTable = DisplayBooks()
+                frmBookInventory.dgBooks.DataSource = dtBooks
+            End Using
+        End Using
+    End Sub
+
+    Public Sub AddInitialCopies(accessionNo As String, bookID As Integer)
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("INSERT INTO tblCopies (accessionNo, bookID) 
+                                             VALUES (@accessionNo, @bookID)", connection)
+                With command.Parameters
+                    .AddWithValue("@accessionNo", accessionNo)
+                    .AddWithValue("@bookID", bookID)
                 End With
                 command.ExecuteNonQuery()
 

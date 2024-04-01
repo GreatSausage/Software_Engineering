@@ -1,5 +1,5 @@
 ﻿Public Class frmAddBooks
-    Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
+    Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         Me.Close()
     End Sub
 
@@ -15,7 +15,14 @@
                 String.IsNullOrEmpty(txtYearPublished.Text) Then
                 MessageBox.Show("Please fill in the necessary details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
+                Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
+                Dim initialCopies As Integer = Convert.ToInt32(txtInitialCopies.Value)
+
+                For i As Integer = 1 To initialCopies
+                    Dim acn As String = AccessionGenerator()
+                    AddInitialCopies(acn, bookID)
+                Next
+                MessageBox.Show("Book has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
             End If
         End If
@@ -83,4 +90,7 @@
         End If
     End Sub
 
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Me.Close()
+    End Sub
 End Class
