@@ -142,16 +142,22 @@
     <Compile Include="Forms\Book Inventory\frmFindSuppliers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Borrow Setup\frmBookFinder.Designer.vb">
+      <DependentUpon>frmBookFinder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Borrow Setup\frmBookFinder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Borrow Setup\frmBorrowBooks.Designer.vb">
       <DependentUpon>frmBorrowBooks.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Borrow Setup\frmBorrowBooks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Borrow Setup\frmIssuedBooks.Designer.vb">
-      <DependentUpon>frmIssuedBooks.vb</DependentUpon>
+    <Compile Include="Forms\Borrow Setup\frmBorrowerFinder.Designer.vb">
+      <DependentUpon>frmBorrowerFinder.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Borrow Setup\frmIssuedBooks.vb">
+    <Compile Include="Forms\Borrow Setup\frmBorrowerFinder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Borrow Setup\frmIssueReturn.Designer.vb">
@@ -308,6 +314,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Book Inventory\frmFindSuppliers.resx">
       <DependentUpon>frmFindSuppliers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrow Setup\frmBookFinder.resx">
+      <DependentUpon>frmBookFinder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrow Setup\frmBorrowBooks.resx">
+      <DependentUpon>frmBorrowBooks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Borrow Setup\frmBorrowerFinder.resx">
+      <DependentUpon>frmBorrowerFinder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Borrow Setup\frmIssueReturn.resx">
       <DependentUpon>frmIssueReturn.vb</DependentUpon>

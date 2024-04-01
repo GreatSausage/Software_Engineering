@@ -18,6 +18,12 @@
         End If
     End Sub
 
+    Private Sub AntiDoubleSpace(sender As Object, e As KeyPressEventArgs) Handles txtAuthors.KeyPress
+        If e.KeyChar = " " AndAlso txtAuthors.Text.EndsWith(" ") Then
+            e.Handled = True
+        End If
+    End Sub
+
     Public Sub SetSelectedAuthorMaintenance(authorID As Integer, authorName As String)
         txtAuthors.Text = authorName
         txtAuthorID.Text = authorID

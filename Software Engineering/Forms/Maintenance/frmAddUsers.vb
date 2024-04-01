@@ -14,7 +14,9 @@ Public Class frmAddUsers
            String.IsNullOrEmpty(txtPassword.Text) OrElse
            String.IsNullOrEmpty(txtConfirmPassword.Text) OrElse
            String.IsNullOrEmpty(txtAnswer.Text) Then
-            MessageBox.Show("Please fill in the necessary fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please fill in the necessary fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf txtPassword.Text <> txtConfirmPassword.Text Then
+            MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             AddUser(txtFirstname.Text, txtLastname.Text, txtPhoneNumber.Text, txtUsername.Text, txtPassword.Text, txtAnswer.Text, txtQuestions.Text, roleID, roleName)
             Dim dtUsers As DataTable = DisplayUsers()

@@ -26,6 +26,16 @@
         End If
     End Sub
 
+    Private Sub AntiDoubleSpace(sender As Object, e As KeyPressEventArgs) Handles txtDescription.KeyPress, txtLocation.KeyPress, txtShelfNo.KeyPress
+        If e.KeyChar = " " AndAlso txtDescription.Text.EndsWith(" ") Then
+            e.Handled = True
+        ElseIf e.KeyChar = " " AndAlso txtLocation.Text.EndsWith(" ") Then
+            e.Handled = True
+        ElseIf e.KeyChar = " " AndAlso txtShelfNo.Text.EndsWith(" ") Then
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         DeleteShelf(txtShelfID.Text)
         Me.Close()

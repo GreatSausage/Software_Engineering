@@ -33,3 +33,6 @@ C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Deb
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmFindSuppliers.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmIssueReturn.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAddFaculty.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmBorrowBooks.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmBookFinder.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmBorrowerFinder.resources

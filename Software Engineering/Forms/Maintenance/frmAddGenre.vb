@@ -19,6 +19,14 @@
         End If
     End Sub
 
+    Private Sub AntiDoubleSpace(sender As Object, e As KeyPressEventArgs) Handles txtDescription.KeyPress, txtGenre.KeyPress
+        If e.KeyChar = " " AndAlso txtGenre.Text.EndsWith(" ") Then
+            e.Handled = True
+        ElseIf e.KeyChar = " " AndAlso txtGenre.Text.EndsWith(" ") Then
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         DeleteGenre(txtGenreID.Text)
         Me.Close()
