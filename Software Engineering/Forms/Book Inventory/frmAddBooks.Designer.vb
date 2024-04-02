@@ -48,6 +48,7 @@ Partial Class frmAddBooks
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.txtInitialCopies = New Guna.UI2.WinForms.Guna2NumericUpDown()
+        Me.cbISBN = New Guna.UI2.WinForms.Guna2CheckBox()
         CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -274,7 +275,7 @@ Partial Class frmAddBooks
         '
         Me.txtAuthorID.AutoSize = True
         Me.txtAuthorID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAuthorID.Location = New System.Drawing.Point(1, 61)
+        Me.txtAuthorID.Location = New System.Drawing.Point(278, 61)
         Me.txtAuthorID.Name = "txtAuthorID"
         Me.txtAuthorID.Size = New System.Drawing.Size(67, 20)
         Me.txtAuthorID.TabIndex = 26
@@ -285,7 +286,7 @@ Partial Class frmAddBooks
         '
         Me.txtPublisherID.AutoSize = True
         Me.txtPublisherID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPublisherID.Location = New System.Drawing.Point(74, 61)
+        Me.txtPublisherID.Location = New System.Drawing.Point(351, 61)
         Me.txtPublisherID.Name = "txtPublisherID"
         Me.txtPublisherID.Size = New System.Drawing.Size(85, 20)
         Me.txtPublisherID.TabIndex = 27
@@ -323,7 +324,7 @@ Partial Class frmAddBooks
         '
         Me.txtGenreID.AutoSize = True
         Me.txtGenreID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGenreID.Location = New System.Drawing.Point(165, 61)
+        Me.txtGenreID.Location = New System.Drawing.Point(442, 61)
         Me.txtGenreID.Name = "txtGenreID"
         Me.txtGenreID.Size = New System.Drawing.Size(62, 20)
         Me.txtGenreID.TabIndex = 31
@@ -361,7 +362,7 @@ Partial Class frmAddBooks
         '
         Me.txtShelfID.AutoSize = True
         Me.txtShelfID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtShelfID.Location = New System.Drawing.Point(233, 61)
+        Me.txtShelfID.Location = New System.Drawing.Point(510, 61)
         Me.txtShelfID.Name = "txtShelfID"
         Me.txtShelfID.Size = New System.Drawing.Size(62, 20)
         Me.txtShelfID.TabIndex = 34
@@ -408,12 +409,30 @@ Partial Class frmAddBooks
         Me.txtInitialCopies.UpDownButtonForeColor = System.Drawing.Color.White
         Me.txtInitialCopies.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'cbISBN
+        '
+        Me.cbISBN.AutoSize = True
+        Me.cbISBN.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cbISBN.CheckedState.BorderRadius = 0
+        Me.cbISBN.CheckedState.BorderThickness = 0
+        Me.cbISBN.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cbISBN.Location = New System.Drawing.Point(5, 58)
+        Me.cbISBN.Name = "cbISBN"
+        Me.cbISBN.Size = New System.Drawing.Size(81, 20)
+        Me.cbISBN.TabIndex = 40
+        Me.cbISBN.Text = "No ISBN"
+        Me.cbISBN.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.cbISBN.UncheckedState.BorderRadius = 0
+        Me.cbISBN.UncheckedState.BorderThickness = 0
+        Me.cbISBN.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        '
         'frmAddBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(744, 423)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cbISBN)
         Me.Controls.Add(Me.txtInitialCopies)
         Me.Controls.Add(Me.Guna2Button1)
         Me.Controls.Add(Me.Label9)
@@ -473,4 +492,5 @@ Partial Class frmAddBooks
     Friend WithEvents Label9 As Label
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtInitialCopies As Guna.UI2.WinForms.Guna2NumericUpDown
+    Friend WithEvents cbISBN As Guna.UI2.WinForms.Guna2CheckBox
 End Class

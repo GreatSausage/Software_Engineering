@@ -10,9 +10,9 @@
         If Integer.TryParse(txtYearPublished.Text, yearPublished) Then
             If yearPublished > DateTime.Now.Year Then
                 MessageBox.Show("Invalid Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ElseIf String.IsNullOrEmpty(txtISBN.Text) OrElse
-                String.IsNullOrEmpty(txtTitle.Text) OrElse
-                String.IsNullOrEmpty(txtYearPublished.Text) Then
+            ElseIf String.IsNullOrEmpty(txtISBN.Text) AndAlso Not cbISBN.Checked OrElse
+            String.IsNullOrEmpty(txtTitle.Text) OrElse
+            String.IsNullOrEmpty(txtYearPublished.Text) Then
                 MessageBox.Show("Please fill in the necessary details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
@@ -31,6 +31,7 @@
             End If
         End If
     End Sub
+
 
     Private Sub frmAddBooks_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim dtAuthors As DataTable = DisplayAlphabeticalData("tblAuthors", "authorName")
