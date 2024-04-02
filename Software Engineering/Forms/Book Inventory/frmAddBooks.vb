@@ -18,12 +18,16 @@
                 Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
                 Dim initialCopies As Integer = Convert.ToInt32(txtInitialCopies.Value)
 
-                For i As Integer = 1 To initialCopies
-                    Dim acn As String = AccessionGenerator()
-                    AddInitialCopies(acn, bookID)
-                Next
+                If initialCopies > 0 Then
+                    For i As Integer = 1 To initialCopies
+                        Dim acn As String = AccessionGenerator()
+                        AddInitialCopies(acn, bookID)
+                    Next
+                End If
                 MessageBox.Show("Book has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
+                Dim dtBooks As DataTable = DisplayBooks()
+                frmBookInventory.dgBooks.DataSource = dtBooks
             End If
         End If
     End Sub

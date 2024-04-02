@@ -401,7 +401,6 @@ Partial Class frmAddBooks
         Me.txtInitialCopies.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtInitialCopies.Location = New System.Drawing.Point(5, 321)
         Me.txtInitialCopies.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtInitialCopies.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.txtInitialCopies.Name = "txtInitialCopies"
         Me.txtInitialCopies.Size = New System.Drawing.Size(350, 44)
         Me.txtInitialCopies.TabIndex = 39
