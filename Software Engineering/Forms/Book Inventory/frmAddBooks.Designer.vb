@@ -23,7 +23,7 @@ Partial Class frmAddBooks
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddBooks))
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtLabel = New System.Windows.Forms.Label()
         Me.txtISBN = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtTitle = New Guna.UI2.WinForms.Guna2TextBox()
@@ -51,18 +51,18 @@ Partial Class frmAddBooks
         CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'txtLabel
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(0, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(744, 50)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "ADD BOOK"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.txtLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtLabel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.txtLabel.Location = New System.Drawing.Point(0, 0)
+        Me.txtLabel.Name = "txtLabel"
+        Me.txtLabel.Size = New System.Drawing.Size(744, 50)
+        Me.txtLabel.TabIndex = 3
+        Me.txtLabel.Text = "ADD BOOK"
+        Me.txtLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtISBN
         '
@@ -438,7 +438,7 @@ Partial Class frmAddBooks
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtISBN)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtLabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAddBooks"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -448,7 +448,7 @@ Partial Class frmAddBooks
 
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents txtLabel As Label
     Friend WithEvents txtISBN As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txtTitle As Guna.UI2.WinForms.Guna2TextBox

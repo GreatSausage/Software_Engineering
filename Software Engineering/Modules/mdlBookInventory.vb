@@ -35,15 +35,21 @@ Module mdlBookInventory
 
     Public Function DisplayBooks() As DataTable
         Using connection As SqlConnection = ConnectionOpen(connString)
-            Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+            Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished, 
                                                 a.authorName,
-                                                p.publisherName 
+                                                p.publisherName, 
+                                                g.genreName, g.genreID,  
+                                                s.shelfNo, s.shelfID 
                                              FROM tblBooks b 
                                              INNER JOIN tblAuthors a ON b.authorID = a.authorID
                                              INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
+                                             INNER JOIN tblGenres g ON b.genreID = g.genreID 
+                                             INNER JOIN tblBookshelves s ON b.shelfID = s.shelfID
                                              GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
                                                       a.authorName,
-                                                      p.publisherName", connection)
+                                                      p.publisherName, 
+                                                      g.genreName, g.genreID,  
+                                                      s.shelfNo, s.shelfID", connection)
                 Using adapter As New SqlDataAdapter(command)
                     Dim dt As New DataTable
                     adapter.Fill(dt)

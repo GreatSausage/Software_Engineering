@@ -106,16 +106,16 @@
     <Compile Include="Forms\Book Inventory\frmAddCopies.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Book Inventory\frmBookInfo.Designer.vb">
+      <DependentUpon>frmBookInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Book Inventory\frmBookInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Book Inventory\frmBookInventory.Designer.vb">
       <DependentUpon>frmBookInventory.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Book Inventory\frmBookInventory.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Book Inventory\frmCopiesInfo.Designer.vb">
-      <DependentUpon>frmCopiesInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Book Inventory\frmCopiesInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Book Inventory\frmDistinctInfo.Designer.vb">
@@ -302,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Book Inventory\frmAddCopies.resx">
       <DependentUpon>frmAddCopies.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Book Inventory\frmBookInfo.resx">
+      <DependentUpon>frmBookInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Book Inventory\frmBookInventory.resx">
       <DependentUpon>frmBookInventory.vb</DependentUpon>

@@ -9,6 +9,11 @@
             If frmAddBooksInstance IsNot Nothing Then
                 frmAddBooksInstance.SetSelectedAuthor(authorID, authorName)
             End If
+
+            Dim frmBookInfoInstance As frmBookInfo = DirectCast(Application.OpenForms("frmBookInfo"), frmBookInfo)
+            If frmBookInfoInstance IsNot Nothing Then
+                frmBookInfoInstance.SetSelectedBookAuthor(authorID, authorName)
+            End If
             Me.Close()
         End If
     End Sub
