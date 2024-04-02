@@ -12,13 +12,15 @@
     End Sub
 
     Public Sub SetSelectedBooks(bookID As Integer, isbn As String, title As String, author As String, publisher As String, yearPublished As String, genre As String, shelfNo As Integer, shelfID As Integer, genreID As Integer)
+        Dim selectedValue As Integer = Convert.ToInt32(txtGenreID.Text)
+
         txtBookID.Text = bookID
         txtISBN.Text = isbn
         txtTitle.Text = title
         txtAuthor.Text = author
         txtPublisher.Text = publisher
         txtYearPublished.Text = yearPublished
-        txtGenre.Text = genre
+        txtGenre.SelectedValue = selectedValue
         txtShelfNo.Text = shelfNo
         txtGenreID.Text = genreID
         txtShelfID.Text = shelfID
@@ -44,5 +46,9 @@
 
     Private Sub txtGenre_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtGenre.SelectedValueChanged
         txtGenreID.Text = txtGenre.SelectedValue.ToString
+    End Sub
+
+    Private Sub btnFindGenres_Click(sender As Object, e As EventArgs) Handles btnFindGenres.Click
+        frmFindGenres.Show()
     End Sub
 End Class

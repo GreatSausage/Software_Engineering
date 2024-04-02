@@ -49,6 +49,7 @@ Partial Class frmBookInfo
         Me.txtAuthor = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtPublisher = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtBookID = New System.Windows.Forms.Label()
+        Me.btnFindGenres = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -154,7 +155,7 @@ Partial Class frmBookInfo
         Me.txtGenre.ItemHeight = 30
         Me.txtGenre.Location = New System.Drawing.Point(389, 248)
         Me.txtGenre.Name = "txtGenre"
-        Me.txtGenre.Size = New System.Drawing.Size(348, 36)
+        Me.txtGenre.Size = New System.Drawing.Size(290, 36)
         Me.txtGenre.TabIndex = 57
         '
         'Label7
@@ -432,12 +433,31 @@ Partial Class frmBookInfo
         Me.txtBookID.TabIndex = 61
         Me.txtBookID.Text = "bookID"
         '
+        'btnFindGenres
+        '
+        Me.btnFindGenres.BackgroundImage = CType(resources.GetObject("btnFindGenres.BackgroundImage"), System.Drawing.Image)
+        Me.btnFindGenres.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnFindGenres.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnFindGenres.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnFindGenres.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnFindGenres.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnFindGenres.FillColor = System.Drawing.Color.Transparent
+        Me.btnFindGenres.FocusedColor = System.Drawing.Color.Transparent
+        Me.btnFindGenres.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnFindGenres.ForeColor = System.Drawing.Color.White
+        Me.btnFindGenres.HoverState.FillColor = System.Drawing.Color.Transparent
+        Me.btnFindGenres.Location = New System.Drawing.Point(685, 249)
+        Me.btnFindGenres.Name = "btnFindGenres"
+        Me.btnFindGenres.Size = New System.Drawing.Size(54, 44)
+        Me.btnFindGenres.TabIndex = 66
+        '
         'frmBookInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(744, 423)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnFindGenres)
         Me.Controls.Add(Me.txtPublisher)
         Me.Controls.Add(Me.txtAuthor)
         Me.Controls.Add(Me.txtInitialCopies)
@@ -499,4 +519,5 @@ Partial Class frmBookInfo
     Friend WithEvents txtAuthor As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtPublisher As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtBookID As Label
+    Friend WithEvents btnFindGenres As Guna.UI2.WinForms.Guna2Button
 End Class

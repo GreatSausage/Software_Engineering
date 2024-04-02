@@ -11,11 +11,6 @@
     End Sub
 
     Private Sub frmAddCopies_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim dtSuppliers As DataTable = DisplaySuppliers()
-        txtSupplier.DataSource = dtSuppliers
-        txtSupplier.DisplayMember = "supplierName"
-        txtSupplier.ValueMember = "supplierID"
-
         rbDonated.Checked = True
     End Sub
 
@@ -70,5 +65,23 @@
 
     Private Sub txtSupplier_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtSupplier.SelectedValueChanged
         txtSupplierID.Text = txtSupplier.SelectedValue.ToString
+    End Sub
+
+    Private Sub rbDonated_CheckedChanged(sender As Object, e As EventArgs) Handles rbDonated.CheckedChanged
+        If rbDonated.Checked Then
+            Dim dtDonator As DataTable = DisplayDonator()
+            txtSupplier.DataSource = dtDonator
+            txtSupplier.DisplayMember = "supplierName"
+            txtSupplier.ValueMember = "supplierID"
+        End If
+    End Sub
+
+    Private Sub rbPurchased_CheckedChanged(sender As Object, e As EventArgs) Handles rbPurchased.CheckedChanged
+        If rbPurchased.Checked Then
+            Dim dtSuppliers As DataTable = DisplaySuppliers()
+            txtSupplier.DataSource = dtSuppliers
+            txtSupplier.DisplayMember = "supplierName"
+            txtSupplier.ValueMember = "supplierID"
+        End If
     End Sub
 End Class

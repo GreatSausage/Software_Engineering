@@ -122,7 +122,7 @@ Module mdlMaintenance
     End Sub
 
     'ADD SUPPLIERS
-    Public Sub AddSuppliers(supplierName As String, contactNumber As String, address As String)
+    Public Sub AddSuppliers(supplierName As String, contactNumber As String, address As String, type As String)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedsupplierName As String = textInfo.ToTitleCase(supplierName.ToLower())
@@ -154,15 +154,16 @@ Module mdlMaintenance
                 Return
             End If
 
-            Using command As New SqlCommand("INSERT INTO tblSuppliers (supplierName, contactNumber, address) 
-                                             VALUES (@supplierName, @contactNumber, @address)", connection)
+            Using command As New SqlCommand("INSERT INTO tblSuppliers (supplierName, contactNumber, address, type) 
+                                             VALUES (@supplierName, @contactNumber, @address, @type)", connection)
                 With command.Parameters
                     .AddWithValue("@supplierName", capitalizedsupplierName)
                     .AddWithValue("@contactNumber", contactNumber)
                     .AddWithValue("@address", capitalizedAddress)
+                    .AddWithValue("@type", type)
                 End With
                 command.ExecuteNonQuery()
-                MessageBox.Show("Supplier added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show($"{type} added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 Dim dtSupplier As DataTable = DisplayData("tblSuppliers")
                 frmMainte.dgSuppliers.DataSource = dtSupplier

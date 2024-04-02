@@ -34,6 +34,8 @@ Partial Class frmAddSuppliers
         Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
         Me.txtSupplierID = New System.Windows.Forms.Label()
+        Me.rbSupplier = New System.Windows.Forms.RadioButton()
+        Me.rbDonator = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'lblSupplier
@@ -46,7 +48,7 @@ Partial Class frmAddSuppliers
         Me.lblSupplier.Name = "lblSupplier"
         Me.lblSupplier.Size = New System.Drawing.Size(749, 50)
         Me.lblSupplier.TabIndex = 1
-        Me.lblSupplier.Text = "ADD SUPPLIER"
+        Me.lblSupplier.Text = "ADD SUPPLIER  / DONATOR"
         Me.lblSupplier.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnClose
@@ -93,9 +95,9 @@ Partial Class frmAddSuppliers
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(1, 81)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(111, 20)
+        Me.Label2.Size = New System.Drawing.Size(52, 20)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Supplier Name:"
+        Me.Label2.Text = "Name:"
         '
         'txtContact
         '
@@ -213,12 +215,36 @@ Partial Class frmAddSuppliers
         '
         Me.txtSupplierID.AutoSize = True
         Me.txtSupplierID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupplierID.Location = New System.Drawing.Point(1, 56)
+        Me.txtSupplierID.Location = New System.Drawing.Point(660, 50)
         Me.txtSupplierID.Name = "txtSupplierID"
         Me.txtSupplierID.Size = New System.Drawing.Size(77, 20)
         Me.txtSupplierID.TabIndex = 27
         Me.txtSupplierID.Text = "supplierID"
         Me.txtSupplierID.Visible = False
+        '
+        'rbSupplier
+        '
+        Me.rbSupplier.AutoSize = True
+        Me.rbSupplier.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbSupplier.Location = New System.Drawing.Point(115, 53)
+        Me.rbSupplier.Name = "rbSupplier"
+        Me.rbSupplier.Size = New System.Drawing.Size(85, 24)
+        Me.rbSupplier.TabIndex = 29
+        Me.rbSupplier.TabStop = True
+        Me.rbSupplier.Text = "Supplier"
+        Me.rbSupplier.UseVisualStyleBackColor = True
+        '
+        'rbDonator
+        '
+        Me.rbDonator.AutoSize = True
+        Me.rbDonator.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbDonator.Location = New System.Drawing.Point(5, 53)
+        Me.rbDonator.Name = "rbDonator"
+        Me.rbDonator.Size = New System.Drawing.Size(85, 24)
+        Me.rbDonator.TabIndex = 28
+        Me.rbDonator.TabStop = True
+        Me.rbDonator.Text = "Donator"
+        Me.rbDonator.UseVisualStyleBackColor = True
         '
         'frmAddSuppliers
         '
@@ -226,6 +252,8 @@ Partial Class frmAddSuppliers
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(749, 228)
         Me.ControlBox = False
+        Me.Controls.Add(Me.rbSupplier)
+        Me.Controls.Add(Me.rbDonator)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtSupplierID)
         Me.Controls.Add(Me.btnUpdate)
@@ -258,4 +286,6 @@ Partial Class frmAddSuppliers
     Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtSupplierID As Label
+    Friend WithEvents rbSupplier As RadioButton
+    Friend WithEvents rbDonator As RadioButton
 End Class

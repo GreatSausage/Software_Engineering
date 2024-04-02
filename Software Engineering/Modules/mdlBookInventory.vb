@@ -185,9 +185,22 @@ Module mdlBookInventory
         End Using
         Return Nothing
     End Function
-    Public Function DisplaySuppliers()
+
+    Public Function DisplaySuppliers() As DataTable
         Using connection As SqlConnection = ConnectionOpen(connString)
-            Using command As New SqlCommand("SELECT supplierName, supplierID FROM tblSuppliers", connection)
+            Using command As New SqlCommand("SELECT supplierName, supplierID FROM tblSuppliers WHERE type = 'Supplier'", connection)
+                Using adapter As New SqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Function DisplayDonator() As DataTable
+        Using connection As SqlConnection = ConnectionOpen(connString)
+            Using command As New SqlCommand("SELECT supplierName, supplierID FROM tblSuppliers WHERE type = 'Donator'", connection)
                 Using adapter As New SqlDataAdapter(command)
                     Dim dt As New DataTable
                     adapter.Fill(dt)

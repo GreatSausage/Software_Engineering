@@ -67,10 +67,6 @@ Partial Class frmMainte
         Me.Guna2TabControl2 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.tabSupplier = New System.Windows.Forms.TabPage()
         Me.dgSuppliers = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.supplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.supplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.contactNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.address = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnAddSupplier = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel13 = New System.Windows.Forms.Panel()
@@ -116,26 +112,11 @@ Partial Class frmMainte
         Me.borrowerType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel18 = New System.Windows.Forms.Panel()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Panel22 = New System.Windows.Forms.Panel()
+        Me.btnAddFaculty = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel19 = New System.Windows.Forms.Panel()
         Me.tabBorrowerMainte = New System.Windows.Forms.TabPage()
         Me.dgBorrowers = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.tabGradeMainte = New System.Windows.Forms.TabPage()
-        Me.dgGrade = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.btnAddGrade = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.tabSectionMainte = New System.Windows.Forms.TabPage()
-        Me.dgSection = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel17 = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnAddBorrower = New Guna.UI2.WinForms.Guna2Button()
-        Me.Panel22 = New System.Windows.Forms.Panel()
-        Me.btnAddFaculty = New Guna.UI2.WinForms.Guna2Button()
         Me.borrowerID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.studentID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.firstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -143,11 +124,31 @@ Partial Class frmMainte
         Me.gradeLevel = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnAddBorrower = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tabGradeMainte = New System.Windows.Forms.TabPage()
+        Me.dgGrade = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.gradeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grade = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.btnAddGrade = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel16 = New System.Windows.Forms.Panel()
+        Me.tabSectionMainte = New System.Windows.Forms.TabPage()
+        Me.dgSection = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.sectionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sectionMainte = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel15 = New System.Windows.Forms.Panel()
+        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Panel17 = New System.Windows.Forms.Panel()
+        Me.supplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.supplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.contactNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.address = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2TabControl1.SuspendLayout()
         Me.tabUsers.SuspendLayout()
         CType(Me.dgUsers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -432,7 +433,7 @@ Partial Class frmMainte
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgSuppliers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dgSuppliers.ColumnHeadersHeight = 40
-        Me.dgSuppliers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.supplierID, Me.supplierName, Me.contactNumber, Me.address})
+        Me.dgSuppliers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.supplierID, Me.supplierName, Me.contactNumber, Me.address, Me.type})
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -472,38 +473,6 @@ Partial Class frmMainte
         Me.dgSuppliers.ThemeStyle.RowsStyle.Height = 24
         Me.dgSuppliers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgSuppliers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'supplierID
-        '
-        Me.supplierID.DataPropertyName = "supplierID"
-        Me.supplierID.HeaderText = "Supplier ID"
-        Me.supplierID.MinimumWidth = 6
-        Me.supplierID.Name = "supplierID"
-        Me.supplierID.ReadOnly = True
-        '
-        'supplierName
-        '
-        Me.supplierName.DataPropertyName = "supplierName"
-        Me.supplierName.HeaderText = "Supplier"
-        Me.supplierName.MinimumWidth = 6
-        Me.supplierName.Name = "supplierName"
-        Me.supplierName.ReadOnly = True
-        '
-        'contactNumber
-        '
-        Me.contactNumber.DataPropertyName = "contactNumber"
-        Me.contactNumber.HeaderText = "Contact Number"
-        Me.contactNumber.MinimumWidth = 6
-        Me.contactNumber.Name = "contactNumber"
-        Me.contactNumber.ReadOnly = True
-        '
-        'address
-        '
-        Me.address.DataPropertyName = "address"
-        Me.address.HeaderText = "Address"
-        Me.address.MinimumWidth = 6
-        Me.address.Name = "address"
-        Me.address.ReadOnly = True
         '
         'Panel4
         '
@@ -1227,6 +1196,30 @@ Partial Class frmMainte
         Me.Guna2TextBox1.Size = New System.Drawing.Size(285, 45)
         Me.Guna2TextBox1.TabIndex = 11
         '
+        'Panel22
+        '
+        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel22.Location = New System.Drawing.Point(1336, 0)
+        Me.Panel22.Name = "Panel22"
+        Me.Panel22.Size = New System.Drawing.Size(5, 45)
+        Me.Panel22.TabIndex = 10
+        '
+        'btnAddFaculty
+        '
+        Me.btnAddFaculty.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddFaculty.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddFaculty.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddFaculty.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddFaculty.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnAddFaculty.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnAddFaculty.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnAddFaculty.ForeColor = System.Drawing.Color.White
+        Me.btnAddFaculty.Location = New System.Drawing.Point(1341, 0)
+        Me.btnAddFaculty.Name = "btnAddFaculty"
+        Me.btnAddFaculty.Size = New System.Drawing.Size(235, 45)
+        Me.btnAddFaculty.TabIndex = 7
+        Me.btnAddFaculty.Text = "ADD FACULTY"
+        '
         'Panel19
         '
         Me.Panel19.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -1306,6 +1299,59 @@ Partial Class frmMainte
         Me.dgBorrowers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgBorrowers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'borrowerID
+        '
+        Me.borrowerID.DataPropertyName = "borrowerID"
+        Me.borrowerID.HeaderText = "BorrowerID"
+        Me.borrowerID.MinimumWidth = 6
+        Me.borrowerID.Name = "borrowerID"
+        Me.borrowerID.Visible = False
+        '
+        'studentID
+        '
+        Me.studentID.DataPropertyName = "studentID"
+        Me.studentID.HeaderText = "Student ID"
+        Me.studentID.MinimumWidth = 6
+        Me.studentID.Name = "studentID"
+        '
+        'firstName
+        '
+        Me.firstName.DataPropertyName = "firstName"
+        Me.firstName.HeaderText = "Firstname"
+        Me.firstName.MinimumWidth = 6
+        Me.firstName.Name = "firstName"
+        '
+        'lastName
+        '
+        Me.lastName.DataPropertyName = "lastName"
+        Me.lastName.HeaderText = "Lastname"
+        Me.lastName.MinimumWidth = 6
+        Me.lastName.Name = "lastName"
+        '
+        'gradeLevel
+        '
+        Me.gradeLevel.DataPropertyName = "grade"
+        Me.gradeLevel.HeaderText = "Grade"
+        Me.gradeLevel.MinimumWidth = 6
+        Me.gradeLevel.Name = "gradeLevel"
+        Me.gradeLevel.Visible = False
+        '
+        'section
+        '
+        Me.section.DataPropertyName = "section"
+        Me.section.HeaderText = "Section"
+        Me.section.MinimumWidth = 6
+        Me.section.Name = "section"
+        Me.section.Visible = False
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "guardianContact"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Guardian's Contact"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.txtSearch)
@@ -1339,6 +1385,30 @@ Partial Class frmMainte
         Me.txtSearch.SelectedText = ""
         Me.txtSearch.Size = New System.Drawing.Size(285, 45)
         Me.txtSearch.TabIndex = 9
+        '
+        'Panel1
+        '
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(1330, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(5, 45)
+        Me.Panel1.TabIndex = 8
+        '
+        'btnAddBorrower
+        '
+        Me.btnAddBorrower.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddBorrower.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddBorrower.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddBorrower.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddBorrower.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnAddBorrower.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnAddBorrower.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnAddBorrower.ForeColor = System.Drawing.Color.White
+        Me.btnAddBorrower.Location = New System.Drawing.Point(1335, 0)
+        Me.btnAddBorrower.Name = "btnAddBorrower"
+        Me.btnAddBorrower.Size = New System.Drawing.Size(235, 45)
+        Me.btnAddBorrower.TabIndex = 7
+        Me.btnAddBorrower.Text = "ADD BORROWER"
         '
         'Panel2
         '
@@ -1418,6 +1488,21 @@ Partial Class frmMainte
         Me.dgGrade.ThemeStyle.RowsStyle.Height = 24
         Me.dgGrade.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgGrade.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'gradeID
+        '
+        Me.gradeID.DataPropertyName = "gradeID"
+        Me.gradeID.HeaderText = "Grade ID"
+        Me.gradeID.MinimumWidth = 6
+        Me.gradeID.Name = "gradeID"
+        Me.gradeID.Visible = False
+        '
+        'grade
+        '
+        Me.grade.DataPropertyName = "grade"
+        Me.grade.HeaderText = "Grade"
+        Me.grade.MinimumWidth = 6
+        Me.grade.Name = "grade"
         '
         'Panel14
         '
@@ -1523,6 +1608,28 @@ Partial Class frmMainte
         Me.dgSection.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgSection.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'sectionID
+        '
+        Me.sectionID.DataPropertyName = "sectionID"
+        Me.sectionID.HeaderText = "Section ID"
+        Me.sectionID.MinimumWidth = 6
+        Me.sectionID.Name = "sectionID"
+        Me.sectionID.Visible = False
+        '
+        'sectionMainte
+        '
+        Me.sectionMainte.DataPropertyName = "section"
+        Me.sectionMainte.HeaderText = "Section"
+        Me.sectionMainte.MinimumWidth = 6
+        Me.sectionMainte.Name = "sectionMainte"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "grade"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Grade"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
         'Panel15
         '
         Me.Panel15.Controls.Add(Me.Guna2Button2)
@@ -1557,143 +1664,45 @@ Partial Class frmMainte
         Me.Panel17.Size = New System.Drawing.Size(1576, 5)
         Me.Panel17.TabIndex = 2
         '
-        'Panel1
+        'supplierID
         '
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(1330, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(5, 45)
-        Me.Panel1.TabIndex = 8
+        Me.supplierID.DataPropertyName = "supplierID"
+        Me.supplierID.HeaderText = "Supplier ID"
+        Me.supplierID.MinimumWidth = 6
+        Me.supplierID.Name = "supplierID"
+        Me.supplierID.ReadOnly = True
         '
-        'btnAddBorrower
+        'supplierName
         '
-        Me.btnAddBorrower.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddBorrower.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddBorrower.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAddBorrower.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAddBorrower.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnAddBorrower.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnAddBorrower.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnAddBorrower.ForeColor = System.Drawing.Color.White
-        Me.btnAddBorrower.Location = New System.Drawing.Point(1335, 0)
-        Me.btnAddBorrower.Name = "btnAddBorrower"
-        Me.btnAddBorrower.Size = New System.Drawing.Size(235, 45)
-        Me.btnAddBorrower.TabIndex = 7
-        Me.btnAddBorrower.Text = "ADD BORROWER"
+        Me.supplierName.DataPropertyName = "supplierName"
+        Me.supplierName.HeaderText = "Supplier"
+        Me.supplierName.MinimumWidth = 6
+        Me.supplierName.Name = "supplierName"
+        Me.supplierName.ReadOnly = True
         '
-        'Panel22
+        'contactNumber
         '
-        Me.Panel22.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel22.Location = New System.Drawing.Point(1336, 0)
-        Me.Panel22.Name = "Panel22"
-        Me.Panel22.Size = New System.Drawing.Size(5, 45)
-        Me.Panel22.TabIndex = 10
+        Me.contactNumber.DataPropertyName = "contactNumber"
+        Me.contactNumber.HeaderText = "Contact Number"
+        Me.contactNumber.MinimumWidth = 6
+        Me.contactNumber.Name = "contactNumber"
+        Me.contactNumber.ReadOnly = True
         '
-        'btnAddFaculty
+        'address
         '
-        Me.btnAddFaculty.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddFaculty.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAddFaculty.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAddFaculty.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAddFaculty.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnAddFaculty.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnAddFaculty.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnAddFaculty.ForeColor = System.Drawing.Color.White
-        Me.btnAddFaculty.Location = New System.Drawing.Point(1341, 0)
-        Me.btnAddFaculty.Name = "btnAddFaculty"
-        Me.btnAddFaculty.Size = New System.Drawing.Size(235, 45)
-        Me.btnAddFaculty.TabIndex = 7
-        Me.btnAddFaculty.Text = "ADD FACULTY"
+        Me.address.DataPropertyName = "address"
+        Me.address.HeaderText = "Address"
+        Me.address.MinimumWidth = 6
+        Me.address.Name = "address"
+        Me.address.ReadOnly = True
         '
-        'borrowerID
+        'type
         '
-        Me.borrowerID.DataPropertyName = "borrowerID"
-        Me.borrowerID.HeaderText = "BorrowerID"
-        Me.borrowerID.MinimumWidth = 6
-        Me.borrowerID.Name = "borrowerID"
-        Me.borrowerID.Visible = False
-        '
-        'studentID
-        '
-        Me.studentID.DataPropertyName = "studentID"
-        Me.studentID.HeaderText = "Student ID"
-        Me.studentID.MinimumWidth = 6
-        Me.studentID.Name = "studentID"
-        '
-        'firstName
-        '
-        Me.firstName.DataPropertyName = "firstName"
-        Me.firstName.HeaderText = "Firstname"
-        Me.firstName.MinimumWidth = 6
-        Me.firstName.Name = "firstName"
-        '
-        'lastName
-        '
-        Me.lastName.DataPropertyName = "lastName"
-        Me.lastName.HeaderText = "Lastname"
-        Me.lastName.MinimumWidth = 6
-        Me.lastName.Name = "lastName"
-        '
-        'gradeLevel
-        '
-        Me.gradeLevel.DataPropertyName = "grade"
-        Me.gradeLevel.HeaderText = "Grade"
-        Me.gradeLevel.MinimumWidth = 6
-        Me.gradeLevel.Name = "gradeLevel"
-        Me.gradeLevel.Visible = False
-        '
-        'section
-        '
-        Me.section.DataPropertyName = "section"
-        Me.section.HeaderText = "Section"
-        Me.section.MinimumWidth = 6
-        Me.section.Name = "section"
-        Me.section.Visible = False
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "guardianContact"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Guardian's Contact"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Visible = False
-        '
-        'gradeID
-        '
-        Me.gradeID.DataPropertyName = "gradeID"
-        Me.gradeID.HeaderText = "Grade ID"
-        Me.gradeID.MinimumWidth = 6
-        Me.gradeID.Name = "gradeID"
-        Me.gradeID.Visible = False
-        '
-        'grade
-        '
-        Me.grade.DataPropertyName = "grade"
-        Me.grade.HeaderText = "Grade"
-        Me.grade.MinimumWidth = 6
-        Me.grade.Name = "grade"
-        '
-        'sectionID
-        '
-        Me.sectionID.DataPropertyName = "sectionID"
-        Me.sectionID.HeaderText = "Section ID"
-        Me.sectionID.MinimumWidth = 6
-        Me.sectionID.Name = "sectionID"
-        Me.sectionID.Visible = False
-        '
-        'sectionMainte
-        '
-        Me.sectionMainte.DataPropertyName = "section"
-        Me.sectionMainte.HeaderText = "Section"
-        Me.sectionMainte.MinimumWidth = 6
-        Me.sectionMainte.Name = "sectionMainte"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "grade"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Grade"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.type.DataPropertyName = "type"
+        Me.type.HeaderText = ""
+        Me.type.MinimumWidth = 6
+        Me.type.Name = "type"
+        Me.type.ReadOnly = True
         '
         'frmMainte
         '
@@ -1761,10 +1770,6 @@ Partial Class frmMainte
     Friend WithEvents btnAddSupplier As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel13 As Panel
     Friend WithEvents dgSuppliers As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents supplierID As DataGridViewTextBoxColumn
-    Friend WithEvents supplierName As DataGridViewTextBoxColumn
-    Friend WithEvents contactNumber As DataGridViewTextBoxColumn
-    Friend WithEvents address As DataGridViewTextBoxColumn
     Friend WithEvents Panel5 As Panel
     Friend WithEvents btnAuthors As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel6 As Panel
@@ -1840,4 +1845,9 @@ Partial Class frmMainte
     Friend WithEvents sectionID As DataGridViewTextBoxColumn
     Friend WithEvents sectionMainte As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents supplierID As DataGridViewTextBoxColumn
+    Friend WithEvents supplierName As DataGridViewTextBoxColumn
+    Friend WithEvents contactNumber As DataGridViewTextBoxColumn
+    Friend WithEvents address As DataGridViewTextBoxColumn
+    Friend WithEvents type As DataGridViewTextBoxColumn
 End Class
