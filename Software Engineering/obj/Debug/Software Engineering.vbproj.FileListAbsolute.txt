@@ -39,3 +39,4 @@ C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Deb
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmBookInfo.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmFindGenres.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmBrowsing.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmMonitoring.resources

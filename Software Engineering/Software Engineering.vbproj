@@ -268,6 +268,12 @@
     <Compile Include="Forms\Others\frmBrowsing.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Others\frmMonitoring.Designer.vb">
+      <DependentUpon>frmMonitoring.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Others\frmMonitoring.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Others\frmDashboard.Designer.vb">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </Compile>
@@ -380,6 +386,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Others\frmBrowsing.resx">
       <DependentUpon>frmBrowsing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Others\frmDashboard.resx">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Others\frmMonitoring.resx">
+      <DependentUpon>frmMonitoring.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Others\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
