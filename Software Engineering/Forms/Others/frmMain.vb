@@ -1,5 +1,5 @@
 ﻿Public Class frmMain
-    Private Sub frmMain_Invalidated(sender As Object, e As InvalidateEventArgs) Handles Me.Invalidated
+    Private Sub frmMain_Resized(sender As Object, e As EventArgs) Handles Me.Resize
         Dim x As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim y As Integer = Screen.PrimaryScreen.Bounds.Height
         Me.Width = x

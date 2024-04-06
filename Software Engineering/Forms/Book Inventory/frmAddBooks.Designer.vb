@@ -49,6 +49,7 @@ Partial Class frmAddBooks
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.txtInitialCopies = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.cbISBN = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -426,12 +427,22 @@ Partial Class frmAddBooks
         Me.cbISBN.UncheckedState.BorderThickness = 0
         Me.cbISBN.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
+        'Guna2HtmlLabel1
+        '
+        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(118, 63)
+        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(110, 18)
+        Me.Guna2HtmlLabel1.TabIndex = 41
+        Me.Guna2HtmlLabel1.Text = "Guna2HtmlLabel1"
+        '
         'frmAddBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(744, 423)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Controls.Add(Me.cbISBN)
         Me.Controls.Add(Me.txtInitialCopies)
         Me.Controls.Add(Me.Guna2Button1)
@@ -493,4 +504,5 @@ Partial Class frmAddBooks
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents txtInitialCopies As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents cbISBN As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

@@ -1,4 +1,5 @@
 ﻿Public Class frmAddBooks
+    Public someVariables As String
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         Me.Close()
     End Sub

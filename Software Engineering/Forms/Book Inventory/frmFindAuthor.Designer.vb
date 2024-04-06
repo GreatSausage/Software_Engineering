@@ -22,9 +22,9 @@ Partial Class frmFindAuthor
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
@@ -35,6 +35,8 @@ Partial Class frmFindAuthor
         Me.authorID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.authorName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
+        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.Guna2CheckBox2 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Panel1.SuspendLayout()
         CType(Me.dgAuthor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -54,6 +56,8 @@ Partial Class frmFindAuthor
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Guna2CheckBox2)
+        Me.Panel1.Controls.Add(Me.Guna2CheckBox1)
         Me.Panel1.Controls.Add(Me.txtSearch)
         Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Panel3)
@@ -119,27 +123,27 @@ Partial Class frmFindAuthor
         Me.dgAuthor.AllowUserToDeleteRows = False
         Me.dgAuthor.AllowUserToResizeColumns = False
         Me.dgAuthor.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.dgAuthor.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        Me.dgAuthor.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.dgAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgAuthor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgAuthor.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.dgAuthor.ColumnHeadersHeight = 40
         Me.dgAuthor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.authorID, Me.authorName})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgAuthor.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgAuthor.DefaultCellStyle = DataGridViewCellStyle9
         Me.dgAuthor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgAuthor.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgAuthor.Location = New System.Drawing.Point(0, 103)
@@ -203,6 +207,40 @@ Partial Class frmFindAuthor
         Me.btnClose.Text = "[close]"
         Me.btnClose.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         '
+        'Guna2CheckBox1
+        '
+        Me.Guna2CheckBox1.AutoSize = True
+        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(100, 22)
+        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Me.Guna2CheckBox1.Size = New System.Drawing.Size(136, 20)
+        Me.Guna2CheckBox1.TabIndex = 4
+        Me.Guna2CheckBox1.Text = "Guna2CheckBox1"
+        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        '
+        'Guna2CheckBox2
+        '
+        Me.Guna2CheckBox2.AutoSize = True
+        Me.Guna2CheckBox2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2CheckBox2.CheckedState.BorderRadius = 0
+        Me.Guna2CheckBox2.CheckedState.BorderThickness = 0
+        Me.Guna2CheckBox2.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2CheckBox2.Location = New System.Drawing.Point(256, 22)
+        Me.Guna2CheckBox2.Name = "Guna2CheckBox2"
+        Me.Guna2CheckBox2.Size = New System.Drawing.Size(136, 20)
+        Me.Guna2CheckBox2.TabIndex = 5
+        Me.Guna2CheckBox2.Text = "Guna2CheckBox2"
+        Me.Guna2CheckBox2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.Guna2CheckBox2.UncheckedState.BorderRadius = 0
+        Me.Guna2CheckBox2.UncheckedState.BorderThickness = 0
+        Me.Guna2CheckBox2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        '
         'frmFindAuthor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -217,6 +255,7 @@ Partial Class frmFindAuthor
         Me.Name = "frmFindAuthor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.dgAuthor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -233,4 +272,6 @@ Partial Class frmFindAuthor
     Friend WithEvents authorID As DataGridViewTextBoxColumn
     Friend WithEvents authorName As DataGridViewTextBoxColumn
     Friend WithEvents btnClose As LinkLabel
+    Friend WithEvents Guna2CheckBox2 As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
 End Class

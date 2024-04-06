@@ -30,4 +30,14 @@
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         SearchAuthors(dgAuthor, txtSearch.Text)
     End Sub
+
+    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
+        frmAddBooks.someVariables &= Guna2CheckBox1.Text
+        frmAddBooks.Guna2HtmlLabel1.Text = frmAddBooks.someVariables
+    End Sub
+
+    Private Sub Guna2CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox2.CheckedChanged
+        frmAddBooks.someVariables &= Guna2CheckBox2.Text
+        frmAddBooks.Guna2HtmlLabel1.Text = frmAddBooks.someVariables
+    End Sub
 End Class

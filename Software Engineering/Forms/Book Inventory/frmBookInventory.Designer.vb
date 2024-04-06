@@ -31,6 +31,16 @@ Partial Class frmBookInventory
         Me.Guna2TabControl1 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.tabBookMaintenance = New System.Windows.Forms.TabPage()
         Me.dgBooks = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.distinctBookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctPublisher = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.yearPublished = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.genreName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.shelfNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.genreID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.shelfID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnAddBook = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -46,16 +56,6 @@ Partial Class frmBookInventory
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.distinctBookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.distinctISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.distinctTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.distinctAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.distinctPublisher = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.yearPublished = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.genreName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.shelfNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.genreID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.shelfID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2TabControl1.SuspendLayout()
         Me.tabBookMaintenance.SuspendLayout()
         CType(Me.dgBooks, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,6 +138,7 @@ Partial Class frmBookInventory
         Me.dgBooks.Location = New System.Drawing.Point(0, 50)
         Me.dgBooks.MultiSelect = False
         Me.dgBooks.Name = "dgBooks"
+        Me.dgBooks.ReadOnly = True
         Me.dgBooks.RowHeadersVisible = False
         Me.dgBooks.RowHeadersWidth = 51
         Me.dgBooks.RowTemplate.Height = 24
@@ -156,7 +157,7 @@ Partial Class frmBookInventory
         Me.dgBooks.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.dgBooks.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgBooks.ThemeStyle.HeaderStyle.Height = 40
-        Me.dgBooks.ThemeStyle.ReadOnly = False
+        Me.dgBooks.ThemeStyle.ReadOnly = True
         Me.dgBooks.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
         Me.dgBooks.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgBooks.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -164,6 +165,93 @@ Partial Class frmBookInventory
         Me.dgBooks.ThemeStyle.RowsStyle.Height = 24
         Me.dgBooks.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgBooks.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'distinctBookID
+        '
+        Me.distinctBookID.DataPropertyName = "bookID"
+        Me.distinctBookID.HeaderText = "Book ID"
+        Me.distinctBookID.MinimumWidth = 6
+        Me.distinctBookID.Name = "distinctBookID"
+        Me.distinctBookID.ReadOnly = True
+        Me.distinctBookID.Visible = False
+        '
+        'distinctISBN
+        '
+        Me.distinctISBN.DataPropertyName = "isbn"
+        Me.distinctISBN.HeaderText = "ISBN"
+        Me.distinctISBN.MinimumWidth = 6
+        Me.distinctISBN.Name = "distinctISBN"
+        Me.distinctISBN.ReadOnly = True
+        '
+        'distinctTitle
+        '
+        Me.distinctTitle.DataPropertyName = "bookTitle"
+        Me.distinctTitle.HeaderText = "Title"
+        Me.distinctTitle.MinimumWidth = 6
+        Me.distinctTitle.Name = "distinctTitle"
+        Me.distinctTitle.ReadOnly = True
+        '
+        'distinctAuthor
+        '
+        Me.distinctAuthor.DataPropertyName = "authorName"
+        Me.distinctAuthor.HeaderText = "Authors"
+        Me.distinctAuthor.MinimumWidth = 6
+        Me.distinctAuthor.Name = "distinctAuthor"
+        Me.distinctAuthor.ReadOnly = True
+        '
+        'distinctPublisher
+        '
+        Me.distinctPublisher.DataPropertyName = "publisherName"
+        Me.distinctPublisher.HeaderText = "Publisher"
+        Me.distinctPublisher.MinimumWidth = 6
+        Me.distinctPublisher.Name = "distinctPublisher"
+        Me.distinctPublisher.ReadOnly = True
+        Me.distinctPublisher.Visible = False
+        '
+        'yearPublished
+        '
+        Me.yearPublished.DataPropertyName = "yearPublished"
+        Me.yearPublished.HeaderText = "Year Published"
+        Me.yearPublished.MinimumWidth = 6
+        Me.yearPublished.Name = "yearPublished"
+        Me.yearPublished.ReadOnly = True
+        Me.yearPublished.Visible = False
+        '
+        'genreName
+        '
+        Me.genreName.DataPropertyName = "genreName"
+        Me.genreName.HeaderText = "Genre"
+        Me.genreName.MinimumWidth = 6
+        Me.genreName.Name = "genreName"
+        Me.genreName.ReadOnly = True
+        Me.genreName.Visible = False
+        '
+        'shelfNo
+        '
+        Me.shelfNo.DataPropertyName = "shelfNo"
+        Me.shelfNo.HeaderText = "Shelf No."
+        Me.shelfNo.MinimumWidth = 6
+        Me.shelfNo.Name = "shelfNo"
+        Me.shelfNo.ReadOnly = True
+        Me.shelfNo.Visible = False
+        '
+        'genreID
+        '
+        Me.genreID.DataPropertyName = "genreID"
+        Me.genreID.HeaderText = "genreID"
+        Me.genreID.MinimumWidth = 6
+        Me.genreID.Name = "genreID"
+        Me.genreID.ReadOnly = True
+        Me.genreID.Visible = False
+        '
+        'shelfID
+        '
+        Me.shelfID.DataPropertyName = "shelfID"
+        Me.shelfID.HeaderText = "shelfID"
+        Me.shelfID.MinimumWidth = 6
+        Me.shelfID.Name = "shelfID"
+        Me.shelfID.ReadOnly = True
+        Me.shelfID.Visible = False
         '
         'Panel1
         '
@@ -276,6 +364,7 @@ Partial Class frmBookInventory
         Me.bookID.MinimumWidth = 6
         Me.bookID.Name = "bookID"
         Me.bookID.ReadOnly = True
+        Me.bookID.Visible = False
         '
         'bookTitle
         '
@@ -292,11 +381,12 @@ Partial Class frmBookInventory
         Me.ISBN.MinimumWidth = 6
         Me.ISBN.Name = "ISBN"
         Me.ISBN.ReadOnly = True
+        Me.ISBN.Visible = False
         '
         'authorName
         '
         Me.authorName.DataPropertyName = "authorName"
-        Me.authorName.HeaderText = "Author Name"
+        Me.authorName.HeaderText = "Authors"
         Me.authorName.MinimumWidth = 6
         Me.authorName.Name = "authorName"
         Me.authorName.ReadOnly = True
@@ -359,84 +449,6 @@ Partial Class frmBookInventory
         Me.Panel4.Size = New System.Drawing.Size(1590, 5)
         Me.Panel4.TabIndex = 0
         '
-        'distinctBookID
-        '
-        Me.distinctBookID.DataPropertyName = "bookID"
-        Me.distinctBookID.HeaderText = "Book ID"
-        Me.distinctBookID.MinimumWidth = 6
-        Me.distinctBookID.Name = "distinctBookID"
-        Me.distinctBookID.ReadOnly = True
-        Me.distinctBookID.Visible = False
-        '
-        'distinctISBN
-        '
-        Me.distinctISBN.DataPropertyName = "isbn"
-        Me.distinctISBN.HeaderText = "ISBN"
-        Me.distinctISBN.MinimumWidth = 6
-        Me.distinctISBN.Name = "distinctISBN"
-        Me.distinctISBN.ReadOnly = True
-        '
-        'distinctTitle
-        '
-        Me.distinctTitle.DataPropertyName = "bookTitle"
-        Me.distinctTitle.HeaderText = "Title"
-        Me.distinctTitle.MinimumWidth = 6
-        Me.distinctTitle.Name = "distinctTitle"
-        Me.distinctTitle.ReadOnly = True
-        '
-        'distinctAuthor
-        '
-        Me.distinctAuthor.DataPropertyName = "authorName"
-        Me.distinctAuthor.HeaderText = "Author"
-        Me.distinctAuthor.MinimumWidth = 6
-        Me.distinctAuthor.Name = "distinctAuthor"
-        '
-        'distinctPublisher
-        '
-        Me.distinctPublisher.DataPropertyName = "publisherName"
-        Me.distinctPublisher.HeaderText = "Publisher"
-        Me.distinctPublisher.MinimumWidth = 6
-        Me.distinctPublisher.Name = "distinctPublisher"
-        '
-        'yearPublished
-        '
-        Me.yearPublished.DataPropertyName = "yearPublished"
-        Me.yearPublished.HeaderText = "Year Published"
-        Me.yearPublished.MinimumWidth = 6
-        Me.yearPublished.Name = "yearPublished"
-        '
-        'genreName
-        '
-        Me.genreName.DataPropertyName = "genreName"
-        Me.genreName.HeaderText = "Genre"
-        Me.genreName.MinimumWidth = 6
-        Me.genreName.Name = "genreName"
-        Me.genreName.ReadOnly = True
-        '
-        'shelfNo
-        '
-        Me.shelfNo.DataPropertyName = "shelfNo"
-        Me.shelfNo.HeaderText = "Shelf No."
-        Me.shelfNo.MinimumWidth = 6
-        Me.shelfNo.Name = "shelfNo"
-        Me.shelfNo.ReadOnly = True
-        '
-        'genreID
-        '
-        Me.genreID.DataPropertyName = "genreID"
-        Me.genreID.HeaderText = "genreID"
-        Me.genreID.MinimumWidth = 6
-        Me.genreID.Name = "genreID"
-        Me.genreID.ReadOnly = True
-        '
-        'shelfID
-        '
-        Me.shelfID.DataPropertyName = "shelfID"
-        Me.shelfID.HeaderText = "shelfID"
-        Me.shelfID.MinimumWidth = 6
-        Me.shelfID.Name = "shelfID"
-        Me.shelfID.ReadOnly = True
-        '
         'frmBookInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -469,13 +481,6 @@ Partial Class frmBookInventory
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel4 As Panel
     Friend WithEvents tabBookInventory As TabPage
-    Friend WithEvents bookID As DataGridViewTextBoxColumn
-    Friend WithEvents bookTitle As DataGridViewTextBoxColumn
-    Friend WithEvents ISBN As DataGridViewTextBoxColumn
-    Friend WithEvents authorName As DataGridViewTextBoxColumn
-    Friend WithEvents totalCopies As DataGridViewTextBoxColumn
-    Friend WithEvents availableCopies As DataGridViewTextBoxColumn
-    Friend WithEvents borrowedCopies As DataGridViewTextBoxColumn
     Friend WithEvents distinctBookID As DataGridViewTextBoxColumn
     Friend WithEvents distinctISBN As DataGridViewTextBoxColumn
     Friend WithEvents distinctTitle As DataGridViewTextBoxColumn
@@ -486,4 +491,11 @@ Partial Class frmBookInventory
     Friend WithEvents shelfNo As DataGridViewTextBoxColumn
     Friend WithEvents genreID As DataGridViewTextBoxColumn
     Friend WithEvents shelfID As DataGridViewTextBoxColumn
+    Friend WithEvents bookID As DataGridViewTextBoxColumn
+    Friend WithEvents bookTitle As DataGridViewTextBoxColumn
+    Friend WithEvents ISBN As DataGridViewTextBoxColumn
+    Friend WithEvents authorName As DataGridViewTextBoxColumn
+    Friend WithEvents totalCopies As DataGridViewTextBoxColumn
+    Friend WithEvents availableCopies As DataGridViewTextBoxColumn
+    Friend WithEvents borrowedCopies As DataGridViewTextBoxColumn
 End Class
