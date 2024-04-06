@@ -384,6 +384,9 @@
     <EmbeddedResource Include="Forms\Maintenance\frmMainte.resx">
       <DependentUpon>frmMainte.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Others\frmAuditTrail.resx">
+      <DependentUpon>frmAuditTrail.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Others\frmBrowsing.resx">
       <DependentUpon>frmBrowsing.vb</DependentUpon>
     </EmbeddedResource>
