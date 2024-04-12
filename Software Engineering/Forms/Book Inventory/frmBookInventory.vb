@@ -8,11 +8,11 @@
     End Sub
 
     Private Sub frmBookInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim booksDt As DataTable = DisplayBooks()
-        dgBooks.DataSource = booksDt
+        'Dim booksDt As DataTable = DisplayBooks()
+        'dgBooks.DataSource = booksDt
 
-        Dim copiesDt As DataTable = DisplayCopies()
-        dgCopies.DataSource = copiesDt
+        'Dim copiesDt As DataTable = DisplayCopies()
+        'dgCopies.DataSource = copiesDt
     End Sub
 
     Private Sub dgBooks_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgBooks.CellContentClick

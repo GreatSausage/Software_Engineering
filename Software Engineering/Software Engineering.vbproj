@@ -66,6 +66,10 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.3.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 8.3.0\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -206,6 +210,12 @@
       <DependentUpon>frmAddSection.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Borrowers\frmAddSection.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Maintenance\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Maintenance\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Maintenance\frmAddAuthors.Designer.vb">
@@ -362,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Borrowers\frmAddSection.resx">
       <DependentUpon>frmAddSection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Maintenance\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Maintenance\frmAddAuthors.resx">
       <DependentUpon>frmAddAuthors.vb</DependentUpon>

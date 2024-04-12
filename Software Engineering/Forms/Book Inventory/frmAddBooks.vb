@@ -9,51 +9,53 @@
         Dim yearPublished As Integer
 
         If Integer.TryParse(txtYearPublished.Text, yearPublished) Then
+
             If yearPublished > DateTime.Now.Year Then
                 MessageBox.Show("Invalid Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
             ElseIf String.IsNullOrEmpty(txtISBN.Text) AndAlso Not cbISBN.Checked OrElse
             String.IsNullOrEmpty(txtTitle.Text) OrElse
             String.IsNullOrEmpty(txtYearPublished.Text) Then
                 MessageBox.Show("Please fill in the necessary details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
-                Dim initialCopies As Integer = Convert.ToInt32(txtInitialCopies.Value)
 
-                If initialCopies > 0 Then
-                    For i As Integer = 1 To initialCopies
-                        Dim acn As String = AccessionGenerator()
-                        AddInitialCopies(acn, bookID)
-                    Next
-                End If
+                'Else
+                '    Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
+                '    Dim initialCopies As Integer = Convert.ToInt32(txtInitialCopies.Value)
+
+                '    If initialCopies > 0 Then
+                '        For i As Integer = 1 To initialCopies
+                '            Dim acn As String = AccessionGenerator()
+                '            AddInitialCopies(acn, bookID)
+                '        Next
+                '    End If
+
                 MessageBox.Show("Book has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
-                Dim dtBooks As DataTable = DisplayBooks()
-                frmBookInventory.dgBooks.DataSource = dtBooks
             End If
         End If
     End Sub
 
 
     Private Sub frmAddBooks_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim dtAuthors As DataTable = DisplayAlphabeticalData("tblAuthors", "authorName")
-        txtAuthor.DataSource = dtAuthors
-        txtAuthor.DisplayMember = "authorName"
-        txtAuthor.ValueMember = "authorID"
+        'Dim dtAuthors As DataTable = DisplayAlphabeticalData("tblAuthors", "authorName")
+        'txtAuthor.DataSource = dtAuthors
+        'txtAuthor.DisplayMember = "authorName"
+        'txtAuthor.ValueMember = "authorID"
 
-        Dim dtPublisher As DataTable = DisplayAlphabeticalData("tblPublishers", "publisherName")
-        txtPublisher.DataSource = dtPublisher
-        txtPublisher.DisplayMember = "publisherName"
-        txtPublisher.ValueMember = "publisherID"
+        'Dim dtPublisher As DataTable = DisplayAlphabeticalData("tblPublishers", "publisherName")
+        'txtPublisher.DataSource = dtPublisher
+        'txtPublisher.DisplayMember = "publisherName"
+        'txtPublisher.ValueMember = "publisherID"
 
-        Dim dtGenre As DataTable = DisplayAlphabeticalData("tblGenres", "genreName")
-        txtGenre.DataSource = dtGenre
-        txtGenre.DisplayMember = "genreName"
-        txtGenre.ValueMember = "genreID"
+        'Dim dtGenre As DataTable = DisplayAlphabeticalData("tblGenres", "genreName")
+        'txtGenre.DataSource = dtGenre
+        'txtGenre.DisplayMember = "genreName"
+        'txtGenre.ValueMember = "genreID"
 
-        Dim dtShelf As DataTable = DisplayShelves()
-        txtShelfNo.DataSource = dtShelf
-        txtShelfNo.DisplayMember = "shelfNo"
-        txtShelfNo.ValueMember = "shelfID"
+        'Dim dtShelf As DataTable = DisplayShelves()
+        'txtShelfNo.DataSource = dtShelf
+        'txtShelfNo.DisplayMember = "shelfNo"
+        'txtShelfNo.ValueMember = "shelfID"
     End Sub
 
     Private Sub btnFindAuthor_Click(sender As Object, e As EventArgs) Handles btnFindAuthor.Click

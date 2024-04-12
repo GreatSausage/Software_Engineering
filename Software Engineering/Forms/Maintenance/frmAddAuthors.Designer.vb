@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddAuthors
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddAuthors
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblAuthors = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
@@ -29,7 +29,6 @@ Partial Class frmAddAuthors
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
         Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtAuthorID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblAuthors
@@ -138,16 +137,6 @@ Partial Class frmAddAuthors
         Me.btnUpdate.TabIndex = 24
         Me.btnUpdate.Text = "SAVE"
         '
-        'txtAuthorID
-        '
-        Me.txtAuthorID.AutoSize = True
-        Me.txtAuthorID.Location = New System.Drawing.Point(2, 54)
-        Me.txtAuthorID.Name = "txtAuthorID"
-        Me.txtAuthorID.Size = New System.Drawing.Size(57, 16)
-        Me.txtAuthorID.TabIndex = 25
-        Me.txtAuthorID.Text = "authorID"
-        Me.txtAuthorID.Visible = False
-        '
         'frmAddAuthors
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -155,7 +144,6 @@ Partial Class frmAddAuthors
         Me.ClientSize = New System.Drawing.Size(359, 205)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.txtAuthorID)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtAuthors)
@@ -177,5 +165,4 @@ Partial Class frmAddAuthors
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtAuthorID As Label
 End Class

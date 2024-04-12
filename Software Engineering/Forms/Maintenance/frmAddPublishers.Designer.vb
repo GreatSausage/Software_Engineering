@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddPublishers
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddPublishers
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblPublishers = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
@@ -29,7 +29,6 @@ Partial Class frmAddPublishers
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtPublisherID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblPublishers
@@ -138,17 +137,6 @@ Partial Class frmAddPublishers
         Me.btnDelete.TabIndex = 25
         Me.btnDelete.Text = "DELETE"
         '
-        'txtPublisherID
-        '
-        Me.txtPublisherID.AutoSize = True
-        Me.txtPublisherID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPublisherID.Location = New System.Drawing.Point(1, 56)
-        Me.txtPublisherID.Name = "txtPublisherID"
-        Me.txtPublisherID.Size = New System.Drawing.Size(85, 20)
-        Me.txtPublisherID.TabIndex = 27
-        Me.txtPublisherID.Text = "publisherID"
-        Me.txtPublisherID.Visible = False
-        '
         'frmAddPublishers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -156,7 +144,6 @@ Partial Class frmAddPublishers
         Me.ClientSize = New System.Drawing.Size(359, 206)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.txtPublisherID)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtPublishers)
@@ -178,5 +165,4 @@ Partial Class frmAddPublishers
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtPublisherID As Label
 End Class

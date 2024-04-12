@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddShelf
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddShelf
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblShelf = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
@@ -33,7 +33,6 @@ Partial Class frmAddShelf
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtShelfID = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblShelf
@@ -208,16 +207,6 @@ Partial Class frmAddShelf
         Me.btnDelete.TabIndex = 25
         Me.btnDelete.Text = "DELETE"
         '
-        'txtShelfID
-        '
-        Me.txtShelfID.AutoSize = True
-        Me.txtShelfID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtShelfID.Location = New System.Drawing.Point(1, 57)
-        Me.txtShelfID.Name = "txtShelfID"
-        Me.txtShelfID.Size = New System.Drawing.Size(55, 20)
-        Me.txtShelfID.TabIndex = 27
-        Me.txtShelfID.Text = "shelfID"
-        '
         'frmAddShelf
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -225,7 +214,6 @@ Partial Class frmAddShelf
         Me.ClientSize = New System.Drawing.Size(748, 226)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.txtShelfID)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtLocation)
@@ -255,5 +243,4 @@ Partial Class frmAddShelf
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtShelfID As Label
 End Class

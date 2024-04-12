@@ -2,13 +2,13 @@
 
 Public Class frmFindSuppliers
     Private Sub frmFindSuppliers_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If frmAddCopies.rbDonated.Checked Then
-            Dim dtDonator As DataTable = DisplayDonator()
-            dgSupplier.DataSource = dtDonator
-        ElseIf frmAddCopies.rbPurchased.Checked Then
-            Dim dtSuppliers As DataTable = DisplaySuppliers()
-            dgSupplier.DataSource = dtSuppliers
-        End If
+        'If frmAddCopies.rbDonated.Checked Then
+        '    Dim dtDonator As DataTable = DisplayDonator()
+        '    dgSupplier.DataSource = dtDonator
+        'ElseIf frmAddCopies.rbPurchased.Checked Then
+        '    Dim dtSuppliers As DataTable = DisplaySuppliers()
+        '    dgSupplier.DataSource = dtSuppliers
+        'End If
     End Sub
 
     Private Sub dgSupplier_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgSupplier.CellContentClick
@@ -30,6 +30,6 @@ Public Class frmFindSuppliers
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        SearchSuppliers(dgSupplier, txtSearch.Text)
+        'SearchSuppliers(dgSupplier, txtSearch.Text)
     End Sub
 End Class

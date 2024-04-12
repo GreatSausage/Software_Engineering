@@ -1,32 +1,13 @@
 ﻿Public Class frmMainte
+
     Private Sub frmMainte_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim userDt As DataTable = DisplayUsers()
-        dgUsers.DataSource = userDt
-
-        Dim suppliersDt As DataTable = DisplayData("tblSuppliers")
-        dgSuppliers.DataSource = suppliersDt
-
-        Dim authorsDt As DataTable = DisplayData("tblAuthors")
-        dgAuthors.DataSource = authorsDt
-
-        Dim publishersDt As DataTable = DisplayData("tblPublishers")
-        dgPublishers.DataSource = publishersDt
-
-        Dim genresDt As DataTable = DisplayData("tblGenres")
-        dgGenres.DataSource = genresDt
-
-        Dim shelvesDt As DataTable = DisplayData("tblBookshelves")
-        dgBookshelves.DataSource = shelvesDt
-
-        Dim borrowersDt As DataTable = DisplayBorrowers()
-        dgBorrowers.DataSource = borrowersDt
-
-        FacultyDatatable()
-
-        GradeDatatable()
-
-        SectionDatatable()
+        AuthorDatatable()
+        GenreDatatable()
+        PublisherDatatable()
+        ShelfDatatable()
+        SupplierDatatable()
     End Sub
+
 
     Private Sub btnAddSupplier_Click(sender As Object, e As EventArgs) Handles btnAddSupplier.Click
         frmAddSuppliers.Show()
@@ -48,7 +29,7 @@
         End If
     End Sub
 
-    Private Sub btnAuthors_Click(sender As Object, e As EventArgs) Handles btnAuthors.Click
+    Private Sub btnAddAuthors_Click(sender As Object, e As EventArgs) Handles btnAddAuthors.Click
         frmAddAuthors.Show()
     End Sub
 
@@ -93,10 +74,9 @@
             Dim row As DataGridViewRow = dgGenres.Rows(e.RowIndex)
             Dim genreName As String = row.Cells("genreName").Value.ToString
             Dim genreID As Integer = Convert.ToInt32(row.Cells("genreID").Value)
-            Dim description As String = row.Cells("description").Value.ToString
 
             Dim frmGenreInstance As New frmAddGenre()
-            frmGenreInstance.SetSelectedGenreMaintenance(genreID, genreName, description)
+            frmGenreInstance.SetSelectedGenreMaintenance(genreID, genreName)
             frmGenreInstance.Show()
             frmGenreInstance.btnSave.Visible = False
             frmGenreInstance.lblGenre.Text = "GENRE INFORMATION"
@@ -124,25 +104,25 @@
         End If
     End Sub
 
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        SearchBorrowers(dgBorrowers, txtSearch.Text)
-    End Sub
+    'Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+    '    SearchBorrowers(dgBorrowers, txtSearch.Text)
+    'End Sub
 
-    Private Sub btnAddGrade_Click(sender As Object, e As EventArgs) Handles btnAddGrade.Click
-        frmAddGrade.Show()
-    End Sub
+    'Private Sub btnAddGrade_Click(sender As Object, e As EventArgs) Handles btnAddGrade.Click
+    '    frmAddGrade.Show()
+    'End Sub
 
-    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        frmAddSection.Show()
-    End Sub
+    'Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+    '    frmAddSection.Show()
+    'End Sub
 
-    Private Sub btnAddBorrower_Click(sender As Object, e As EventArgs) Handles btnAddBorrower.Click
-        frmAddBorrowers.Show()
-    End Sub
+    'Private Sub btnAddBorrower_Click(sender As Object, e As EventArgs) Handles btnAddBorrower.Click
+    '    frmAddBorrowers.Show()
+    'End Sub
 
-    Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
-        frmAddFaculty.Show()
-    End Sub
+    'Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
+    '    frmAddFaculty.Show()
+    'End Sub
 
     Private Sub btnUsers_Click(sender As Object, e As EventArgs) Handles btnUsers.Click
         frmAddUsers.Show()

@@ -4,10 +4,10 @@
     End Sub
 
     Private Sub frmBookInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim genresDt As DataTable = DisplayAlphabeticalData("tblGenres", "genreName")
-        txtGenre.DataSource = genresDt
-        txtGenre.ValueMember = "genreID"
-        txtGenre.DisplayMember = "genreName"
+        'Dim genresDt As DataTable = DisplayAlphabeticalData("tblGenres", "genreName")
+        'txtGenre.DataSource = genresDt
+        'txtGenre.ValueMember = "genreID"
+        'txtGenre.DisplayMember = "genreName"
 
     End Sub
 

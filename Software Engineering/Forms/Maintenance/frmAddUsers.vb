@@ -1,5 +1,6 @@
 ﻿
 Public Class frmAddUsers
+
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
         Me.Close()
     End Sub
@@ -19,8 +20,6 @@ Public Class frmAddUsers
             MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             AddUser(txtFirstname.Text, txtLastname.Text, txtPhoneNumber.Text, txtUsername.Text, txtPassword.Text, txtAnswer.Text, txtQuestions.Text, roleID, roleName)
-            Dim dtUsers As DataTable = DisplayUsers()
-            frmMainte.dgUsers.DataSource = dtUsers
         End If
     End Sub
 
@@ -62,6 +61,4 @@ Public Class frmAddUsers
             e.Handled = True
         End If
     End Sub
-
-
 End Class

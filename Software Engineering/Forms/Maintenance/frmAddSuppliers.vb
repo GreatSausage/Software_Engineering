@@ -1,11 +1,11 @@
 ﻿Public Class frmAddSuppliers
+
+    Dim getSupplierID As Integer = Nothing
+
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
         Me.Close()
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblSupplier.Click
-
-    End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim type As String = ""
@@ -48,27 +48,35 @@
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim type As String = ""
+        If rbDonator.Checked Then
+            type = "Donator"
+        ElseIf rbSupplier.Checked Then
+            type = "Supplier"
+        End If
+
         If String.IsNullOrEmpty(txtSupplierName.Text) OrElse
            String.IsNullOrEmpty(txtContact.Text) OrElse
            String.IsNullOrEmpty(txtAddress.Text) Then
             MessageBox.Show("Please fill in the necessary fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            UpdateSuppliers(txtsupplierID.text, txtSupplierName.Text, txtContact.Text, txtAddress.Text)
+            UpdateSuppliers(getSupplierID, txtSupplierName.Text, txtContact.Text, txtAddress.Text, type)
+            getSupplierID = Nothing
             Me.Close()
         End If
     End Sub
 
     Public Sub SetSelectedSuppliersMaintenance(authorID As Integer, authorName As String, contactNo As String, address As String)
         txtSupplierName.Text = authorName
-        txtSupplierID.Text = authorID
+        getSupplierID = authorID
         txtContact.Text = contactNo
         txtAddress.Text = address
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        DeleteSuppliers(txtSupplierID.Text)
-        Me.Close()
-    End Sub
+    'Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+    '    DeleteSuppliers(txtSupplierID.Text)
+    '    Me.Close()
+    'End Sub
 
     Private Sub frmAddSuppliers_Load(sender As Object, e As EventArgs) Handles Me.Load
         rbDonator.Checked = True

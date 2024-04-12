@@ -67,6 +67,11 @@ Partial Class frmMainte
         Me.Guna2TabControl2 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.tabSupplier = New System.Windows.Forms.TabPage()
         Me.dgSuppliers = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.supplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.supplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.contactNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.address = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnAddSupplier = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel13 = New System.Windows.Forms.Panel()
@@ -75,7 +80,7 @@ Partial Class frmMainte
         Me.authorID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.authorName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.btnAuthors = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnAddAuthors = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.tabPublishers = New System.Windows.Forms.TabPage()
         Me.dgPublishers = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -88,7 +93,6 @@ Partial Class frmMainte
         Me.dgGenres = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.genreID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.genreName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.description = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.btnAddGenres = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel10 = New System.Windows.Forms.Panel()
@@ -144,11 +148,7 @@ Partial Class frmMainte
         Me.Panel15 = New System.Windows.Forms.Panel()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel17 = New System.Windows.Forms.Panel()
-        Me.supplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.supplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.contactNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.address = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Guna2TabControl1.SuspendLayout()
         Me.tabUsers.SuspendLayout()
         CType(Me.dgUsers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,6 +191,7 @@ Partial Class frmMainte
         Me.Guna2TabControl1.Controls.Add(Me.tabUsers)
         Me.Guna2TabControl1.Controls.Add(Me.tabBook)
         Me.Guna2TabControl1.Controls.Add(Me.tabBorrower)
+        Me.Guna2TabControl1.Controls.Add(Me.TabPage1)
         Me.Guna2TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2TabControl1.ItemSize = New System.Drawing.Size(180, 40)
         Me.Guna2TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -260,6 +261,7 @@ Partial Class frmMainte
         Me.dgUsers.Location = New System.Drawing.Point(0, 50)
         Me.dgUsers.MultiSelect = False
         Me.dgUsers.Name = "dgUsers"
+        Me.dgUsers.ReadOnly = True
         Me.dgUsers.RowHeadersVisible = False
         Me.dgUsers.RowHeadersWidth = 51
         Me.dgUsers.RowTemplate.Height = 24
@@ -278,7 +280,7 @@ Partial Class frmMainte
         Me.dgUsers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.dgUsers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgUsers.ThemeStyle.HeaderStyle.Height = 40
-        Me.dgUsers.ThemeStyle.ReadOnly = False
+        Me.dgUsers.ThemeStyle.ReadOnly = True
         Me.dgUsers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
         Me.dgUsers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgUsers.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -293,6 +295,7 @@ Partial Class frmMainte
         Me.DataGridViewTextBoxColumn10.HeaderText = "User ID"
         Me.DataGridViewTextBoxColumn10.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
         Me.DataGridViewTextBoxColumn10.Visible = False
         '
         'DataGridViewTextBoxColumn12
@@ -301,6 +304,7 @@ Partial Class frmMainte
         Me.DataGridViewTextBoxColumn12.HeaderText = "Firstname"
         Me.DataGridViewTextBoxColumn12.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
         '
         'DataGridViewTextBoxColumn13
         '
@@ -308,6 +312,7 @@ Partial Class frmMainte
         Me.DataGridViewTextBoxColumn13.HeaderText = "Lastname"
         Me.DataGridViewTextBoxColumn13.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
         '
         'phoneNumber
         '
@@ -474,6 +479,46 @@ Partial Class frmMainte
         Me.dgSuppliers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgSuppliers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'supplierID
+        '
+        Me.supplierID.DataPropertyName = "supplierID"
+        Me.supplierID.HeaderText = "Supplier ID"
+        Me.supplierID.MinimumWidth = 6
+        Me.supplierID.Name = "supplierID"
+        Me.supplierID.ReadOnly = True
+        '
+        'supplierName
+        '
+        Me.supplierName.DataPropertyName = "supplierName"
+        Me.supplierName.HeaderText = "Supplier"
+        Me.supplierName.MinimumWidth = 6
+        Me.supplierName.Name = "supplierName"
+        Me.supplierName.ReadOnly = True
+        '
+        'contactNumber
+        '
+        Me.contactNumber.DataPropertyName = "contactNumber"
+        Me.contactNumber.HeaderText = "Contact Number"
+        Me.contactNumber.MinimumWidth = 6
+        Me.contactNumber.Name = "contactNumber"
+        Me.contactNumber.ReadOnly = True
+        '
+        'address
+        '
+        Me.address.DataPropertyName = "address"
+        Me.address.HeaderText = "Address"
+        Me.address.MinimumWidth = 6
+        Me.address.Name = "address"
+        Me.address.ReadOnly = True
+        '
+        'type
+        '
+        Me.type.DataPropertyName = "type"
+        Me.type.HeaderText = ""
+        Me.type.MinimumWidth = 6
+        Me.type.Name = "type"
+        Me.type.ReadOnly = True
+        '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.btnAddSupplier)
@@ -596,7 +641,7 @@ Partial Class frmMainte
         '
         'Panel5
         '
-        Me.Panel5.Controls.Add(Me.btnAuthors)
+        Me.Panel5.Controls.Add(Me.btnAddAuthors)
         Me.Panel5.Controls.Add(Me.Panel6)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
@@ -604,21 +649,21 @@ Partial Class frmMainte
         Me.Panel5.Size = New System.Drawing.Size(1576, 50)
         Me.Panel5.TabIndex = 4
         '
-        'btnAuthors
+        'btnAddAuthors
         '
-        Me.btnAuthors.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnAuthors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnAuthors.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnAuthors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnAuthors.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnAuthors.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnAuthors.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnAuthors.ForeColor = System.Drawing.Color.White
-        Me.btnAuthors.Location = New System.Drawing.Point(1341, 0)
-        Me.btnAuthors.Name = "btnAuthors"
-        Me.btnAuthors.Size = New System.Drawing.Size(235, 45)
-        Me.btnAuthors.TabIndex = 1
-        Me.btnAuthors.Text = "ADD AUTHORS"
+        Me.btnAddAuthors.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddAuthors.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnAddAuthors.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnAddAuthors.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnAddAuthors.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnAddAuthors.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnAddAuthors.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnAddAuthors.ForeColor = System.Drawing.Color.White
+        Me.btnAddAuthors.Location = New System.Drawing.Point(1341, 0)
+        Me.btnAddAuthors.Name = "btnAddAuthors"
+        Me.btnAddAuthors.Size = New System.Drawing.Size(235, 45)
+        Me.btnAddAuthors.TabIndex = 1
+        Me.btnAddAuthors.Text = "ADD AUTHORS"
         '
         'Panel6
         '
@@ -777,7 +822,7 @@ Partial Class frmMainte
         DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgGenres.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgGenres.ColumnHeadersHeight = 40
-        Me.dgGenres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.genreID, Me.genreName, Me.description})
+        Me.dgGenres.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.genreID, Me.genreName})
         DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -833,14 +878,6 @@ Partial Class frmMainte
         Me.genreName.MinimumWidth = 6
         Me.genreName.Name = "genreName"
         Me.genreName.ReadOnly = True
-        '
-        'description
-        '
-        Me.description.DataPropertyName = "description"
-        Me.description.HeaderText = "Description"
-        Me.description.MinimumWidth = 6
-        Me.description.Name = "description"
-        Me.description.ReadOnly = True
         '
         'Panel9
         '
@@ -1664,45 +1701,15 @@ Partial Class frmMainte
         Me.Panel17.Size = New System.Drawing.Size(1576, 5)
         Me.Panel17.TabIndex = 2
         '
-        'supplierID
+        'TabPage1
         '
-        Me.supplierID.DataPropertyName = "supplierID"
-        Me.supplierID.HeaderText = "Supplier ID"
-        Me.supplierID.MinimumWidth = 6
-        Me.supplierID.Name = "supplierID"
-        Me.supplierID.ReadOnly = True
-        '
-        'supplierName
-        '
-        Me.supplierName.DataPropertyName = "supplierName"
-        Me.supplierName.HeaderText = "Supplier"
-        Me.supplierName.MinimumWidth = 6
-        Me.supplierName.Name = "supplierName"
-        Me.supplierName.ReadOnly = True
-        '
-        'contactNumber
-        '
-        Me.contactNumber.DataPropertyName = "contactNumber"
-        Me.contactNumber.HeaderText = "Contact Number"
-        Me.contactNumber.MinimumWidth = 6
-        Me.contactNumber.Name = "contactNumber"
-        Me.contactNumber.ReadOnly = True
-        '
-        'address
-        '
-        Me.address.DataPropertyName = "address"
-        Me.address.HeaderText = "Address"
-        Me.address.MinimumWidth = 6
-        Me.address.Name = "address"
-        Me.address.ReadOnly = True
-        '
-        'type
-        '
-        Me.type.DataPropertyName = "type"
-        Me.type.HeaderText = ""
-        Me.type.MinimumWidth = 6
-        Me.type.Name = "type"
-        Me.type.ReadOnly = True
+        Me.TabPage1.Location = New System.Drawing.Point(4, 44)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1590, 750)
+        Me.TabPage1.TabIndex = 3
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'frmMainte
         '
@@ -1771,7 +1778,7 @@ Partial Class frmMainte
     Friend WithEvents Panel13 As Panel
     Friend WithEvents dgSuppliers As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents btnAuthors As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnAddAuthors As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel6 As Panel
     Friend WithEvents dgAuthors As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents authorID As DataGridViewTextBoxColumn
@@ -1790,9 +1797,6 @@ Partial Class frmMainte
     Friend WithEvents btnAddBookshelf As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Panel12 As Panel
     Friend WithEvents dgBookshelves As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents genreID As DataGridViewTextBoxColumn
-    Friend WithEvents genreName As DataGridViewTextBoxColumn
-    Friend WithEvents description As DataGridViewTextBoxColumn
     Friend WithEvents shelfID As DataGridViewTextBoxColumn
     Friend WithEvents shelfNo As DataGridViewTextBoxColumn
     Friend WithEvents shelfDescription As DataGridViewTextBoxColumn
@@ -1850,4 +1854,7 @@ Partial Class frmMainte
     Friend WithEvents contactNumber As DataGridViewTextBoxColumn
     Friend WithEvents address As DataGridViewTextBoxColumn
     Friend WithEvents type As DataGridViewTextBoxColumn
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents genreID As DataGridViewTextBoxColumn
+    Friend WithEvents genreName As DataGridViewTextBoxColumn
 End Class

@@ -1,8 +1,9 @@
-﻿Imports System.Data.SqlClient
+﻿Imports MySql.Data.MySqlClient
+
 Module mdlOthers
 
     Public Function ConnectionOpen(connectionString As String)
-        Dim connection As New SqlConnection(connectionString)
+        Dim connection As New MySqlConnection(connectionString)
         connection.Open()
         Return connection
     End Function

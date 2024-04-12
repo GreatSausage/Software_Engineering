@@ -41,3 +41,11 @@ C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Deb
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmBrowsing.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmMonitoring.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmDashboard.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAuditTrail.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\MySql.Data.dll
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\System.Memory.dll
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\System.Buffers.dll
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\MySql.Data.xml
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.Form1.resources

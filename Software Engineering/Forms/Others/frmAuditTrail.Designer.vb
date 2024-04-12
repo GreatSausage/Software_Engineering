@@ -26,6 +26,9 @@ Partial Class frmAuditTrail
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.dgBooks = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.auditID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.activity = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,6 +46,30 @@ Partial Class frmAuditTrail
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "AUDIT TRAIL"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Panel1
+        '
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(0, 92)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(5, 706)
+        Me.Panel1.TabIndex = 1
+        '
+        'Panel2
+        '
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(1593, 92)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(5, 706)
+        Me.Panel2.TabIndex = 2
+        '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(5, 793)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1588, 5)
+        Me.Panel3.TabIndex = 3
         '
         'dgBooks
         '
@@ -73,15 +100,15 @@ Partial Class frmAuditTrail
         Me.dgBooks.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgBooks.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgBooks.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgBooks.Location = New System.Drawing.Point(0, 92)
+        Me.dgBooks.Location = New System.Drawing.Point(5, 92)
         Me.dgBooks.MultiSelect = False
         Me.dgBooks.Name = "dgBooks"
         Me.dgBooks.ReadOnly = True
         Me.dgBooks.RowHeadersVisible = False
         Me.dgBooks.RowHeadersWidth = 51
         Me.dgBooks.RowTemplate.Height = 24
-        Me.dgBooks.Size = New System.Drawing.Size(1598, 706)
-        Me.dgBooks.TabIndex = 4
+        Me.dgBooks.Size = New System.Drawing.Size(1588, 701)
+        Me.dgBooks.TabIndex = 6
         Me.dgBooks.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgBooks.ThemeStyle.AlternatingRowsStyle.Font = Nothing
         Me.dgBooks.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
@@ -132,6 +159,9 @@ Partial Class frmAuditTrail
         Me.ClientSize = New System.Drawing.Size(1598, 798)
         Me.ControlBox = False
         Me.Controls.Add(Me.dgBooks)
+        Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAuditTrail"
@@ -142,6 +172,9 @@ Partial Class frmAuditTrail
     End Sub
 
     Friend WithEvents Label1 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
     Friend WithEvents dgBooks As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents auditID As DataGridViewTextBoxColumn
     Friend WithEvents activity As DataGridViewTextBoxColumn

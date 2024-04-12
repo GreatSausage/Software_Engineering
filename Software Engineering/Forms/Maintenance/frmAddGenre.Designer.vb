@@ -27,9 +27,6 @@ Partial Class frmAddGenre
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtDescription = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtGenreID = New System.Windows.Forms.Label()
         Me.btnUpdate = New Guna.UI2.WinForms.Guna2Button()
         Me.btnDelete = New Guna.UI2.WinForms.Guna2Button()
         Me.SuspendLayout()
@@ -104,55 +101,11 @@ Partial Class frmAddGenre
         Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(5, 228)
+        Me.btnSave.Location = New System.Drawing.Point(5, 156)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(350, 44)
         Me.btnSave.TabIndex = 23
         Me.btnSave.Text = "SAVE"
-        '
-        'txtDescription
-        '
-        Me.txtDescription.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtDescription.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtDescription.DefaultText = ""
-        Me.txtDescription.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtDescription.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtDescription.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtDescription.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtDescription.Location = New System.Drawing.Point(5, 177)
-        Me.txtDescription.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtDescription.Name = "txtDescription"
-        Me.txtDescription.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtDescription.PlaceholderText = ""
-        Me.txtDescription.SelectedText = ""
-        Me.txtDescription.Size = New System.Drawing.Size(350, 44)
-        Me.txtDescription.TabIndex = 25
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(1, 153)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(88, 20)
-        Me.Label3.TabIndex = 24
-        Me.Label3.Text = "Description:"
-        '
-        'txtGenreID
-        '
-        Me.txtGenreID.AutoSize = True
-        Me.txtGenreID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGenreID.Location = New System.Drawing.Point(1, 56)
-        Me.txtGenreID.Name = "txtGenreID"
-        Me.txtGenreID.Size = New System.Drawing.Size(62, 20)
-        Me.txtGenreID.TabIndex = 26
-        Me.txtGenreID.Text = "genreID"
-        Me.txtGenreID.Visible = False
         '
         'btnUpdate
         '
@@ -163,7 +116,7 @@ Partial Class frmAddGenre
         Me.btnUpdate.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(188, 228)
+        Me.btnUpdate.Location = New System.Drawing.Point(188, 156)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(167, 44)
         Me.btnUpdate.TabIndex = 28
@@ -178,7 +131,7 @@ Partial Class frmAddGenre
         Me.btnDelete.FillColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(5, 228)
+        Me.btnDelete.Location = New System.Drawing.Point(5, 156)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(167, 44)
         Me.btnDelete.TabIndex = 27
@@ -188,14 +141,11 @@ Partial Class frmAddGenre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(360, 278)
+        Me.ClientSize = New System.Drawing.Size(360, 206)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.txtGenreID)
-        Me.Controls.Add(Me.txtDescription)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.txtGenre)
         Me.Controls.Add(Me.Label2)
@@ -213,9 +163,6 @@ Partial Class frmAddGenre
     Friend WithEvents Label2 As Label
     Friend WithEvents btnClose As LinkLabel
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtDescription As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents txtGenreID As Label
     Friend WithEvents btnUpdate As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnDelete As Guna.UI2.WinForms.Guna2Button
 End Class
