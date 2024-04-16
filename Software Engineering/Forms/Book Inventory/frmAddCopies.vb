@@ -84,4 +84,5 @@
         '    txtSupplier.ValueMember = "supplierID"
         'End If
     End Sub
+
 End Class

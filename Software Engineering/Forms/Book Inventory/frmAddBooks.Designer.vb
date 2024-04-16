@@ -49,7 +49,6 @@ Partial Class frmAddBooks
         Me.txtGenreID = New System.Windows.Forms.Label()
         Me.txtPublisherID = New System.Windows.Forms.Label()
         Me.txtAuthorID = New System.Windows.Forms.Label()
-        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -389,9 +388,9 @@ Partial Class frmAddBooks
         Me.txtShelfID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtShelfID.Location = New System.Drawing.Point(510, 61)
         Me.txtShelfID.Name = "txtShelfID"
-        Me.txtShelfID.Size = New System.Drawing.Size(62, 20)
+        Me.txtShelfID.Size = New System.Drawing.Size(55, 20)
         Me.txtShelfID.TabIndex = 34
-        Me.txtShelfID.Text = "genreID"
+        Me.txtShelfID.Text = "shelfID"
         Me.txtShelfID.Visible = False
         '
         'txtGenreID
@@ -427,22 +426,12 @@ Partial Class frmAddBooks
         Me.txtAuthorID.Text = "authorID"
         Me.txtAuthorID.Visible = False
         '
-        'Guna2HtmlLabel1
-        '
-        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(118, 63)
-        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(110, 18)
-        Me.Guna2HtmlLabel1.TabIndex = 41
-        Me.Guna2HtmlLabel1.Text = "Guna2HtmlLabel1"
-        '
         'frmAddBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(744, 423)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Controls.Add(Me.cbISBN)
         Me.Controls.Add(Me.txtInitialCopies)
         Me.Controls.Add(Me.Guna2Button1)
@@ -504,5 +493,4 @@ Partial Class frmAddBooks
     Friend WithEvents txtGenreID As Label
     Friend WithEvents txtPublisherID As Label
     Friend WithEvents txtAuthorID As Label
-    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

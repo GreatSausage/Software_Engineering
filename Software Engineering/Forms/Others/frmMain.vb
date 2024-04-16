@@ -27,4 +27,9 @@
     Private Sub Guna2Button4_Click(sender As Object, e As EventArgs) Handles Guna2Button4.Click
         DisplayFormPanel(frmAuditTrail, panelDisplay)
     End Sub
+
+    Private Sub Guna2Button5_Click(sender As Object, e As EventArgs) Handles Guna2Button5.Click
+        Me.Close()
+        Form1.Show()
+    End Sub
 End Class

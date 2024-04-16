@@ -1,104 +1,131 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
+Imports System.Globalization
 
 Module mdlBookInventory
 
-    Public connString As String = "server=localhost;database=dblms;uid=SMAPILMS;pwd=0529;"
-
-
 #Region "Book Inventory"
+    Public Function DisplayBooks() As DataTable
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished, 
+                                                      a.authorName,
+                                                      p.publisherName, 
+                                                      s.shelfNo, s.shelfID 
+                                               FROM tblBooks b 
+                                               INNER JOIN tblAuthors a ON b.authorID = a.authorID
+                                               INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
+                                               INNER JOIN tblBookshelves s ON b.shelfID = s.shelfID
+                                               LEFT JOIN tblCopies c ON b.bookID = c.bookID
+                                               GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+                                                        a.authorName,
+                                                        p.publisherName, 
+                                                        s.shelfNo, s.shelfID 
+                                               HAVING COUNT(c.copyID) > 0", connection)
+                Using adapter As New MySqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
 
-#End Region
-    '#Region "Book Inventory"
+    Public Function DisplayCopies() As DataTable
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT b.bookID, b.bookTitle, b.isbn,
+                                                a.authorName,
+                                                COUNT(c.copyID) AS totalCopies,
+                                                SUM(CASE WHEN c.status = 'Available' THEN 1 ELSE 0 END) AS availableCopies,
+                                                SUM(CASE WHEN c.status = 'Borrowed' THEN 1 ELSE 0 END) AS borrowedCopies
+                                             FROM tblBooks b 
+                                             INNER JOIN tblAuthors a ON b.authorID = a.authorID
+                                             INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
+                                             LEFT JOIN tblCopies c ON b.bookID = c.bookID
+                                             GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
+                                                      a.authorName,
+                                                      p.publisherName", connection)
+                Using adapter As New MySqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
 
-    '    Public Function DisplayShelves() As DataTable
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT shelfID, shelfNo FROM tblBookshelves", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim dt As New DataTable
-    '                    adapter.Fill(dt)
-    '                    Return dt
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Function
+    Public Function AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, shelfID As Integer) As Integer
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedTitle As String = textInfo.ToTitleCase(title.ToLower())
 
-    '    Public Function DisplayBooks() As DataTable
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn, b.yearPublished, 
-    '                                                a.authorName,
-    '                                                p.publisherName, 
-    '                                                g.genreName, g.genreID,  
-    '                                                s.shelfNo, s.shelfID 
-    '                                             FROM tblBooks b 
-    '                                             INNER JOIN tblAuthors a ON b.authorID = a.authorID
-    '                                             INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
-    '                                             INNER JOIN tblGenres g ON b.genreID = g.genreID 
-    '                                             INNER JOIN tblBookshelves s ON b.shelfID = s.shelfID
-    '                                             GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
-    '                                                      a.authorName,
-    '                                                      p.publisherName, 
-    '                                                      g.genreName, g.genreID,  
-    '                                                      s.shelfNo, s.shelfID", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim dt As New DataTable
-    '                    adapter.Fill(dt)
-    '                    Return dt
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Function
+        Try
+            Using connection As MySqlConnection = ConnectionOpen()
+                Using command As New MySqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, yearPublished, shelfID) 
+                                                   VALUES (@title, @isbn, @authorID, @publisherID, @yearPublished, @shelfID);
+                                                   SELECT LAST_INSERT_ID();", connection)
+                    With command.Parameters
+                        .AddWithValue("@title", capitalizedTitle)
+                        .AddWithValue("@isbn", isbn)
+                        .AddWithValue("@authorID", authorID)
+                        .AddWithValue("@publisherID", publisherID)
+                        .AddWithValue("@yearPublished", yearPublished)
+                        .AddWithValue("@shelfID", shelfID)
+                    End With
+                    Dim bookID As Integer = Convert.ToInt32(command.ExecuteScalar())
+                    MessageBox.Show("Book has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Dim dtBooks As DataTable = DisplayBooks()
+                    frmBookInventory.dgBooksMainte.DataSource = dtBooks
+                    Return bookID
+                End Using
+            End Using
+        Catch ex As MySqlException
+            If ex.Number = 1062 Then
+                MessageBox.Show("Some fields are duplicated.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+            Return -1
+        End Try
+    End Function
 
 
-    '    Public Function AddBooks(isbn As String, title As String, authorID As Integer, publisherID As Integer, yearPublished As String, genreID As Integer, shelfID As Integer) As Integer
-    '        Dim cultureInfo As New CultureInfo("en-US")
-    '        Dim textInfo As TextInfo = cultureInfo.TextInfo
-    '        Dim capitalizedTitle As String = textInfo.ToTitleCase(title.ToLower())
+    Public Function AccessionGenerator() As String
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("UPDATE tblAccessionGenerator SET AccessionSequence = AccessionSequence + 1; 
+                                                 SELECT AccessionSequence FROM tblAccessionGenerator", connection)
+                Dim acs As Integer = CInt(command.ExecuteScalar())
+                Dim formatted As String = String.Format("ACN-{0:D5}", acs)
+                Return formatted
+            End Using
+        End Using
+    End Function
 
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
+    Public Sub AddInitialCopies(accessionNo As String, bookID As Integer)
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("INSERT INTO tblCopies (accessionNo, bookID, acquisitionDate) 
+                                                 VALUES (@accessionNo, @bookID, NOW())", connection)
+                With command.Parameters
+                    .AddWithValue("@accessionNo", accessionNo)
+                    .AddWithValue("@bookID", bookID)
+                End With
+                command.ExecuteNonQuery()
 
-    '            Dim titleExists As Boolean = False
-    '            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE bookTitle = @title", connection)
-    '                checkCommand.Parameters.AddWithValue("@title", capitalizedTitle)
-    '                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
-    '                titleExists = count > 0
-    '            End Using
+                Dim dtBooks As DataTable = DisplayBooks()
+                frmBookInventory.dgBooksMainte.DataSource = dtBooks
+            End Using
+        End Using
+    End Sub
 
-    '            If titleExists Then
-    '                MessageBox.Show("Book title already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '            End If
+    Public Function DisplayShelves() As DataTable
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT shelfID, shelfNo FROM tblBookshelves", connection)
+                Using adapter As New MySqlDataAdapter(command)
+                    Dim dt As New DataTable
+                    adapter.Fill(dt)
+                    Return dt
+                End Using
+            End Using
+        End Using
+    End Function
 
-    '            Dim isbnExists As Boolean = False
-    '            Using checkCommandTwo As New SqlCommand("SELECT COUNT(*) FROM tblBooks WHERE isbn = @isbn", connection)
-    '                checkCommandTwo.Parameters.AddWithValue("@isbn", isbn)
-    '                Dim count As Integer = Convert.ToInt32(checkCommandTwo.ExecuteScalar())
-    '                isbnExists = count > 0
-    '            End Using
-
-    '            If isbnExists Then
-    '                MessageBox.Show("Book ISBN already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '            End If
-
-    '            Using command As New SqlCommand("INSERT INTO tblBooks (bookTitle, isbn, authorID, publisherID, genreID, yearPublished, shelfID) 
-    '                                             OUTPUT INSERTED.bookID 
-    '                                             VALUES (@title, @isbn, @authorID, @publisherID, @genreID, @yearPublished, @shelfID)", connection)
-    '                With command.Parameters
-    '                    .AddWithValue("@title", capitalizedTitle)
-    '                    .AddWithValue("@isbn", isbn)
-    '                    .AddWithValue("@authorID", authorID)
-    '                    .AddWithValue("@publisherID", publisherID)
-    '                    .AddWithValue("@genreID", genreID)
-    '                    .AddWithValue("@yearPublished", yearPublished)
-    '                    .AddWithValue("@shelfID", shelfID)
-    '                End With
-    '                Return Convert.ToInt32(command.ExecuteScalar())
-    '                MessageBox.Show("Book has added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-    '                Dim dtBooks As DataTable = DisplayBooks()
-    '                frmBookInventory.dgBooks.DataSource = dtBooks
-    '            End Using
-    '        End Using
-    '    End Function
 
     '    Public Sub SearchAuthors(datagridview As DataGridView, search As String)
     '        Using connection As SqlConnection = ConnectionOpen(connString)
@@ -144,9 +171,9 @@ Module mdlBookInventory
     '        End Using
     '    End Sub
 
-    '#End Region
+#End Region
 
-    '#Region "Copies Inventory"
+#Region "Copies Inventory"
     '    Public Function GetBookTitle(isbn As String) As String
 
     '        Using connection As SqlConnection = ConnectionOpen(connString)
@@ -200,42 +227,6 @@ Module mdlBookInventory
     '        End Using
     '    End Function
 
-    '    Public Function DisplayCopies() As DataTable
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT b.bookID, b.bookTitle, b.isbn,
-    '                                            a.authorName,
-    '                                            COUNT(c.copyID) AS totalCopies,
-    '                                            SUM(CASE WHEN c.status = 'Available' THEN 1 ELSE 0 END) AS availableCopies,
-    '                                            SUM(CASE WHEN c.status = 'Borrowed' THEN 1 ELSE 0 END) AS borrowedCopies
-    '                                         FROM tblBooks b 
-    '                                         INNER JOIN tblAuthors a ON b.authorID = a.authorID
-    '                                         INNER JOIN tblPublishers p ON b.publisherID = p.publisherID
-    '                                         LEFT JOIN tblCopies c ON b.bookID = c.bookID
-    '                                         GROUP BY b.bookID, b.bookTitle, b.isbn, b.yearPublished,
-    '                                                  a.authorName,
-    '                                                  p.publisherName
-    '                                         HAVING COUNT(c.copyID) > 0", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim dt As New DataTable
-    '                    adapter.Fill(dt)
-    '                    Return dt
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Function
-
-
-    '    Public Function AccessionGenerator() As String
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("UPDATE tblAccessionGenerator SET AccessionSequence = AccessionSequence + 1; 
-    '                                             SELECT AccessionSequence FROM tblAccessionGenerator", connection)
-    '                Dim acs As Integer = CInt(command.ExecuteScalar())
-    '                Dim formatted As String = String.Format("ACN-{0:D5}", acs)
-    '                Return formatted
-    '            End Using
-    '        End Using
-    '    End Function
-
     '    Public Sub AddCopies(accessionNo As String, bookID As Integer, supplierID As Integer, price As Decimal, acquisitionType As String)
     '        Using connection As SqlConnection = ConnectionOpen(connString)
     '            Using command As New SqlCommand("INSERT INTO tblCopies (accessionNo, bookID, supplierID, price, acquisitionType) 
@@ -246,25 +237,6 @@ Module mdlBookInventory
     '                    .AddWithValue("@supplierID", supplierID)
     '                    .AddWithValue("@price", price)
     '                    .AddWithValue("@acquisitionType", acquisitionType)
-    '                End With
-    '                command.ExecuteNonQuery()
-
-    '                Dim dtCopies As DataTable = DisplayCopies()
-    '                frmBookInventory.dgCopies.DataSource = dtCopies
-
-    '                Dim dtBooks As DataTable = DisplayBooks()
-    '                frmBookInventory.dgBooks.DataSource = dtBooks
-    '            End Using
-    '        End Using
-    '    End Sub
-
-    '    Public Sub AddInitialCopies(accessionNo As String, bookID As Integer)
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("INSERT INTO tblCopies (accessionNo, bookID) 
-    '                                             VALUES (@accessionNo, @bookID)", connection)
-    '                With command.Parameters
-    '                    .AddWithValue("@accessionNo", accessionNo)
-    '                    .AddWithValue("@bookID", bookID)
     '                End With
     '                command.ExecuteNonQuery()
 
@@ -298,6 +270,6 @@ Module mdlBookInventory
     '            End Using
     '        End Using
     '    End Sub
-    '#End Region
+#End Region
 End Module
 

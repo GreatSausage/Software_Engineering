@@ -116,15 +116,15 @@
     '    frmAddSection.Show()
     'End Sub
 
-    'Private Sub btnAddBorrower_Click(sender As Object, e As EventArgs) Handles btnAddBorrower.Click
-    '    frmAddBorrowers.Show()
-    'End Sub
-
     'Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
     '    frmAddFaculty.Show()
     'End Sub
 
     Private Sub btnUsers_Click(sender As Object, e As EventArgs) Handles btnUsers.Click
         frmAddUsers.Show()
+    End Sub
+
+    Private Sub btnAddBorrower_Click(sender As Object, e As EventArgs) Handles btnAddBorrower.Click
+        frmAddBorrowers.Show()
     End Sub
 End Class

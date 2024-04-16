@@ -6,7 +6,7 @@ Module mdlMaintenance
     Public connString As String = "server=localhost;database=dblms;uid=smapi;pwd=0529"
 
     Public Function DisplayAlphabeticalData(tblName As String, columnName As String) As DataTable
-        Using connection As MySqlConnection = ConnectionOpen(connString)
+        Using connection As MySqlConnection = ConnectionOpen()
             Using command As New MySqlCommand($"SELECT * FROM {tblName} ORDER BY {columnName}", connection)
                 Using adapter As New MySqlDataAdapter(command)
                     Dim dt As New DataTable
@@ -21,7 +21,7 @@ Module mdlMaintenance
 #Region "User Maintenance"
 
     Public Function DisplayUsers() As DataTable
-        Using connection As MySqlConnection = ConnectionOpen(connString)
+        Using connection As MySqlConnection = ConnectionOpen()
             Using command As New MySqlCommand("SELECT u.userID, u.firstName, u.lastName, u.phoneNumber, 
                                                             r.roleName 
                                                      FROM tblUsers u 
@@ -43,7 +43,7 @@ Module mdlMaintenance
     End Sub
 
     Public Function DisplayRoles() As DataTable
-        Using connection As MySqlConnection = ConnectionOpen(connString)
+        Using connection As MySqlConnection = ConnectionOpen()
             Using command As New MySqlCommand("SELECT roleID, roleName FROM tblRoles WHERE roleID IN(2,3)", connection)
                 Using adapter As New MySqlDataAdapter(command)
                     Dim datatable As New DataTable
@@ -61,7 +61,7 @@ Module mdlMaintenance
         Dim capitalizedLastName As String = textInfo.ToTitleCase(lastName.ToLower())
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("INSERT INTO tblUsers(firstName, lastName, phoneNumber, userName, password, securityAnswer, securityQuestion, roleID) 
                                                  VALUES (@firstName, @lastName, @phoneNumber, @userName, @password, @answer, @question, @roleID)", connection)
                     With command.Parameters
@@ -102,7 +102,7 @@ Module mdlMaintenance
         Dim capitalizedAddress As String = textInfo.ToTitleCase(address.ToLower)
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("INSERT INTO tblSuppliers (supplierName, contactNumber, address, type) 
                                                      VALUES (@supplierName, @contactNumber, @address, @type)", connection)
                     With command.Parameters
@@ -129,7 +129,7 @@ Module mdlMaintenance
         Dim capitalizedSupplier As String = textInfo.ToTitleCase(supplierName.ToLower)
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("UPDATE tblSuppliers SET supplierName = @supplierName,
                                                                              contactNumber = @contactNo, 
                                                                              address = @address, 
@@ -188,7 +188,7 @@ Module mdlMaintenance
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedAuthors As String = textInfo.ToTitleCase(authorName.ToLower())
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
 
                 Using command As New MySqlCommand("INSERT INTO tblauthors(authorName) VALUES (@authorName)", connection)
                     command.Parameters.AddWithValue("@authorName", capitalizedAuthors)
@@ -213,7 +213,7 @@ Module mdlMaintenance
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedAuthors As String = textInfo.ToTitleCase(authorName.ToLower)
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("UPDATE tblauthors SET authorName = @authorName WHERE authorID = @authorID", connection)
                     command.Parameters.AddWithValue("@authorID", authorID)
                     command.Parameters.AddWithValue("@authorName", capitalizedAuthors)
@@ -266,7 +266,7 @@ Module mdlMaintenance
         Dim capitalizedPublisher As String = textInfo.ToTitleCase(publisherName.ToLower())
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("INSERT INTO tblPublishers(publisherName) VALUES(@publisherName)", connection)
                     command.Parameters.AddWithValue("@publisherName", capitalizedPublisher)
                     command.ExecuteNonQuery()
@@ -288,7 +288,7 @@ Module mdlMaintenance
         Dim capitalizedPublisher As String = textInfo.ToTitleCase(PublisherName.ToLower)
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("UPDATE tblPublishers SET publisherName = @publisherName WHERE publisherID = @publisherID", connection)
                     command.Parameters.AddWithValue("@publisherID", publisherID)
                     command.Parameters.AddWithValue("@publisherName", capitalizedPublisher)
@@ -341,7 +341,7 @@ Module mdlMaintenance
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedGenreName As String = textInfo.ToTitleCase(genreName.ToLower())
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("INSERT INTO tblGenres(genreName) VALUES (@genreName)", connection)
                     command.Parameters.AddWithValue("@genreName", capitalizedGenreName)
                     command.ExecuteNonQuery()
@@ -363,7 +363,7 @@ Module mdlMaintenance
         Dim capitalizedGenre As String = textInfo.ToTitleCase(genreName.ToLower)
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("UPDATE tblgenres SET genreName = @genreName 
                                                      WHERE genreID = @genreID", connection)
                     command.Parameters.AddWithValue("@genreID", genreID)
@@ -418,7 +418,7 @@ Module mdlMaintenance
         Dim capitalizedLocation As String = textInfo.ToTitleCase(location.ToLower())
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("INSERT INTO tblBookshelves(shelfNo, description, location) 
                                                      VALUES(@shelfNo, @description, @location)", connection)
                     With command.Parameters
@@ -445,7 +445,7 @@ Module mdlMaintenance
         Dim capitalizedDescription As String = textInfo.ToTitleCase(description.ToLower)
 
         Try
-            Using connection As MySqlConnection = ConnectionOpen(connString)
+            Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("UPDATE tblBookshelves SET description = @description,
                                                                                location = @location     
                                                      WHERE shelfID = @shelfID", connection)

@@ -1,5 +1,11 @@
 ﻿Public Class frmAddBooks
+
     Public someVariables As String
+    Dim getAuthorID As String = Nothing
+    Dim getPublisherID As String = Nothing
+    Dim getGenreID As String = Nothing
+    Dim getShelfID As String = Nothing
+
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
         Me.Close()
     End Sub
@@ -14,22 +20,19 @@
                 MessageBox.Show("Invalid Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             ElseIf String.IsNullOrEmpty(txtISBN.Text) AndAlso Not cbISBN.Checked OrElse
-            String.IsNullOrEmpty(txtTitle.Text) OrElse
-            String.IsNullOrEmpty(txtYearPublished.Text) Then
+                   String.IsNullOrEmpty(txtTitle.Text) OrElse
+                   String.IsNullOrEmpty(txtYearPublished.Text) Then
                 MessageBox.Show("Please fill in the necessary details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, getAuthorID, getPublisherID, txtYearPublished.Text, getShelfID)
+                Dim initialCopies As Integer = Convert.ToInt32(txtInitialCopies.Value)
 
-                'Else
-                '    Dim bookID As Integer = AddBooks(txtISBN.Text, txtTitle.Text, txtAuthorID.Text, txtPublisherID.Text, txtYearPublished.Text, txtGenreID.Text, txtShelfID.Text)
-                '    Dim initialCopies As Integer = Convert.ToInt32(txtInitialCopies.Value)
-
-                '    If initialCopies > 0 Then
-                '        For i As Integer = 1 To initialCopies
-                '            Dim acn As String = AccessionGenerator()
-                '            AddInitialCopies(acn, bookID)
-                '        Next
-                '    End If
-
-                MessageBox.Show("Book has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If initialCopies > 0 Then
+                    For i As Integer = 1 To initialCopies
+                        Dim acn As String = AccessionGenerator()
+                        AddInitialCopies(acn, bookID)
+                    Next
+                End If
                 Me.Close()
             End If
         End If
@@ -37,25 +40,25 @@
 
 
     Private Sub frmAddBooks_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Dim dtAuthors As DataTable = DisplayAlphabeticalData("tblAuthors", "authorName")
-        'txtAuthor.DataSource = dtAuthors
-        'txtAuthor.DisplayMember = "authorName"
-        'txtAuthor.ValueMember = "authorID"
+        Dim dtAuthors As DataTable = DisplayAlphabeticalData("tblAuthors", "authorName")
+        txtAuthor.DataSource = dtAuthors
+        txtAuthor.DisplayMember = "authorName"
+        txtAuthor.ValueMember = "authorID"
 
-        'Dim dtPublisher As DataTable = DisplayAlphabeticalData("tblPublishers", "publisherName")
-        'txtPublisher.DataSource = dtPublisher
-        'txtPublisher.DisplayMember = "publisherName"
-        'txtPublisher.ValueMember = "publisherID"
+        Dim dtPublisher As DataTable = DisplayAlphabeticalData("tblPublishers", "publisherName")
+        txtPublisher.DataSource = dtPublisher
+        txtPublisher.DisplayMember = "publisherName"
+        txtPublisher.ValueMember = "publisherID"
 
-        'Dim dtGenre As DataTable = DisplayAlphabeticalData("tblGenres", "genreName")
-        'txtGenre.DataSource = dtGenre
-        'txtGenre.DisplayMember = "genreName"
-        'txtGenre.ValueMember = "genreID"
+        Dim dtGenre As DataTable = DisplayAlphabeticalData("tblGenres", "genreName")
+        txtGenre.DataSource = dtGenre
+        txtGenre.DisplayMember = "genreName"
+        txtGenre.ValueMember = "genreID"
 
-        'Dim dtShelf As DataTable = DisplayShelves()
-        'txtShelfNo.DataSource = dtShelf
-        'txtShelfNo.DisplayMember = "shelfNo"
-        'txtShelfNo.ValueMember = "shelfID"
+        Dim dtShelf As DataTable = DisplayShelves()
+        txtShelfNo.DataSource = dtShelf
+        txtShelfNo.DisplayMember = "shelfNo"
+        txtShelfNo.ValueMember = "shelfID"
     End Sub
 
     Private Sub btnFindAuthor_Click(sender As Object, e As EventArgs) Handles btnFindAuthor.Click
@@ -77,19 +80,19 @@
     End Sub
 
     Private Sub txtAuthor_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtAuthor.SelectedValueChanged
-        txtAuthorID.Text = txtAuthor.SelectedValue.ToString
+        getAuthorID = txtAuthor.SelectedValue.ToString
     End Sub
 
     Private Sub txtPublisher_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtPublisher.SelectedValueChanged
-        txtPublisherID.Text = txtPublisher.SelectedValue.ToString
+        getPublisherID = txtPublisher.SelectedValue.ToString
     End Sub
 
     Private Sub txtGenre_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtGenre.SelectedValueChanged
-        txtGenreID.Text = txtGenre.SelectedValue.ToString
+        getGenreID = txtGenre.SelectedValue.ToString
     End Sub
 
     Private Sub txtShelfNo_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtShelfNo.SelectedValueChanged
-        txtShelfID.Text = txtShelfNo.SelectedValue.ToString
+        getShelfID = txtShelfNo.SelectedValue.ToString
     End Sub
 
     Private Sub DigitOnly(sender As Object, e As KeyPressEventArgs) Handles txtISBN.KeyPress, txtYearPublished.KeyPress
