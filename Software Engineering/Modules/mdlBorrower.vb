@@ -1,26 +1,25 @@
-﻿'Imports System.Collections.Specialized.BitVector32
-'Imports MySql.Data.MySqlClient
-'Imports System.Data.SqlClient
-'Imports System.Globalization
+﻿Imports System.Collections.Specialized.BitVector32
+Imports MySql.Data.MySqlClient
+Imports System.Data.SqlClient
+Imports System.Globalization
 
 Module mdlBorrower
 
-    '    Dim connString As String = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\Databases\dbLMS.mdf;Integrated Security=True"
 
-    '#Region "Borrower"
+#Region "Borrower"
 
-    '    Public Function DisplaySection(grade As Integer) As DataTable
-    '        Using connection As mySqlConnection = ConnectionOpen()
-    '            Using command As New SqlCommand("SELECT sectionID, section FROM tblSection WHERE gradeID = @grade", connection)
-    '                command.Parameters.AddWithValue("@grade", grade)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim dt As New DataTable
-    '                    adapter.Fill(dt)
-    '                    Return dt
-    '                End Using
+    'Public Function DisplaySection(grade As Integer) As DataTable
+    '    Using connection As MySqlConnection = ConnectionOpen()
+    '        Using command As New MySqlCommand("SELECT sectionID, section FROM tblSection WHERE gradeID = @grade", connection)
+    '            command.Parameters.AddWithValue("@grade", grade)
+    '            Using adapter As New MySqlDataAdapter(command)
+    '                Dim dt As New DataTable
+    '                adapter.Fill(dt)
+    '                Return dt
     '            End Using
     '        End Using
-    '    End Function
+    '    End Using
+    'End Function
 
     '    Public Sub AddBorrowers(studentID As String, firstName As String, lastName As String, gradeID As Integer, sectionID As Integer, guardianContact As String)
 
@@ -112,45 +111,45 @@ Module mdlBorrower
     '        End Using
     '    End Function
 
-    '#End Region
+#End Region
 
-    '#Region "Grade"
-    '    Public Sub GradeDatatable()
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT * FROM tblGrade", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim datatable As New DataTable
-    '                    adapter.Fill(datatable)
-    '                    frmMainte.dgGrade.DataSource = datatable
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Sub
+#Region "Grade"
+    Public Function DisplayGrade() As DataTable
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT * FROM tblGrade 
+                                               ORDER BY grade", connection)
+                Using adapter As New MySqlDataAdapter(command)
+                    Dim datatable As New DataTable
+                    adapter.Fill(datatable)
+                    Return datatable
+                End Using
+            End Using
+        End Using
+    End Function
 
-    '    Public Sub AddGrade(grade As Integer)
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
+    Public Sub GradeDatatable()
+        Dim dtGrade As DataTable = DisplayGrade()
+        frmMainte.dgGrade.DataSource = dtGrade
+    End Sub
 
-    '            Dim gradeExists As Boolean = False
-    '            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblGrade WHERE grade = @grade", connection)
-    '                checkCommand.Parameters.AddWithValue("@grade", grade)
-    '                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
-    '                gradeExists = count > 0
-    '            End Using
+    Public Sub AddGrade(grade As Integer)
+        Try
+            Using connection As MySqlConnection = ConnectionOpen()
+                Using command As New MySqlCommand("INSERT INTO tblGrade (grade) VALUES (@grade)", connection)
+                    command.Parameters.AddWithValue("@grade", grade)
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Grade added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    GradeDatatable()
+                End Using
+            End Using
+        Catch ex As MySqlException
+            If ex.Number = 1062 Then
+                MessageBox.Show("Grade level already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End Try
 
-    '            If gradeExists Then
-    '                MessageBox.Show("Grade already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Return
-    '            End If
-
-    '            Using command As New SqlCommand("INSERT INTO tblGrade (grade) VALUES (@grade)", connection)
-    '                command.Parameters.AddWithValue("@grade", grade)
-    '                command.ExecuteNonQuery()
-    '                MessageBox.Show("Grade added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                GradeDatatable()
-    '            End Using
-    '        End Using
-    '    End Sub
-    '#End Region
+    End Sub
+#End Region
 
     '#Region "Section"
     '    Public Sub SectionDatatable()

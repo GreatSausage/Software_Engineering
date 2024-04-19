@@ -9,7 +9,6 @@
         UserDatatable()
     End Sub
 
-
     Private Sub btnAddSupplier_Click(sender As Object, e As EventArgs) Handles btnAddSupplier.Click
         frmAddSuppliers.Show()
     End Sub
@@ -109,9 +108,9 @@
     '    SearchBorrowers(dgBorrowers, txtSearch.Text)
     'End Sub
 
-    'Private Sub btnAddGrade_Click(sender As Object, e As EventArgs) Handles btnAddGrade.Click
-    '    frmAddGrade.Show()
-    'End Sub
+    Private Sub btnAddGrade_Click(sender As Object, e As EventArgs) Handles btnAddGrade.Click
+        frmAddGrade.Show()
+    End Sub
 
     'Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
     '    frmAddSection.Show()
@@ -128,4 +127,5 @@
     Private Sub btnAddBorrower_Click(sender As Object, e As EventArgs) Handles btnAddBorrower.Click
         frmAddBorrowers.Show()
     End Sub
+
 End Class
