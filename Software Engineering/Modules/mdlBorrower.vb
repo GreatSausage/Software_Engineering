@@ -151,62 +151,49 @@ Module mdlBorrower
     End Sub
 #End Region
 
-    '#Region "Section"
-    '    Public Sub SectionDatatable()
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT s.sectionID, s.section, g.grade 
-    '                                             FROM tblSection s 
-    '                                             JOIN tblGrade g ON s.gradeID = g.gradeID", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim datatable As New DataTable
-    '                    adapter.Fill(datatable)
-    '                    frmMainte.dgSection.DataSource = datatable
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Sub
+#Region "Section"
+    Public Function DisplaySection() As DataTable
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT s.sectionID, s.section, g.grade 
+                                               FROM tblSection s 
+                                               JOIN tblGrade g ON s.gradeID = g.gradeID
+                                               ORDER BY g.grade", connection)
+                Using adapter As New MySqlDataAdapter(command)
+                    Dim datatable As New DataTable
+                    adapter.Fill(datatable)
+                    Return datatable
+                End Using
+            End Using
+        End Using
+    End Function
 
-    '    Public Function DisplayGrades() As DataTable
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT gradeID, grade FROM tblGrade", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim dt As New DataTable
-    '                    adapter.Fill(dt)
-    '                    Return dt
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Function
+    Public Sub SectionDatatable()
+        Dim sectionDt As DataTable = DisplaySection()
+        frmMainte.dgSection.DataSource = sectionDt
+    End Sub
 
-    '    Public Sub AddSection(section As String, gradeID As Integer)
+    Public Sub AddSection(section As String, gradeID As Integer)
+        Dim cultureInfo As New CultureInfo("en-US")
+        Dim textInfo As TextInfo = cultureInfo.TextInfo
+        Dim capitalizedSection As String = textInfo.ToTitleCase(section.ToLower())
 
-    '        Dim cultureInfo As New CultureInfo("en-US")
-    '        Dim textInfo As TextInfo = cultureInfo.TextInfo
-    '        Dim capitalizedSection As String = textInfo.ToTitleCase(section.ToLower())
-
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Dim sectionExists As Boolean = False
-    '            Using checkCommand As New SqlCommand("SELECT COUNT(*) FROM tblSection WHERE section = @section", connection)
-    '                checkCommand.Parameters.AddWithValue("@section", capitalizedSection)
-    '                Dim count As Integer = Convert.ToInt32(checkCommand.ExecuteScalar())
-    '                sectionExists = count > 0
-    '            End Using
-
-    '            If sectionExists Then
-    '                MessageBox.Show("Section already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '                Return
-    '            End If
-
-    '            Using command As New SqlCommand("INSERT INTO tblSection (section, gradeID) VALUES (@section, @gradeID)", connection)
-    '                command.Parameters.AddWithValue("@section", capitalizedSection)
-    '                command.Parameters.AddWithValue("@gradeID", gradeID)
-    '                command.ExecuteNonQuery()
-    '                MessageBox.Show("Section added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                SectionDatatable()
-    '            End Using
-    '        End Using
-    '    End Sub
-    '#End Region
+        Try
+            Using connection As MySqlConnection = ConnectionOpen()
+                Using command As New MySqlCommand("INSERT INTO tblSection (section, gradeID) VALUES (@section, @gradeID)", connection)
+                    command.Parameters.AddWithValue("@section", capitalizedSection)
+                    command.Parameters.AddWithValue("@gradeID", gradeID)
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Section added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    SectionDatatable()
+                End Using
+            End Using
+        Catch ex As MySqlException
+            If ex.Number = 1062 Then
+                MessageBox.Show("Section already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End Try
+    End Sub
+#End Region
 
     '#Region "Faculty"
 

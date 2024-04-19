@@ -7,6 +7,7 @@
         ShelfDatatable()
         SupplierDatatable()
         UserDatatable()
+        GradeDatatable()
     End Sub
 
     Private Sub btnAddSupplier_Click(sender As Object, e As EventArgs) Handles btnAddSupplier.Click
@@ -112,10 +113,6 @@
         frmAddGrade.Show()
     End Sub
 
-    'Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-    '    frmAddSection.Show()
-    'End Sub
-
     'Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
     '    frmAddFaculty.Show()
     'End Sub
@@ -128,4 +125,7 @@
         frmAddBorrowers.Show()
     End Sub
 
+    Private Sub btnAddSection_Click(sender As Object, e As EventArgs) Handles btnAddSection.Click
+        frmAddSection.Show()
+    End Sub
 End Class

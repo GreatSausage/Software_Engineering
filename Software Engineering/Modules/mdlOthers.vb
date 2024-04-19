@@ -21,6 +21,7 @@ Module mdlOthers
 #Region "Sign In"
     Public Sub Login(userName As String, password As String)
         Using connection As MySqlConnection = ConnectionOpen()
+
             Using userCommand As New MySqlCommand("SELECT COUNT(*) FROM tblusers WHERE userName = @userName", connection)
                 userCommand.Parameters.AddWithValue("@@userName", userName)
 
@@ -30,9 +31,25 @@ Module mdlOthers
                         Dim dbPassword As String = Convert.ToString(passCommand.ExecuteScalar())
 
                         If dbPassword IsNot Nothing AndAlso dbPassword.Equals(password) Then
-                            MessageBox.Show("Logged in successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            frmMain.Show()
-                            Form1.Close()
+
+                            Using loginCommand As New MySqlCommand("SELECT userName FROM tblUsers WHERE userName = @userName", connection)
+                                loginCommand.Parameters.AddWithValue("@userName", userName)
+                                Dim getUserName As String = Convert.ToString(loginCommand.ExecuteScalar())
+
+                                If getUserName IsNot Nothing AndAlso getUserName.Equals("browsing") Then
+                                    MessageBox.Show("Logged in successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    frmBrowsing.Show()
+                                    Form1.Close()
+                                ElseIf getUserName IsNot Nothing AndAlso getUserName.Equals("attendance") Then
+                                    MessageBox.Show("Logged in successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    frmAttendanceMonitoring.Show()
+                                    Form1.Close()
+                                Else
+                                    frmMain.Show()
+                                    Form1.Close()
+                                End If
+                            End Using
+
                         Else
                             MessageBox.Show("Incorrect Password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End If
@@ -41,6 +58,7 @@ Module mdlOthers
                     MessageBox.Show("Email not exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End Using
+
         End Using
     End Sub
 #End Region
