@@ -1,13 +1,15 @@
 ﻿Public Class frmAddCopies
+
+    Dim getSupplierID As Integer = Nothing
+
     Private Sub txtISBN_TextChanged(sender As Object, e As EventArgs) Handles txtISBN.TextChanged
-        'Dim bookTitle As String = GetBookTitle(txtISBN.Text)
+        Dim bookTitle As String = GetBookTitle(txtISBN.Text)
 
-        'If Not String.IsNullOrEmpty(txtISBN.Text) Then
-        '    txtTitle.Text = bookTitle
-
-        'Else
-        '    txtTitle.Clear()
-        'End If
+        If Not String.IsNullOrEmpty(txtISBN.Text) Then
+            txtTitle.Text = bookTitle
+        Else
+            txtTitle.Clear()
+        End If
     End Sub
 
     Private Sub frmAddCopies_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -41,14 +43,14 @@
             End If
         End If
 
-        'Dim copiesToAdd As Integer = Convert.ToInt32(txtCopiesToAdd.Value)
-        'Dim bookID As Integer = Convert.ToInt32(GetBookID(txtISBN.Text))
-        'Dim type As String = If(rbDonated.Checked, "Donated", "Purchased")
+        Dim copiesToAdd As Integer = Convert.ToInt32(txtCopiesToAdd.Value)
+        Dim bookID As Integer = Convert.ToInt32(GetBookID(txtISBN.Text))
+        Dim type As String = If(rbDonated.Checked, "Donated", "Purchased")
 
-        'For i As Integer = 1 To copiesToAdd
-        '    Dim acn As String = AccessionGenerator()
-        '    AddCopies(acn, bookID, txtSupplierID.Text, price, type)
-        'Next
+        For i As Integer = 1 To copiesToAdd
+            Dim acn As String = AccessionGenerator()
+            AddCopies(acn, bookID, getSupplierID, price, type)
+        Next
 
         MessageBox.Show("Copies added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.Close()
@@ -60,29 +62,26 @@
 
     Public Sub SetSelectedSupplier(supplierID As Integer, supplierName As String)
         txtSupplier.Text = supplierName
-        txtSupplierID.Text = supplierID
-    End Sub
-
-    Private Sub txtSupplier_SelectedValueChanged(sender As Object, e As EventArgs) Handles txtSupplier.SelectedValueChanged
-        txtSupplierID.Text = txtSupplier.SelectedValue.ToString
+        getSupplierID = supplierID
+        MessageBox.Show(getSupplierID)
     End Sub
 
     Private Sub rbDonated_CheckedChanged(sender As Object, e As EventArgs) Handles rbDonated.CheckedChanged
-        'If rbDonated.Checked Then
-        '    Dim dtDonator As DataTable = DisplayDonator()
-        '    txtSupplier.DataSource = dtDonator
-        '    txtSupplier.DisplayMember = "supplierName"
-        '    txtSupplier.ValueMember = "supplierID"
-        'End If
+        If rbDonated.Checked Then
+            Dim dtDonator As DataTable = DisplayDonator()
+            txtSupplier.DataSource = dtDonator
+            txtSupplier.DisplayMember = "supplierName"
+            txtSupplier.ValueMember = "supplierID"
+        End If
     End Sub
 
     Private Sub rbPurchased_CheckedChanged(sender As Object, e As EventArgs) Handles rbPurchased.CheckedChanged
-        'If rbPurchased.Checked Then
-        '    Dim dtSuppliers As DataTable = DisplaySuppliers()
-        '    txtSupplier.DataSource = dtSuppliers
-        '    txtSupplier.DisplayMember = "supplierName"
-        '    txtSupplier.ValueMember = "supplierID"
-        'End If
+        If rbPurchased.Checked Then
+            Dim dtSuppliers As DataTable = DisplaySuppliers()
+            txtSupplier.DataSource = dtSuppliers
+            txtSupplier.DisplayMember = "supplierName"
+            txtSupplier.ValueMember = "supplierID"
+        End If
     End Sub
 
 End Class

@@ -3,10 +3,6 @@ Public Class Form1
     Dim con As New MySqlConnection
     Dim constr As String
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
         Me.Close()
     End Sub
@@ -24,10 +20,10 @@ Public Class Form1
     End Sub
 
     Private Sub btnSave_Click_1(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim server As String = txtServer.Text
-        Dim username As String = txtUsername.Text
-        Dim password As String = txtPassword.Text
-        Dim database As String = txtDatabase.Text
+        Dim server As String = "192.168.100.37"
+        Dim username As String = "smapi"
+        Dim password As String = "0529"
+        Dim database As String = "dblms"
         My.Settings.server = server
         My.Settings.database = database
         My.Settings.username = username
@@ -42,6 +38,8 @@ Public Class Form1
             ConnectionOpen()
             If connection.State = ConnectionState.Open Then
                 MessageBox.Show("Server connected.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Server is closed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End Using
     End Sub

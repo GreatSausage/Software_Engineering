@@ -25,7 +25,15 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2TabControl1 = New Guna.UI2.WinForms.Guna2TabControl()
+        Me.tabSignIn = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
+        Me.txtPasswordSignIn = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.txtUsernameSignIn = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.tabServer = New System.Windows.Forms.TabPage()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.txtDatabase = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
@@ -35,18 +43,10 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.tabSignIn = New System.Windows.Forms.TabPage()
-        Me.btnLogin = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtPasswordSignIn = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtUsernameSignIn = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Guna2TabControl1.SuspendLayout()
-        Me.tabServer.SuspendLayout()
         Me.tabSignIn.SuspendLayout()
+        Me.tabServer.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -92,6 +92,115 @@ Partial Class Form1
         Me.Guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
         Me.Guna2TabControl1.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
         '
+        'tabSignIn
+        '
+        Me.tabSignIn.Controls.Add(Me.Panel2)
+        Me.tabSignIn.Controls.Add(Me.btnLogin)
+        Me.tabSignIn.Controls.Add(Me.txtPasswordSignIn)
+        Me.tabSignIn.Controls.Add(Me.txtUsernameSignIn)
+        Me.tabSignIn.Controls.Add(Me.Label6)
+        Me.tabSignIn.Controls.Add(Me.Label7)
+        Me.tabSignIn.Location = New System.Drawing.Point(4, 44)
+        Me.tabSignIn.Name = "tabSignIn"
+        Me.tabSignIn.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabSignIn.Size = New System.Drawing.Size(895, 351)
+        Me.tabSignIn.TabIndex = 1
+        Me.tabSignIn.Text = "Sign In"
+        Me.tabSignIn.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(388, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(504, 345)
+        Me.Panel2.TabIndex = 39
+        '
+        'btnLogin
+        '
+        Me.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnLogin.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnLogin.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogin.ForeColor = System.Drawing.Color.White
+        Me.btnLogin.Location = New System.Drawing.Point(12, 299)
+        Me.btnLogin.Name = "btnLogin"
+        Me.btnLogin.Size = New System.Drawing.Size(350, 44)
+        Me.btnLogin.TabIndex = 38
+        Me.btnLogin.Text = "SAVE"
+        '
+        'txtPasswordSignIn
+        '
+        Me.txtPasswordSignIn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtPasswordSignIn.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtPasswordSignIn.DefaultText = ""
+        Me.txtPasswordSignIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtPasswordSignIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtPasswordSignIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPasswordSignIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPasswordSignIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtPasswordSignIn.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtPasswordSignIn.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtPasswordSignIn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtPasswordSignIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtPasswordSignIn.Location = New System.Drawing.Point(12, 99)
+        Me.txtPasswordSignIn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPasswordSignIn.MaxLength = 13
+        Me.txtPasswordSignIn.Name = "txtPasswordSignIn"
+        Me.txtPasswordSignIn.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtPasswordSignIn.PlaceholderText = ""
+        Me.txtPasswordSignIn.SelectedText = ""
+        Me.txtPasswordSignIn.Size = New System.Drawing.Size(350, 44)
+        Me.txtPasswordSignIn.TabIndex = 36
+        '
+        'txtUsernameSignIn
+        '
+        Me.txtUsernameSignIn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtUsernameSignIn.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtUsernameSignIn.DefaultText = ""
+        Me.txtUsernameSignIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtUsernameSignIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtUsernameSignIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtUsernameSignIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtUsernameSignIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtUsernameSignIn.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtUsernameSignIn.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtUsernameSignIn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtUsernameSignIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtUsernameSignIn.Location = New System.Drawing.Point(12, 27)
+        Me.txtUsernameSignIn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtUsernameSignIn.MaxLength = 13
+        Me.txtUsernameSignIn.Name = "txtUsernameSignIn"
+        Me.txtUsernameSignIn.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtUsernameSignIn.PlaceholderText = ""
+        Me.txtUsernameSignIn.SelectedText = ""
+        Me.txtUsernameSignIn.Size = New System.Drawing.Size(350, 44)
+        Me.txtUsernameSignIn.TabIndex = 37
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(8, 75)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(73, 20)
+        Me.Label6.TabIndex = 34
+        Me.Label6.Text = "Password:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(8, 3)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(78, 20)
+        Me.Label7.TabIndex = 35
+        Me.Label7.Text = "Username:"
+        '
         'tabServer
         '
         Me.tabServer.Controls.Add(Me.Panel1)
@@ -111,6 +220,16 @@ Partial Class Form1
         Me.tabServer.TabIndex = 0
         Me.tabServer.Text = "Server"
         Me.tabServer.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
+        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel1.Location = New System.Drawing.Point(388, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(504, 345)
+        Me.Panel1.TabIndex = 35
         '
         'btnSave
         '
@@ -215,7 +334,7 @@ Partial Class Form1
         Me.txtServer.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtServer.Location = New System.Drawing.Point(12, 27)
         Me.txtServer.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtServer.MaxLength = 13
+        Me.txtServer.MaxLength = 20
         Me.txtServer.Name = "txtServer"
         Me.txtServer.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtServer.PlaceholderText = ""
@@ -263,105 +382,6 @@ Partial Class Form1
         Me.Label2.TabIndex = 29
         Me.Label2.Text = "Server name:"
         '
-        'tabSignIn
-        '
-        Me.tabSignIn.Controls.Add(Me.Panel2)
-        Me.tabSignIn.Controls.Add(Me.btnLogin)
-        Me.tabSignIn.Controls.Add(Me.txtPasswordSignIn)
-        Me.tabSignIn.Controls.Add(Me.txtUsernameSignIn)
-        Me.tabSignIn.Controls.Add(Me.Label6)
-        Me.tabSignIn.Controls.Add(Me.Label7)
-        Me.tabSignIn.Location = New System.Drawing.Point(4, 44)
-        Me.tabSignIn.Name = "tabSignIn"
-        Me.tabSignIn.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabSignIn.Size = New System.Drawing.Size(895, 351)
-        Me.tabSignIn.TabIndex = 1
-        Me.tabSignIn.Text = "Sign In"
-        Me.tabSignIn.UseVisualStyleBackColor = True
-        '
-        'btnLogin
-        '
-        Me.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnLogin.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.btnLogin.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.ForeColor = System.Drawing.Color.White
-        Me.btnLogin.Location = New System.Drawing.Point(12, 299)
-        Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(350, 44)
-        Me.btnLogin.TabIndex = 38
-        Me.btnLogin.Text = "SAVE"
-        '
-        'txtPasswordSignIn
-        '
-        Me.txtPasswordSignIn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtPasswordSignIn.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPasswordSignIn.DefaultText = ""
-        Me.txtPasswordSignIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPasswordSignIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPasswordSignIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPasswordSignIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPasswordSignIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtPasswordSignIn.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtPasswordSignIn.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtPasswordSignIn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtPasswordSignIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtPasswordSignIn.Location = New System.Drawing.Point(12, 99)
-        Me.txtPasswordSignIn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtPasswordSignIn.MaxLength = 13
-        Me.txtPasswordSignIn.Name = "txtPasswordSignIn"
-        Me.txtPasswordSignIn.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtPasswordSignIn.PlaceholderText = ""
-        Me.txtPasswordSignIn.SelectedText = ""
-        Me.txtPasswordSignIn.Size = New System.Drawing.Size(350, 44)
-        Me.txtPasswordSignIn.TabIndex = 36
-        '
-        'txtUsernameSignIn
-        '
-        Me.txtUsernameSignIn.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtUsernameSignIn.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtUsernameSignIn.DefaultText = ""
-        Me.txtUsernameSignIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtUsernameSignIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtUsernameSignIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsernameSignIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtUsernameSignIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtUsernameSignIn.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtUsernameSignIn.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtUsernameSignIn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtUsernameSignIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtUsernameSignIn.Location = New System.Drawing.Point(12, 27)
-        Me.txtUsernameSignIn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtUsernameSignIn.MaxLength = 13
-        Me.txtUsernameSignIn.Name = "txtUsernameSignIn"
-        Me.txtUsernameSignIn.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtUsernameSignIn.PlaceholderText = ""
-        Me.txtUsernameSignIn.SelectedText = ""
-        Me.txtUsernameSignIn.Size = New System.Drawing.Size(350, 44)
-        Me.txtUsernameSignIn.TabIndex = 37
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(8, 75)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(73, 20)
-        Me.Label6.TabIndex = 34
-        Me.Label6.Text = "Password:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(8, 3)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(78, 20)
-        Me.Label7.TabIndex = 35
-        Me.Label7.Text = "Username:"
-        '
         'btnClose
         '
         Me.btnClose.ActiveLinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -377,26 +397,6 @@ Partial Class Form1
         Me.btnClose.Text = "[close]"
         Me.btnClose.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         '
-        'Panel1
-        '
-        Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
-        Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(388, 3)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(504, 345)
-        Me.Panel1.TabIndex = 35
-        '
-        'Panel2
-        '
-        Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(388, 3)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(504, 345)
-        Me.Panel2.TabIndex = 39
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -410,10 +410,10 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Guna2TabControl1.ResumeLayout(False)
-        Me.tabServer.ResumeLayout(False)
-        Me.tabServer.PerformLayout()
         Me.tabSignIn.ResumeLayout(False)
         Me.tabSignIn.PerformLayout()
+        Me.tabServer.ResumeLayout(False)
+        Me.tabServer.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

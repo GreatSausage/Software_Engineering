@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddCopies
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddCopies
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddCopies))
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,7 +39,6 @@ Partial Class frmAddCopies
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtCopiesToAdd = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.btnFindSuppliers = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtSupplierID = New System.Windows.Forms.Label()
         CType(Me.txtCopiesToAdd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -282,24 +281,12 @@ Partial Class frmAddCopies
         Me.btnFindSuppliers.Size = New System.Drawing.Size(54, 44)
         Me.btnFindSuppliers.TabIndex = 28
         '
-        'txtSupplierID
-        '
-        Me.txtSupplierID.AutoSize = True
-        Me.txtSupplierID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupplierID.Location = New System.Drawing.Point(1, 61)
-        Me.txtSupplierID.Name = "txtSupplierID"
-        Me.txtSupplierID.Size = New System.Drawing.Size(77, 20)
-        Me.txtSupplierID.TabIndex = 29
-        Me.txtSupplierID.Text = "supplierID"
-        Me.txtSupplierID.Visible = False
-        '
         'frmAddCopies
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(360, 525)
         Me.ControlBox = False
-        Me.Controls.Add(Me.txtSupplierID)
         Me.Controls.Add(Me.btnFindSuppliers)
         Me.Controls.Add(Me.txtCopiesToAdd)
         Me.Controls.Add(Me.Label6)
@@ -341,5 +328,4 @@ Partial Class frmAddCopies
     Friend WithEvents Label6 As Label
     Friend WithEvents txtCopiesToAdd As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents btnFindSuppliers As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtSupplierID As Label
 End Class

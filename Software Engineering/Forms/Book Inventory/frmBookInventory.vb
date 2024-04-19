@@ -24,14 +24,17 @@
             Dim author As String = row.Cells("distinctAuthor").Value.ToString
             Dim publisher = row.Cells("distinctPublisher").Value.ToString
             Dim yearPublished As String = row.Cells("yearPublished").Value.ToString
-            Dim genre As String = row.Cells("genreName").Value.ToString
             Dim shelfNo As Integer = Convert.ToInt32(row.Cells("shelfNo").Value)
             Dim shelfID As Integer = Convert.ToInt32(row.Cells("shelfID").Value)
             Dim genreID As Integer = Convert.ToInt32(row.Cells("genreID").Value)
 
             Dim frmBookInfoInstance As New frmBookInfo()
-            frmBookInfoInstance.SetSelectedBooks(bookID, isbn, bookTitle, author, publisher, yearPublished, genre, shelfNo, shelfID, genreID)
+            frmBookInfoInstance.SetSelectedBooks(bookID, isbn, bookTitle, author, publisher, yearPublished, shelfNo, shelfID, genreID)
             frmBookInfoInstance.Show()
+            Dim dtShelves As DataTable = DisplayShelves()
+            frmBookInfoInstance.txtShelfNo.DataSource = dtShelves
+            frmBookInfoInstance.txtShelfNo.ValueMember = "shelfID"
+            frmBookInfoInstance.txtShelfNo.DisplayMember = "shelfNo"
         End If
     End Sub
 

@@ -26,14 +26,10 @@ Partial Class frmBookInfo
         Me.txtInitialCopies = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtShelfID = New System.Windows.Forms.Label()
         Me.txtShelfNo = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtGenreID = New System.Windows.Forms.Label()
         Me.txtGenre = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtPublisherID = New System.Windows.Forms.Label()
-        Me.txtAuthorID = New System.Windows.Forms.Label()
         Me.btnFindPublisher = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFindAuthor = New Guna.UI2.WinForms.Guna2Button()
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
@@ -48,7 +44,6 @@ Partial Class frmBookInfo
         Me.txtLabel = New System.Windows.Forms.Label()
         Me.txtAuthor = New Guna.UI2.WinForms.Guna2TextBox()
         Me.txtPublisher = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtBookID = New System.Windows.Forms.Label()
         Me.btnFindGenres = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.txtInitialCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -94,16 +89,6 @@ Partial Class frmBookInfo
         Me.Label9.TabIndex = 62
         Me.Label9.Text = "Initial Copies:"
         '
-        'txtShelfID
-        '
-        Me.txtShelfID.AutoSize = True
-        Me.txtShelfID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtShelfID.Location = New System.Drawing.Point(233, 61)
-        Me.txtShelfID.Name = "txtShelfID"
-        Me.txtShelfID.Size = New System.Drawing.Size(62, 20)
-        Me.txtShelfID.TabIndex = 61
-        Me.txtShelfID.Text = "genreID"
-        '
         'txtShelfNo
         '
         Me.txtShelfNo.BackColor = System.Drawing.Color.Transparent
@@ -131,16 +116,6 @@ Partial Class frmBookInfo
         Me.Label8.TabIndex = 59
         Me.Label8.Text = "Shelf No:"
         '
-        'txtGenreID
-        '
-        Me.txtGenreID.AutoSize = True
-        Me.txtGenreID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGenreID.Location = New System.Drawing.Point(165, 61)
-        Me.txtGenreID.Name = "txtGenreID"
-        Me.txtGenreID.Size = New System.Drawing.Size(62, 20)
-        Me.txtGenreID.TabIndex = 58
-        Me.txtGenreID.Text = "genreID"
-        '
         'txtGenre
         '
         Me.txtGenre.BackColor = System.Drawing.Color.Transparent
@@ -167,26 +142,6 @@ Partial Class frmBookInfo
         Me.Label7.Size = New System.Drawing.Size(51, 20)
         Me.Label7.TabIndex = 56
         Me.Label7.Text = "Genre:"
-        '
-        'txtPublisherID
-        '
-        Me.txtPublisherID.AutoSize = True
-        Me.txtPublisherID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPublisherID.Location = New System.Drawing.Point(74, 61)
-        Me.txtPublisherID.Name = "txtPublisherID"
-        Me.txtPublisherID.Size = New System.Drawing.Size(85, 20)
-        Me.txtPublisherID.TabIndex = 55
-        Me.txtPublisherID.Text = "publisherID"
-        '
-        'txtAuthorID
-        '
-        Me.txtAuthorID.AutoSize = True
-        Me.txtAuthorID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAuthorID.Location = New System.Drawing.Point(1, 61)
-        Me.txtAuthorID.Name = "txtAuthorID"
-        Me.txtAuthorID.Size = New System.Drawing.Size(67, 20)
-        Me.txtAuthorID.TabIndex = 54
-        Me.txtAuthorID.Text = "authorID"
         '
         'btnFindPublisher
         '
@@ -423,16 +378,6 @@ Partial Class frmBookInfo
         Me.txtPublisher.Size = New System.Drawing.Size(290, 44)
         Me.txtPublisher.TabIndex = 65
         '
-        'txtBookID
-        '
-        Me.txtBookID.AutoSize = True
-        Me.txtBookID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBookID.Location = New System.Drawing.Point(301, 61)
-        Me.txtBookID.Name = "txtBookID"
-        Me.txtBookID.Size = New System.Drawing.Size(58, 20)
-        Me.txtBookID.TabIndex = 61
-        Me.txtBookID.Text = "bookID"
-        '
         'btnFindGenres
         '
         Me.btnFindGenres.BackgroundImage = CType(resources.GetObject("btnFindGenres.BackgroundImage"), System.Drawing.Image)
@@ -463,15 +408,10 @@ Partial Class frmBookInfo
         Me.Controls.Add(Me.txtInitialCopies)
         Me.Controls.Add(Me.Guna2Button1)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.txtBookID)
-        Me.Controls.Add(Me.txtShelfID)
         Me.Controls.Add(Me.txtShelfNo)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.txtGenreID)
         Me.Controls.Add(Me.txtGenre)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtPublisherID)
-        Me.Controls.Add(Me.txtAuthorID)
         Me.Controls.Add(Me.btnFindPublisher)
         Me.Controls.Add(Me.btnFindAuthor)
         Me.Controls.Add(Me.btnSave)
@@ -496,14 +436,10 @@ Partial Class frmBookInfo
     Friend WithEvents txtInitialCopies As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label9 As Label
-    Friend WithEvents txtShelfID As Label
     Friend WithEvents txtShelfNo As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents txtGenreID As Label
     Friend WithEvents txtGenre As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents txtPublisherID As Label
-    Friend WithEvents txtAuthorID As Label
     Friend WithEvents btnFindPublisher As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFindAuthor As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
@@ -518,6 +454,5 @@ Partial Class frmBookInfo
     Friend WithEvents txtLabel As Label
     Friend WithEvents txtAuthor As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtPublisher As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents txtBookID As Label
     Friend WithEvents btnFindGenres As Guna.UI2.WinForms.Guna2Button
 End Class

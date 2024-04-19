@@ -67,7 +67,7 @@
 
     Public Sub SetSelectedAuthor(authorID As Integer, authorName As String)
         txtAuthor.Text = authorName
-        txtAuthorID.Text = authorID
+        getAuthorID = authorID
     End Sub
 
     Private Sub btnFindPublisher_Click(sender As Object, e As EventArgs) Handles btnFindPublisher.Click
@@ -75,7 +75,7 @@
     End Sub
 
     Public Sub SetSelectedPublisher(publisherID As Integer, publisherName As String)
-        txtPublisherID.Text = publisherID
+        getPublisherID = publisherID
         txtPublisher.Text = publisherName
     End Sub
 
