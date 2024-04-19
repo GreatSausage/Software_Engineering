@@ -44,7 +44,7 @@ Module mdlMaintenance
 
     Public Function DisplayRoles() As DataTable
         Using connection As MySqlConnection = ConnectionOpen()
-            Using command As New MySqlCommand("SELECT roleID, roleName FROM tblRoles WHERE roleID IN(2,3)", connection)
+            Using command As New MySqlCommand("SELECT roleID, roleName FROM tblRoles WHERE roleID IN(1,2,3)", connection)
                 Using adapter As New MySqlDataAdapter(command)
                     Dim datatable As New DataTable
                     adapter.Fill(datatable)
