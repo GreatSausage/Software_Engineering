@@ -127,4 +127,16 @@
     Private Sub btnAddSection_Click(sender As Object, e As EventArgs) Handles btnAddSection.Click
         frmAddSection.Show()
     End Sub
+
+    Private Sub refreshOne_Click(sender As Object, e As EventArgs) Handles refreshOne.Click, refreshTwo.Click, refreshThree.Click, refreshFour.Click, refreshFive.Click, refreshSix.Click
+        AuthorDatatable()
+        GenreDatatable()
+        PublisherDatatable()
+        ShelfDatatable()
+        SupplierDatatable()
+        UserDatatable()
+        GradeDatatable()
+        SectionDatatable()
+        BorrowerDatatable()
+    End Sub
 End Class
