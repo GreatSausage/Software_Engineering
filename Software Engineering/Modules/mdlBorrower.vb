@@ -10,10 +10,10 @@ Module mdlBorrower
 
     Public Function DisplayBorrowers() As DataTable
         Using connection As MySqlConnection = ConnectionOpen()
-            Using command As New MySqlCommand("SELECT b.borrowerID, b.studentID, b.firstName, b.lastName, g.grade, s.section, b.guardianContact
-                                                 FROM tblBorrowers b
-                                                 JOIN tblGrade g ON b.gradeID = g.gradeID
-                                                 JOIN tblSection s ON b.sectionID = s.sectionID", connection)
+            Using command As New MySqlCommand("SELECT b.borrowerID, b.studentID, b.firstName, b.lastName, g.grade, s.section, b.guardianContact, b.borrowerType
+                                             FROM tblBorrowers b
+                                             LEFT JOIN tblGrade g ON b.gradeID = g.gradeID
+                                             LEFT JOIN tblSection s ON b.sectionID = s.sectionID", connection)
                 Using adapter As New MySqlDataAdapter(command)
                     Dim datatable As New DataTable
                     adapter.Fill(datatable)
@@ -22,6 +22,11 @@ Module mdlBorrower
             End Using
         End Using
     End Function
+
+    Public Sub BorrowerDatatable()
+        Dim dtBorrowers As DataTable = DisplayBorrowers()
+        frmMainte.dgBorrowers.DataSource = dtBorrowers
+    End Sub
 
     Public Function DisplayAttendance() As DataTable
         Using connection As MySqlConnection = ConnectionOpen()
@@ -69,26 +74,47 @@ Module mdlBorrower
         End Try
     End Sub
 
-    Public Sub AddBorrowers(studentID As String, firstName As String, lastName As String, gradeID As Integer, sectionID As Integer)
+    Public Function GetSectionID(section As String) As Integer
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT sectionID FROM tblSection WHERE section = @section", connection)
+                command.Parameters.AddWithValue("@section", section)
+                Return Convert.ToInt32(command.ExecuteScalar())
+            End Using
+        End Using
+    End Function
+
+    Public Function GetGradeID(grade As Integer) As Integer
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT gradeID FROM tblGrade WHERE grade = @grade", connection)
+                command.Parameters.AddWithValue("@grade", grade)
+                Return Convert.ToInt32(command.ExecuteScalar())
+            End Using
+        End Using
+    End Function
+
+    Public Sub AddBorrowers(studentID As String, firstName As String, lastName As String, gradeID As Integer, sectionID As Integer, guardianContact As String, type As String)
         Dim cultureInfo As New CultureInfo("en-US")
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedFirstName As String = textInfo.ToTitleCase(firstName.ToLower())
         Dim capitalizedLastName As String = textInfo.ToTitleCase(lastName.ToLower())
+        Dim limit As Integer = 1
         Try
             Using connection As MySqlConnection = ConnectionOpen()
-                Using command As New MySqlCommand("INSERT INTO tblBorrowers (studentID, firstName, lastName, gradeID, sectionID) 
-                                                 VALUES (@studentID, @firstName, @lastName, @gradeID, @sectionID)", connection)
+                Using command As New MySqlCommand("INSERT INTO tblBorrowers (studentID, firstName, lastName, gradeID, sectionID, guardianContact, borrowerType, borrowLimit) 
+                                               VALUES (@studentID, @firstName, @lastName, @gradeID, @sectionID, @guardianContact, @borrowerType, @limit)", connection)
                     With command.Parameters
                         .AddWithValue("@studentID", studentID)
                         .AddWithValue("@firstName", capitalizedFirstName)
                         .AddWithValue("@lastName", capitalizedLastName)
                         .AddWithValue("@gradeID", gradeID)
                         .AddWithValue("@sectionID", sectionID)
+                        .AddWithValue("@guardianContact", guardianContact)
+                        .AddWithValue("@borrowerType", type)
+                        .AddWithValue("@limit", limit)
                     End With
                     command.ExecuteNonQuery()
                     MessageBox.Show("Borrower added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Dim dtBorrowers As DataTable = DisplayBorrowers()
-                    frmMainte.dgBorrowers.DataSource = dtBorrowers
+                    BorrowerDatatable()
                 End Using
             End Using
         Catch ex As MySqlException
@@ -98,28 +124,27 @@ Module mdlBorrower
         End Try
     End Sub
 
-    '    Public Sub SearchBorrowers(datagridview As DataGridView, search As String)
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Dim query As String = "SELECT borrowerID, studentID, firstName, lastName FROM tblBorrowers "
+    Public Sub SearchBorrowers(datagridview As DataGridView, search As String)
+        Using connection As MySqlConnection = ConnectionOpen()
+            Dim query As String = "SELECT borrowerID, studentID, firstName, lastName FROM tblBorrowers "
 
-    '            If Not String.IsNullOrEmpty(search) Then
-    '                query += " WHERE borrowerID LIKE @search OR studentID LIKE @search OR firstName LIKE @search OR lastName LIKE @search"
-    '            End If
+            If Not String.IsNullOrEmpty(search) Then
+                query += " WHERE borrowerID LIKE @search OR studentID LIKE @search OR firstName LIKE @search OR lastName LIKE @search"
+            End If
 
-    '            Using command As New SqlCommand(query, connection)
-    '                If Not String.IsNullOrEmpty(search) Then
-    '                    command.Parameters.AddWithValue("@search", "%" & search & "%")
-    '                End If
+            Using command As New MySqlCommand(query, connection)
+                If Not String.IsNullOrEmpty(search) Then
+                    command.Parameters.AddWithValue("@search", "%" & search & "%")
+                End If
 
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim ds As New DataSet
-    '                    adapter.Fill(ds)
-    '                    datagridview.DataSource = ds.Tables(0)
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Sub
-
+                Using adapter As New MySqlDataAdapter(command)
+                    Dim ds As New DataSet
+                    adapter.Fill(ds)
+                    datagridview.DataSource = ds.Tables(0)
+                End Using
+            End Using
+        End Using
+    End Sub
 
 #End Region
 

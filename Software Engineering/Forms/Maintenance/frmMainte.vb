@@ -8,6 +8,8 @@
         SupplierDatatable()
         UserDatatable()
         GradeDatatable()
+        SectionDatatable()
+        BorrowerDatatable()
     End Sub
 
     Private Sub btnAddSupplier_Click(sender As Object, e As EventArgs) Handles btnAddSupplier.Click
@@ -105,17 +107,14 @@
         End If
     End Sub
 
-    'Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-    '    SearchBorrowers(dgBorrowers, txtSearch.Text)
-    'End Sub
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        SearchBorrowers(dgBorrowers, txtSearch.Text)
+    End Sub
 
     Private Sub btnAddGrade_Click(sender As Object, e As EventArgs) Handles btnAddGrade.Click
         frmAddGrade.Show()
     End Sub
 
-    'Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
-    '    frmAddFaculty.Show()
-    'End Sub
 
     Private Sub btnUsers_Click(sender As Object, e As EventArgs) Handles btnUsers.Click
         frmAddUsers.Show()

@@ -32,11 +32,13 @@ Partial Class frmAddBorrowers
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtGuardianContact = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.labelContact = New System.Windows.Forms.Label()
         Me.btnSave = New Guna.UI2.WinForms.Guna2Button()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
-        Me.txtGrade = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.txtSection = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.rbStudent = New Guna.UI2.WinForms.Guna2RadioButton()
+        Me.rbFaculty = New Guna.UI2.WinForms.Guna2RadioButton()
+        Me.txtSelectedGrade = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.txtSelectedSection = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
         'lblAuthors
@@ -194,15 +196,15 @@ Partial Class frmAddBorrowers
         Me.txtGuardianContact.Size = New System.Drawing.Size(350, 44)
         Me.txtGuardianContact.TabIndex = 22
         '
-        'Label6
+        'labelContact
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(1, 441)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(127, 20)
-        Me.Label6.TabIndex = 21
-        Me.Label6.Text = "Guardian Contact:"
+        Me.labelContact.AutoSize = True
+        Me.labelContact.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelContact.Location = New System.Drawing.Point(1, 441)
+        Me.labelContact.Name = "labelContact"
+        Me.labelContact.Size = New System.Drawing.Size(127, 20)
+        Me.labelContact.TabIndex = 21
+        Me.labelContact.Text = "Guardian Contact:"
         '
         'btnSave
         '
@@ -234,39 +236,87 @@ Partial Class frmAddBorrowers
         Me.btnClose.Text = "[close]"
         Me.btnClose.VisitedLinkColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         '
-        'txtGrade
+        'rbStudent
         '
-        Me.txtGrade.BackColor = System.Drawing.Color.Transparent
-        Me.txtGrade.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtGrade.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.txtGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtGrade.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtGrade.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtGrade.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtGrade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.txtGrade.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtGrade.ItemHeight = 30
-        Me.txtGrade.Location = New System.Drawing.Point(5, 320)
-        Me.txtGrade.Name = "txtGrade"
-        Me.txtGrade.Size = New System.Drawing.Size(348, 36)
-        Me.txtGrade.TabIndex = 27
+        Me.rbStudent.AutoSize = True
+        Me.rbStudent.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.rbStudent.CheckedState.BorderThickness = 0
+        Me.rbStudent.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.rbStudent.CheckedState.InnerColor = System.Drawing.Color.White
+        Me.rbStudent.CheckedState.InnerOffset = -4
+        Me.rbStudent.Location = New System.Drawing.Point(5, 58)
+        Me.rbStudent.Name = "rbStudent"
+        Me.rbStudent.Size = New System.Drawing.Size(73, 20)
+        Me.rbStudent.TabIndex = 29
+        Me.rbStudent.Text = "Student"
+        Me.rbStudent.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.rbStudent.UncheckedState.BorderThickness = 2
+        Me.rbStudent.UncheckedState.FillColor = System.Drawing.Color.Transparent
+        Me.rbStudent.UncheckedState.InnerColor = System.Drawing.Color.Transparent
         '
-        'txtSection
+        'rbFaculty
         '
-        Me.txtSection.BackColor = System.Drawing.Color.Transparent
-        Me.txtSection.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtSection.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.txtSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.txtSection.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtSection.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtSection.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtSection.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.txtSection.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtSection.ItemHeight = 30
-        Me.txtSection.Location = New System.Drawing.Point(5, 392)
-        Me.txtSection.Name = "txtSection"
-        Me.txtSection.Size = New System.Drawing.Size(348, 36)
-        Me.txtSection.TabIndex = 28
+        Me.rbFaculty.AutoSize = True
+        Me.rbFaculty.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.rbFaculty.CheckedState.BorderThickness = 0
+        Me.rbFaculty.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.rbFaculty.CheckedState.InnerColor = System.Drawing.Color.White
+        Me.rbFaculty.CheckedState.InnerOffset = -4
+        Me.rbFaculty.Location = New System.Drawing.Point(84, 58)
+        Me.rbFaculty.Name = "rbFaculty"
+        Me.rbFaculty.Size = New System.Drawing.Size(71, 20)
+        Me.rbFaculty.TabIndex = 29
+        Me.rbFaculty.Text = "Faculty"
+        Me.rbFaculty.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.rbFaculty.UncheckedState.BorderThickness = 2
+        Me.rbFaculty.UncheckedState.FillColor = System.Drawing.Color.Transparent
+        Me.rbFaculty.UncheckedState.InnerColor = System.Drawing.Color.Transparent
+        '
+        'txtSelectedGrade
+        '
+        Me.txtSelectedGrade.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedGrade.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSelectedGrade.DefaultText = ""
+        Me.txtSelectedGrade.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSelectedGrade.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSelectedGrade.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSelectedGrade.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSelectedGrade.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedGrade.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedGrade.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtSelectedGrade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedGrade.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedGrade.Location = New System.Drawing.Point(5, 321)
+        Me.txtSelectedGrade.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtSelectedGrade.Name = "txtSelectedGrade"
+        Me.txtSelectedGrade.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSelectedGrade.PlaceholderText = ""
+        Me.txtSelectedGrade.SelectedText = ""
+        Me.txtSelectedGrade.Size = New System.Drawing.Size(350, 44)
+        Me.txtSelectedGrade.TabIndex = 30
+        '
+        'txtSelectedSection
+        '
+        Me.txtSelectedSection.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedSection.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtSelectedSection.DefaultText = ""
+        Me.txtSelectedSection.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtSelectedSection.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtSelectedSection.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSelectedSection.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtSelectedSection.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedSection.FocusedState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedSection.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtSelectedSection.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedSection.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.txtSelectedSection.Location = New System.Drawing.Point(5, 393)
+        Me.txtSelectedSection.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtSelectedSection.Name = "txtSelectedSection"
+        Me.txtSelectedSection.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtSelectedSection.PlaceholderText = ""
+        Me.txtSelectedSection.SelectedText = ""
+        Me.txtSelectedSection.Size = New System.Drawing.Size(350, 44)
+        Me.txtSelectedSection.TabIndex = 31
         '
         'frmAddBorrowers
         '
@@ -274,12 +324,14 @@ Partial Class frmAddBorrowers
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(360, 566)
         Me.ControlBox = False
-        Me.Controls.Add(Me.txtSection)
-        Me.Controls.Add(Me.txtGrade)
+        Me.Controls.Add(Me.txtSelectedSection)
+        Me.Controls.Add(Me.txtSelectedGrade)
+        Me.Controls.Add(Me.rbFaculty)
+        Me.Controls.Add(Me.rbStudent)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtGuardianContact)
-        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.labelContact)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtLastname)
@@ -307,9 +359,11 @@ Partial Class frmAddBorrowers
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents txtGuardianContact As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Label6 As Label
+    Friend WithEvents labelContact As Label
     Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnClose As LinkLabel
-    Friend WithEvents txtGrade As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents txtSection As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents rbStudent As Guna.UI2.WinForms.Guna2RadioButton
+    Friend WithEvents rbFaculty As Guna.UI2.WinForms.Guna2RadioButton
+    Friend WithEvents txtSelectedGrade As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txtSelectedSection As Guna.UI2.WinForms.Guna2TextBox
 End Class
