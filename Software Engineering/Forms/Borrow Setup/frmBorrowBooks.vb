@@ -40,10 +40,7 @@
         frmBorrowerFinder.Show()
     End Sub
 
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
-
-    'Private Sub txtAcn_SelectedIndexChanged(sender As Object, e As EventArgs) Handles txtAcn.SelectedIndexChanged
-    '    Dim copyID As Integer = Convert.ToInt32(GetCopyID(txtAcn.Text))
-    '    txtCopyID.Text = copyID
-    'End Sub
+    End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmBorrowBooks
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,12 @@ Partial Class frmBorrowBooks
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBorrowBooks))
         Me.lblAuthors = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtCopyID = New System.Windows.Forms.Label()
         Me.txtAcn = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnFindSuppliers = New Guna.UI2.WinForms.Guna2Button()
@@ -80,7 +79,6 @@ Partial Class frmBorrowBooks
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.txtCopyID)
         Me.Panel1.Controls.Add(Me.txtAcn)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.btnFindSuppliers)
@@ -95,17 +93,6 @@ Partial Class frmBorrowBooks
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(363, 322)
         Me.Panel1.TabIndex = 5
-        '
-        'txtCopyID
-        '
-        Me.txtCopyID.AutoSize = True
-        Me.txtCopyID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCopyID.Location = New System.Drawing.Point(3, 10)
-        Me.txtCopyID.Name = "txtCopyID"
-        Me.txtCopyID.Size = New System.Drawing.Size(56, 20)
-        Me.txtCopyID.TabIndex = 40
-        Me.txtCopyID.Text = "copyID"
-        Me.txtCopyID.Visible = False
         '
         'txtAcn
         '
@@ -294,7 +281,7 @@ Partial Class frmBorrowBooks
         Me.btnSave.FillColor = System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(84, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(10, 272)
+        Me.btnSave.Location = New System.Drawing.Point(10, 270)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(350, 44)
         Me.btnSave.TabIndex = 37
@@ -442,5 +429,4 @@ Partial Class frmBorrowBooks
     Friend WithEvents Label5 As Label
     Friend WithEvents txtStudentID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtCopyID As Label
 End Class

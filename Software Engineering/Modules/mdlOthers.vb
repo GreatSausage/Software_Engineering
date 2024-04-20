@@ -1,11 +1,11 @@
 ﻿Imports System.Data.SqlClient
-Imports System.IO.Ports
 Imports MySql.Data.MySqlClient
 
 Module mdlOthers
 
+    Public connection As New MySqlConnection(My.Settings.connString)
+
     Public Function ConnectionOpen() As MySqlConnection
-        Dim connection As New MySqlConnection(My.Settings.connString)
         connection.Open()
         Return connection
     End Function
@@ -17,32 +17,6 @@ Module mdlOthers
         displayPanel.Controls.Clear()
         displayPanel.Controls.Add(frm)
         frm.Show()
-    End Sub
-
-    Public Sub SMSNotif(phoneNumber As String, message As String)
-        Dim smsport = New SerialPort
-
-        With smsport
-            .PortName = "COM6"
-            .BaudRate = 115200
-            .DataBits = 8
-            .StopBits = StopBits.One
-            .Handshake = Handshake.None
-            .DtrEnable = True
-            .RtsEnable = True
-            .NewLine = vbCrLf
-        End With
-
-        smsport.Open()
-        smsport.WriteLine("AT" & Chr(13))
-        Threading.Thread.Sleep(200)
-        smsport.WriteLine("AT+CMGF=1" & Chr(13))
-        Threading.Thread.Sleep(200)
-        smsport.WriteLine("AT+CMGS=" & Chr(34) & phoneNumber & Chr(34))
-        Threading.Thread.Sleep(200)
-        smsport.WriteLine(message & Chr(26))
-        Threading.Thread.Sleep(200)
-        MsgBox("Sent Succesfully")
     End Sub
 
 #Region "Sign In"

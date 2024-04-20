@@ -115,31 +115,22 @@ Module mdlBorrowSetup
         End Using
     End Sub
 
-    '    Public Function GetCopyID(acn As String) As Integer
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT copyID FROM tblCopies WHERE accessionNo = @acn", connection)
-    '                command.Parameters.AddWithValue("@acn", acn)
-    '                Return Convert.ToInt32(command.ExecuteScalar())
-    '            End Using
+    Public Function GetCopyIDFunction(acn As String) As Integer
+        Using connection As MySqlConnection = ConnectionOpen()
+            Using command As New MySqlCommand("SELECT copyID FROM tblCopies WHERE accessionNo = @acn", connection)
+                command.Parameters.AddWithValue("@acn", acn)
+                Return Convert.ToInt32(command.ExecuteScalar())
+            End Using
+        End Using
+    End Function
+
+    'Public Sub BorrowBooks(copyID As Integer, borrowerID As Integer)
+    '    Using connection As MySqlConnection = ConnectionOpen()
+    '        Using command As New MySqlCommand("INSERT tblBorrowedBooks (copyID, borrowerID)")
+
     '        End Using
-    '    End Function
-
-    '    Public Function DisplayBooksForFinder() As DataTable
-    '        Using connection As SqlConnection = ConnectionOpen(connString)
-    '            Using command As New SqlCommand("SELECT b.isbn, b.bookTitle, a.authorName 
-    '                                             FROM tblBooks b 
-    '                                             JOIN tblAuthors a ON a.authorID = b.authorID", connection)
-    '                Using adapter As New SqlDataAdapter(command)
-    '                    Dim dt As New DataTable
-    '                    adapter.Fill(dt)
-    '                    Return dt
-    '                End Using
-    '            End Using
-    '        End Using
-    '    End Function
-
-
-
+    '    End Using
+    'End Sub
 
     '    Public Function DisplayBorrowedBooks() As DataTable
     '        Using connection As SqlConnection = ConnectionOpen(connString)
