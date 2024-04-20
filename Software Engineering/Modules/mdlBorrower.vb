@@ -97,7 +97,7 @@ Module mdlBorrower
         Dim textInfo As TextInfo = cultureInfo.TextInfo
         Dim capitalizedFirstName As String = textInfo.ToTitleCase(firstName.ToLower())
         Dim capitalizedLastName As String = textInfo.ToTitleCase(lastName.ToLower())
-        Dim limit As Integer = 1
+        Dim limit As Integer = 3
         Try
             Using connection As MySqlConnection = ConnectionOpen()
                 Using command As New MySqlCommand("INSERT INTO tblBorrowers (studentID, firstName, lastName, gradeID, sectionID, guardianContact, borrowerType, borrowLimit) 
