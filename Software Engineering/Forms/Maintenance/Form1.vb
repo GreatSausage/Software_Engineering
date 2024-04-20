@@ -20,7 +20,7 @@ Public Class Form1
     End Sub
 
     Private Sub btnSave_Click_1(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim server As String = "192.168.100.37"
+        Dim server As String = "192.168.0.114"
         Dim username As String = "smapi"
         Dim password As String = "0529"
         Dim database As String = "dblms"

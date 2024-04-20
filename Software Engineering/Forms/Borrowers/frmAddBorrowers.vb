@@ -46,7 +46,6 @@ Public Class frmAddBorrowers
             labelContact.Text = "Phone Number:"
             txtSelectedGrade.Enabled = False
             txtSelectedSection.Enabled = False
-            txtStudentID.Enabled = False
         End If
     End Sub
 
@@ -55,7 +54,6 @@ Public Class frmAddBorrowers
             labelContact.Text = "Guardian Contact:"
             txtSelectedGrade.Enabled = True
             txtSelectedSection.Enabled = True
-            txtStudentID.Enabled = True
         End If
     End Sub
 
@@ -68,6 +66,7 @@ Public Class frmAddBorrowers
         If (rbFaculty.Checked AndAlso
            (String.IsNullOrEmpty(txtFirstname.Text) OrElse
             String.IsNullOrEmpty(txtLastname.Text) OrElse
+            String.IsNullOrEmpty(txtStudentID.Text) OrElse
             String.IsNullOrEmpty(txtGuardianContact.Text))) Then
             MessageBox.Show("Please fill in the necessary fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else

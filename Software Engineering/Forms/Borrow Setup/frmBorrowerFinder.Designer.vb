@@ -37,6 +37,10 @@ Partial Class frmBorrowerFinder
         Me.studentID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.firstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.gradeLevel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.section = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.borrowerType = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.dgBorrowers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -148,7 +152,7 @@ Partial Class frmBorrowerFinder
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgBorrowers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgBorrowers.ColumnHeadersHeight = 40
-        Me.dgBorrowers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowerID, Me.studentID, Me.firstName, Me.lastName})
+        Me.dgBorrowers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowerID, Me.studentID, Me.firstName, Me.lastName, Me.gradeLevel, Me.section, Me.DataGridViewTextBoxColumn1, Me.borrowerType})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -162,11 +166,12 @@ Partial Class frmBorrowerFinder
         Me.dgBorrowers.Location = New System.Drawing.Point(0, 103)
         Me.dgBorrowers.MultiSelect = False
         Me.dgBorrowers.Name = "dgBorrowers"
+        Me.dgBorrowers.ReadOnly = True
         Me.dgBorrowers.RowHeadersVisible = False
         Me.dgBorrowers.RowHeadersWidth = 51
         Me.dgBorrowers.RowTemplate.Height = 24
         Me.dgBorrowers.Size = New System.Drawing.Size(800, 347)
-        Me.dgBorrowers.TabIndex = 10
+        Me.dgBorrowers.TabIndex = 13
         Me.dgBorrowers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgBorrowers.ThemeStyle.AlternatingRowsStyle.Font = Nothing
         Me.dgBorrowers.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
@@ -180,7 +185,7 @@ Partial Class frmBorrowerFinder
         Me.dgBorrowers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.dgBorrowers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgBorrowers.ThemeStyle.HeaderStyle.Height = 40
-        Me.dgBorrowers.ThemeStyle.ReadOnly = False
+        Me.dgBorrowers.ThemeStyle.ReadOnly = True
         Me.dgBorrowers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
         Me.dgBorrowers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgBorrowers.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -196,6 +201,7 @@ Partial Class frmBorrowerFinder
         Me.borrowerID.MinimumWidth = 6
         Me.borrowerID.Name = "borrowerID"
         Me.borrowerID.ReadOnly = True
+        Me.borrowerID.Visible = False
         '
         'studentID
         '
@@ -220,6 +226,41 @@ Partial Class frmBorrowerFinder
         Me.lastName.MinimumWidth = 6
         Me.lastName.Name = "lastName"
         Me.lastName.ReadOnly = True
+        '
+        'gradeLevel
+        '
+        Me.gradeLevel.DataPropertyName = "grade"
+        Me.gradeLevel.HeaderText = "Grade"
+        Me.gradeLevel.MinimumWidth = 6
+        Me.gradeLevel.Name = "gradeLevel"
+        Me.gradeLevel.ReadOnly = True
+        Me.gradeLevel.Visible = False
+        '
+        'section
+        '
+        Me.section.DataPropertyName = "section"
+        Me.section.HeaderText = "Section"
+        Me.section.MinimumWidth = 6
+        Me.section.Name = "section"
+        Me.section.ReadOnly = True
+        Me.section.Visible = False
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "guardianContact"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Guardian's Contact"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Visible = False
+        '
+        'borrowerType
+        '
+        Me.borrowerType.DataPropertyName = "borrowerType"
+        Me.borrowerType.HeaderText = ""
+        Me.borrowerType.MinimumWidth = 6
+        Me.borrowerType.Name = "borrowerType"
+        Me.borrowerType.ReadOnly = True
         '
         'frmBorrowerFinder
         '
@@ -253,4 +294,8 @@ Partial Class frmBorrowerFinder
     Friend WithEvents studentID As DataGridViewTextBoxColumn
     Friend WithEvents firstName As DataGridViewTextBoxColumn
     Friend WithEvents lastName As DataGridViewTextBoxColumn
+    Friend WithEvents gradeLevel As DataGridViewTextBoxColumn
+    Friend WithEvents section As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents borrowerType As DataGridViewTextBoxColumn
 End Class

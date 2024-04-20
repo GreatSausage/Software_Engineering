@@ -26,6 +26,7 @@ Partial Class frmBorrowBooks
         Me.lblAuthors = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.LinkLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtCopyID = New System.Windows.Forms.Label()
         Me.txtAcn = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnFindSuppliers = New Guna.UI2.WinForms.Guna2Button()
@@ -44,8 +45,6 @@ Partial Class frmBorrowBooks
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtStudentID = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtBorrowerID = New System.Windows.Forms.Label()
-        Me.txtCopyID = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -96,6 +95,17 @@ Partial Class frmBorrowBooks
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(363, 322)
         Me.Panel1.TabIndex = 5
+        '
+        'txtCopyID
+        '
+        Me.txtCopyID.AutoSize = True
+        Me.txtCopyID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCopyID.Location = New System.Drawing.Point(3, 10)
+        Me.txtCopyID.Name = "txtCopyID"
+        Me.txtCopyID.Size = New System.Drawing.Size(56, 20)
+        Me.txtCopyID.TabIndex = 40
+        Me.txtCopyID.Text = "copyID"
+        Me.txtCopyID.Visible = False
         '
         'txtAcn
         '
@@ -243,7 +253,6 @@ Partial Class frmBorrowBooks
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.txtBorrowerID)
         Me.Panel2.Controls.Add(Me.Guna2Button1)
         Me.Panel2.Controls.Add(Me.btnSave)
         Me.Panel2.Controls.Add(Me.txtLastname)
@@ -390,28 +399,6 @@ Partial Class frmBorrowBooks
         Me.Label4.TabIndex = 31
         Me.Label4.Text = "Student ID:"
         '
-        'txtBorrowerID
-        '
-        Me.txtBorrowerID.AutoSize = True
-        Me.txtBorrowerID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBorrowerID.Location = New System.Drawing.Point(6, 11)
-        Me.txtBorrowerID.Name = "txtBorrowerID"
-        Me.txtBorrowerID.Size = New System.Drawing.Size(85, 20)
-        Me.txtBorrowerID.TabIndex = 39
-        Me.txtBorrowerID.Text = "borrowerID"
-        Me.txtBorrowerID.Visible = False
-        '
-        'txtCopyID
-        '
-        Me.txtCopyID.AutoSize = True
-        Me.txtCopyID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCopyID.Location = New System.Drawing.Point(3, 10)
-        Me.txtCopyID.Name = "txtCopyID"
-        Me.txtCopyID.Size = New System.Drawing.Size(56, 20)
-        Me.txtCopyID.TabIndex = 40
-        Me.txtCopyID.Text = "copyID"
-        Me.txtCopyID.Visible = False
-        '
         'frmBorrowBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -455,6 +442,5 @@ Partial Class frmBorrowBooks
     Friend WithEvents Label5 As Label
     Friend WithEvents txtStudentID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents txtBorrowerID As Label
     Friend WithEvents txtCopyID As Label
 End Class

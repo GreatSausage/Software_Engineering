@@ -32,12 +32,19 @@ Partial Class frmBookFinder
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.dgBooks = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.title = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.author = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgBooksMainte = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.distinctBookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.distinctPublisher = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.yearPublished = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.genreName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.shelfNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.genreID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.shelfID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgBooks, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgBooksMainte, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -129,15 +136,15 @@ Partial Class frmBookFinder
         Me.Panel2.Size = New System.Drawing.Size(5, 53)
         Me.Panel2.TabIndex = 0
         '
-        'dgBooks
+        'dgBooksMainte
         '
-        Me.dgBooks.AllowUserToAddRows = False
-        Me.dgBooks.AllowUserToDeleteRows = False
-        Me.dgBooks.AllowUserToResizeColumns = False
-        Me.dgBooks.AllowUserToResizeRows = False
+        Me.dgBooksMainte.AllowUserToAddRows = False
+        Me.dgBooksMainte.AllowUserToDeleteRows = False
+        Me.dgBooksMainte.AllowUserToResizeColumns = False
+        Me.dgBooksMainte.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.dgBooks.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgBooks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.dgBooksMainte.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgBooksMainte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -145,9 +152,9 @@ Partial Class frmBookFinder
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgBooks.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgBooks.ColumnHeadersHeight = 40
-        Me.dgBooks.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISBN, Me.title, Me.author})
+        Me.dgBooksMainte.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgBooksMainte.ColumnHeadersHeight = 40
+        Me.dgBooksMainte.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.distinctBookID, Me.distinctISBN, Me.distinctTitle, Me.distinctAuthor, Me.distinctPublisher, Me.yearPublished, Me.genreName, Me.shelfNo, Me.genreID, Me.shelfID})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -155,60 +162,122 @@ Partial Class frmBookFinder
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgBooks.DefaultCellStyle = DataGridViewCellStyle3
-        Me.dgBooks.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgBooks.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgBooks.Location = New System.Drawing.Point(0, 103)
-        Me.dgBooks.MultiSelect = False
-        Me.dgBooks.Name = "dgBooks"
-        Me.dgBooks.RowHeadersVisible = False
-        Me.dgBooks.RowHeadersWidth = 51
-        Me.dgBooks.RowTemplate.Height = 24
-        Me.dgBooks.Size = New System.Drawing.Size(800, 347)
-        Me.dgBooks.TabIndex = 9
-        Me.dgBooks.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.dgBooks.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.dgBooks.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.dgBooks.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.dgBooks.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.dgBooks.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.dgBooks.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgBooks.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgBooks.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dgBooks.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgBooks.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.dgBooks.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgBooks.ThemeStyle.HeaderStyle.Height = 40
-        Me.dgBooks.ThemeStyle.ReadOnly = False
-        Me.dgBooks.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.dgBooks.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.dgBooks.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dgBooks.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.dgBooks.ThemeStyle.RowsStyle.Height = 24
-        Me.dgBooks.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgBooks.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgBooksMainte.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgBooksMainte.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgBooksMainte.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgBooksMainte.Location = New System.Drawing.Point(0, 103)
+        Me.dgBooksMainte.MultiSelect = False
+        Me.dgBooksMainte.Name = "dgBooksMainte"
+        Me.dgBooksMainte.ReadOnly = True
+        Me.dgBooksMainte.RowHeadersVisible = False
+        Me.dgBooksMainte.RowHeadersWidth = 51
+        Me.dgBooksMainte.RowTemplate.Height = 24
+        Me.dgBooksMainte.Size = New System.Drawing.Size(800, 347)
+        Me.dgBooksMainte.TabIndex = 9
+        Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.dgBooksMainte.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.dgBooksMainte.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgBooksMainte.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgBooksMainte.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dgBooksMainte.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgBooksMainte.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.dgBooksMainte.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgBooksMainte.ThemeStyle.HeaderStyle.Height = 40
+        Me.dgBooksMainte.ThemeStyle.ReadOnly = True
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.Height = 24
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.dgBooksMainte.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'ISBN
+        'distinctBookID
         '
-        Me.ISBN.DataPropertyName = "isbn"
-        Me.ISBN.HeaderText = "ISBN"
-        Me.ISBN.MinimumWidth = 6
-        Me.ISBN.Name = "ISBN"
-        Me.ISBN.ReadOnly = True
+        Me.distinctBookID.DataPropertyName = "bookID"
+        Me.distinctBookID.HeaderText = "Book ID"
+        Me.distinctBookID.MinimumWidth = 6
+        Me.distinctBookID.Name = "distinctBookID"
+        Me.distinctBookID.ReadOnly = True
         '
-        'title
+        'distinctISBN
         '
-        Me.title.DataPropertyName = "bookTitle"
-        Me.title.HeaderText = "Title"
-        Me.title.MinimumWidth = 6
-        Me.title.Name = "title"
+        Me.distinctISBN.DataPropertyName = "isbn"
+        Me.distinctISBN.HeaderText = "ISBN"
+        Me.distinctISBN.MinimumWidth = 6
+        Me.distinctISBN.Name = "distinctISBN"
+        Me.distinctISBN.ReadOnly = True
         '
-        'author
+        'distinctTitle
         '
-        Me.author.DataPropertyName = "authorName"
-        Me.author.HeaderText = "Author"
-        Me.author.MinimumWidth = 6
-        Me.author.Name = "author"
+        Me.distinctTitle.DataPropertyName = "bookTitle"
+        Me.distinctTitle.HeaderText = "Title"
+        Me.distinctTitle.MinimumWidth = 6
+        Me.distinctTitle.Name = "distinctTitle"
+        Me.distinctTitle.ReadOnly = True
+        '
+        'distinctAuthor
+        '
+        Me.distinctAuthor.DataPropertyName = "authorName"
+        Me.distinctAuthor.HeaderText = "Authors"
+        Me.distinctAuthor.MinimumWidth = 6
+        Me.distinctAuthor.Name = "distinctAuthor"
+        Me.distinctAuthor.ReadOnly = True
+        '
+        'distinctPublisher
+        '
+        Me.distinctPublisher.DataPropertyName = "publisherName"
+        Me.distinctPublisher.HeaderText = "Publisher"
+        Me.distinctPublisher.MinimumWidth = 6
+        Me.distinctPublisher.Name = "distinctPublisher"
+        Me.distinctPublisher.ReadOnly = True
+        '
+        'yearPublished
+        '
+        Me.yearPublished.DataPropertyName = "yearPublished"
+        Me.yearPublished.HeaderText = "Year Published"
+        Me.yearPublished.MinimumWidth = 6
+        Me.yearPublished.Name = "yearPublished"
+        Me.yearPublished.ReadOnly = True
+        '
+        'genreName
+        '
+        Me.genreName.DataPropertyName = "genreName"
+        Me.genreName.HeaderText = "Genre"
+        Me.genreName.MinimumWidth = 6
+        Me.genreName.Name = "genreName"
+        Me.genreName.ReadOnly = True
+        '
+        'shelfNo
+        '
+        Me.shelfNo.DataPropertyName = "shelfNo"
+        Me.shelfNo.HeaderText = "Shelf No."
+        Me.shelfNo.MinimumWidth = 6
+        Me.shelfNo.Name = "shelfNo"
+        Me.shelfNo.ReadOnly = True
+        Me.shelfNo.Visible = False
+        '
+        'genreID
+        '
+        Me.genreID.DataPropertyName = "genreID"
+        Me.genreID.HeaderText = "genreID"
+        Me.genreID.MinimumWidth = 6
+        Me.genreID.Name = "genreID"
+        Me.genreID.ReadOnly = True
+        Me.genreID.Visible = False
+        '
+        'shelfID
+        '
+        Me.shelfID.DataPropertyName = "shelfID"
+        Me.shelfID.HeaderText = "shelfID"
+        Me.shelfID.MinimumWidth = 6
+        Me.shelfID.Name = "shelfID"
+        Me.shelfID.ReadOnly = True
+        Me.shelfID.Visible = False
         '
         'frmBookFinder
         '
@@ -216,7 +285,7 @@ Partial Class frmBookFinder
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.ControlBox = False
-        Me.Controls.Add(Me.dgBooks)
+        Me.Controls.Add(Me.dgBooksMainte)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Label1)
@@ -224,7 +293,7 @@ Partial Class frmBookFinder
         Me.Name = "frmBookFinder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dgBooks, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgBooksMainte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -237,8 +306,15 @@ Partial Class frmBookFinder
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents dgBooks As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents ISBN As DataGridViewTextBoxColumn
-    Friend WithEvents title As DataGridViewTextBoxColumn
-    Friend WithEvents author As DataGridViewTextBoxColumn
+    Friend WithEvents dgBooksMainte As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents distinctBookID As DataGridViewTextBoxColumn
+    Friend WithEvents distinctISBN As DataGridViewTextBoxColumn
+    Friend WithEvents distinctTitle As DataGridViewTextBoxColumn
+    Friend WithEvents distinctAuthor As DataGridViewTextBoxColumn
+    Friend WithEvents distinctPublisher As DataGridViewTextBoxColumn
+    Friend WithEvents yearPublished As DataGridViewTextBoxColumn
+    Friend WithEvents genreName As DataGridViewTextBoxColumn
+    Friend WithEvents shelfNo As DataGridViewTextBoxColumn
+    Friend WithEvents genreID As DataGridViewTextBoxColumn
+    Friend WithEvents shelfID As DataGridViewTextBoxColumn
 End Class
