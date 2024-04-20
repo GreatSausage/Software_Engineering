@@ -41,6 +41,8 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-
+        Dim copyID As Integer = GetCopyIDFunction(txtAcn.Text)
+        BorrowBooks(copyID, getBorrowerID)
+        Me.Close()
     End Sub
 End Class

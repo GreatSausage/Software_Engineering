@@ -1,13 +1,13 @@
-﻿Imports System.Data.SqlClient
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Module mdlOthers
 
-    Public connection As New MySqlConnection(My.Settings.connString)
+    Public serverconn As New MySqlConnection(My.Settings.connString)
 
     Public Function ConnectionOpen() As MySqlConnection
-        connection.Open()
-        Return connection
+        serverconn = New MySqlConnection(My.Settings.connString)
+        serverconn.Open()
+        Return serverconn
     End Function
 
     Public Sub DisplayFormPanel(frm As Form, displayPanel As Panel)

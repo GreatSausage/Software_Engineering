@@ -33,6 +33,9 @@ Partial Class frmBookFinder
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.dgBooksMainte = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
         Me.distinctBookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.distinctISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.distinctTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,7 +58,7 @@ Partial Class frmBookFinder
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(800, 50)
+        Me.Label1.Size = New System.Drawing.Size(1406, 50)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "FIND BOOKS"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -84,7 +87,7 @@ Partial Class frmBookFinder
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 50)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(800, 53)
+        Me.Panel1.Size = New System.Drawing.Size(1406, 53)
         Me.Panel1.TabIndex = 8
         '
         'txtSearch
@@ -103,7 +106,7 @@ Partial Class frmBookFinder
         Me.txtSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
         Me.txtSearch.HoverState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.txtSearch.Location = New System.Drawing.Point(510, 5)
+        Me.txtSearch.Location = New System.Drawing.Point(1116, 5)
         Me.txtSearch.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -117,7 +120,7 @@ Partial Class frmBookFinder
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel4.Location = New System.Drawing.Point(0, 48)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(795, 5)
+        Me.Panel4.Size = New System.Drawing.Size(1401, 5)
         Me.Panel4.TabIndex = 2
         '
         'Panel3
@@ -125,13 +128,13 @@ Partial Class frmBookFinder
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(795, 5)
+        Me.Panel3.Size = New System.Drawing.Size(1401, 5)
         Me.Panel3.TabIndex = 1
         '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(795, 0)
+        Me.Panel2.Location = New System.Drawing.Point(1401, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(5, 53)
         Me.Panel2.TabIndex = 0
@@ -172,7 +175,7 @@ Partial Class frmBookFinder
         Me.dgBooksMainte.RowHeadersVisible = False
         Me.dgBooksMainte.RowHeadersWidth = 51
         Me.dgBooksMainte.RowTemplate.Height = 24
-        Me.dgBooksMainte.Size = New System.Drawing.Size(800, 347)
+        Me.dgBooksMainte.Size = New System.Drawing.Size(1406, 434)
         Me.dgBooksMainte.TabIndex = 9
         Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.dgBooksMainte.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -196,6 +199,30 @@ Partial Class frmBookFinder
         Me.dgBooksMainte.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgBooksMainte.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'Panel5
+        '
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel5.Location = New System.Drawing.Point(0, 103)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(5, 434)
+        Me.Panel5.TabIndex = 10
+        '
+        'Panel6
+        '
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel6.Location = New System.Drawing.Point(1401, 103)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(5, 434)
+        Me.Panel6.TabIndex = 11
+        '
+        'Panel7
+        '
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel7.Location = New System.Drawing.Point(5, 532)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(1396, 5)
+        Me.Panel7.TabIndex = 12
+        '
         'distinctBookID
         '
         Me.distinctBookID.DataPropertyName = "bookID"
@@ -203,6 +230,7 @@ Partial Class frmBookFinder
         Me.distinctBookID.MinimumWidth = 6
         Me.distinctBookID.Name = "distinctBookID"
         Me.distinctBookID.ReadOnly = True
+        Me.distinctBookID.Visible = False
         '
         'distinctISBN
         '
@@ -283,8 +311,11 @@ Partial Class frmBookFinder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1406, 537)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Panel7)
+        Me.Controls.Add(Me.Panel6)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.dgBooksMainte)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnClose)
@@ -307,6 +338,8 @@ Partial Class frmBookFinder
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents dgBooksMainte As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel6 As Panel
     Friend WithEvents distinctBookID As DataGridViewTextBoxColumn
     Friend WithEvents distinctISBN As DataGridViewTextBoxColumn
     Friend WithEvents distinctTitle As DataGridViewTextBoxColumn
@@ -317,4 +350,5 @@ Partial Class frmBookFinder
     Friend WithEvents shelfNo As DataGridViewTextBoxColumn
     Friend WithEvents genreID As DataGridViewTextBoxColumn
     Friend WithEvents shelfID As DataGridViewTextBoxColumn
+    Friend WithEvents Panel7 As Panel
 End Class

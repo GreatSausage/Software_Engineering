@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Data.SqlClient
 Imports System.Globalization
 
 Module mdlMaintenance
@@ -485,5 +486,12 @@ Module mdlMaintenance
     '            End Using
     '        End Using
     '    End Sub
+#End Region
+
+#Region "Borrow Maintenance"
+    'Public Sub ConfigDueDate(interval As Integer)
+    '    Using connection As MySqlConnection = ConnectionOpen()
+    '    End Using
+    'End Sub
 #End Region
 End Module

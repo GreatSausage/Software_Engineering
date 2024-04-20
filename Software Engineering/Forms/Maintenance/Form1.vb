@@ -1,6 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports Software_Engineering.My
+
 Public Class Form1
-    Dim constr As String
 
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
         Me.Close()
@@ -15,37 +16,31 @@ Public Class Form1
             Login(txtUsernameSignIn.Text, txtPasswordSignIn.Text)
         End If
     End Sub
-
     Private Sub btnSave_Click_1(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim server As String = txtServer.Text
-        Dim username As String = txtUsername.Text
-        Dim password As String = txtPassword.Text
-        Dim database As String = txtDatabase.Text
-
-        My.Settings.server = server
-        My.Settings.database = database
-        My.Settings.username = username
-        My.Settings.password = password
-
-        Dim constr As String = "server=" & server & ";username=" & username & ";password=" & password & ";database=" & database & ";port=3306"
-
         Try
+            Dim server As String = txtServer.Text.Trim
+            Dim username As String = txtUsername.Text.Trim
+            Dim password As String = txtPassword.Text.Trim
+            Dim database As String = txtDatabase.Text.Trim
+
+            Dim constr As String = "server= " & server & ";user id=" & username & ";password=" & password & ";database=" & database & ";port=3306"
+            My.Settings.server = server
+            My.Settings.username = username
+            My.Settings.password = password
+            My.Settings.database = database
             My.Settings.connString = constr
             My.Settings.Save()
-
-            Using connection As New MySqlConnection(constr)
-                connection.Open()
-                MessageBox.Show("Server connected.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End Using
+            MessageBox.Show("Saved successfully.")
+            serverconn.Close()
+            Dim connstring As String = My.Settings.connString
+            serverconn.ConnectionString = connstring
+        Catch ex As MySqlException
+            MsgBox("Can't connect to database.")
         Catch ex As Exception
-            MessageBox.Show("Error connecting to server: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MsgBox(ex.Message)
         End Try
     End Sub
 
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        connection.Close()
-        Dim connstring As String = My.Settings.connString
-        connection.ConnectionString = connstring
     End Sub
 End Class
