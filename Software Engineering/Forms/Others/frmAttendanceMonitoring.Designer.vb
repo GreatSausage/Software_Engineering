@@ -23,9 +23,9 @@ Partial Class frmAttendanceMonitoring
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAttendanceMonitoring))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -60,6 +60,8 @@ Partial Class frmAttendanceMonitoring
         Me.studentID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.firstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.grade = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.timeIn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.timeOut = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
@@ -443,27 +445,27 @@ Partial Class frmAttendanceMonitoring
         Me.dgBorrowers.AllowUserToDeleteRows = False
         Me.dgBorrowers.AllowUserToResizeColumns = False
         Me.dgBorrowers.AllowUserToResizeRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        Me.dgBorrowers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.dgBorrowers.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgBorrowers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgBorrowers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgBorrowers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgBorrowers.ColumnHeadersHeight = 40
-        Me.dgBorrowers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowerID, Me.studentID, Me.firstName, Me.lastName, Me.timeIn, Me.timeOut})
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgBorrowers.DefaultCellStyle = DataGridViewCellStyle9
+        Me.dgBorrowers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowerID, Me.studentID, Me.firstName, Me.lastName, Me.grade, Me.section, Me.timeIn, Me.timeOut})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgBorrowers.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgBorrowers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgBorrowers.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.dgBorrowers.Location = New System.Drawing.Point(315, 180)
@@ -499,13 +501,16 @@ Partial Class frmAttendanceMonitoring
         '
         'borrowerID
         '
+        Me.borrowerID.DataPropertyName = "borrowerID"
         Me.borrowerID.HeaderText = "Borrower ID"
         Me.borrowerID.MinimumWidth = 6
         Me.borrowerID.Name = "borrowerID"
         Me.borrowerID.ReadOnly = True
+        Me.borrowerID.Visible = False
         '
         'studentID
         '
+        Me.studentID.DataPropertyName = "studentID"
         Me.studentID.HeaderText = "Student ID"
         Me.studentID.MinimumWidth = 6
         Me.studentID.Name = "studentID"
@@ -513,6 +518,7 @@ Partial Class frmAttendanceMonitoring
         '
         'firstName
         '
+        Me.firstName.DataPropertyName = "firstName"
         Me.firstName.HeaderText = "Firstname"
         Me.firstName.MinimumWidth = 6
         Me.firstName.Name = "firstName"
@@ -520,13 +526,31 @@ Partial Class frmAttendanceMonitoring
         '
         'lastName
         '
+        Me.lastName.DataPropertyName = "lastName"
         Me.lastName.HeaderText = "Lastname"
         Me.lastName.MinimumWidth = 6
         Me.lastName.Name = "lastName"
         Me.lastName.ReadOnly = True
         '
+        'grade
+        '
+        Me.grade.DataPropertyName = "grade"
+        Me.grade.HeaderText = "Grade"
+        Me.grade.MinimumWidth = 6
+        Me.grade.Name = "grade"
+        Me.grade.ReadOnly = True
+        '
+        'section
+        '
+        Me.section.DataPropertyName = "section"
+        Me.section.HeaderText = "Section"
+        Me.section.MinimumWidth = 6
+        Me.section.Name = "section"
+        Me.section.ReadOnly = True
+        '
         'timeIn
         '
+        Me.timeIn.DataPropertyName = "timeIn"
         Me.timeIn.HeaderText = "Time In"
         Me.timeIn.MinimumWidth = 6
         Me.timeIn.Name = "timeIn"
@@ -534,6 +558,7 @@ Partial Class frmAttendanceMonitoring
         '
         'timeOut
         '
+        Me.timeOut.DataPropertyName = "timeOut"
         Me.timeOut.HeaderText = "Time Out"
         Me.timeOut.MinimumWidth = 6
         Me.timeOut.Name = "timeOut"
@@ -594,12 +619,14 @@ Partial Class frmAttendanceMonitoring
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel11 As Panel
     Friend WithEvents dgBorrowers As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Panel14 As Panel
+    Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents borrowerID As DataGridViewTextBoxColumn
     Friend WithEvents studentID As DataGridViewTextBoxColumn
     Friend WithEvents firstName As DataGridViewTextBoxColumn
     Friend WithEvents lastName As DataGridViewTextBoxColumn
+    Friend WithEvents grade As DataGridViewTextBoxColumn
+    Friend WithEvents section As DataGridViewTextBoxColumn
     Friend WithEvents timeIn As DataGridViewTextBoxColumn
     Friend WithEvents timeOut As DataGridViewTextBoxColumn
-    Friend WithEvents Panel14 As Panel
-    Friend WithEvents btnSave As Guna.UI2.WinForms.Guna2Button
 End Class
