@@ -1,6 +1,6 @@
 ﻿Public Class frmBorrowBooks
 
-    Dim getBorrowerID As Integer = Nothing
+    Dim getBorrowerID As Integer = 0
 
     Private Sub btnClose_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles btnClose.LinkClicked
         Me.Close()
@@ -51,7 +51,7 @@
 
             BorrowBooks(copyID, getBorrowerID)
         Next
-
+        MessageBox.Show("Book has been borrowed successfully.")
         Me.Close()
     End Sub
 

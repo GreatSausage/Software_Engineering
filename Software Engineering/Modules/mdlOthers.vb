@@ -24,8 +24,8 @@ Module mdlOthers
         Dim smsport = New SerialPort
 
         With smsport
-            .PortName = "COM6"
-            .BaudRate = 115200
+            .PortName = "COM5"
+            .BaudRate = 9600
             .DataBits = 8
             .StopBits = StopBits.One
             .Handshake = Handshake.None

@@ -307,6 +307,7 @@
     <Compile Include="Modules\mdlBookInventory.vb" />
     <Compile Include="Modules\mdlMaintenance.vb" />
     <Compile Include="Modules\mdlOthers.vb" />
+    <Compile Include="Modules\ModuleNiKoyaRens.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

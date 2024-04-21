@@ -1,6 +1,9 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Web.Util
 Imports Guna.UI2.WinForms
 Imports MySql.Data.MySqlClient
+Imports Mysqlx
+
 Module mdlBorrowSetup
 
 #Region "Borrow Setup"
@@ -144,51 +147,38 @@ Module mdlBorrowSetup
                 Dim limit As Integer = Convert.ToInt32(checkLimit.ExecuteScalar())
 
                 If limit > 0 Then
-                    Using transact As New MySqlCommand("INSERT INTO tblTransactions (borrowerID, dateBorrowed, dueDate) 
-                                                        VALUES (@borrowerID, @dateBorrowed, @dueDate); 
-                                                        SELECT LAST_INSERT_ID();", connection)
-                        transact.Parameters.AddWithValue("@borrowerID", borrowerID)
-                        transact.Parameters.AddWithValue("@dateBorrowed", dateBorrowed)
-                        transact.Parameters.AddWithValue("@dueDate", dueDate)
-                        Dim transactionID As Integer = Convert.ToInt32(transact.ExecuteScalar())
-
-                        Using borrowBook As New MySqlCommand("INSERT INTO tblBorrowedBooks (copyID, transactionID) VALUES (@copyID, @transactionID)", connection)
-                            borrowBook.Parameters.AddWithValue("@copyID", copyID)
-                            borrowBook.Parameters.AddWithValue("@transactionID", transactionID)
-                            borrowBook.ExecuteNonQuery()
-                        End Using
+                    Using borrowBook As New MySqlCommand("INSERT INTO tblBorrowedBooks (copyID, borrowerID, dateBorrowed, dueDate, borrowStatus) 
+                                                          VALUES (@copyID, @borrowerID, @dateBorrowed, @dueDate, 'Not Returned')", connection)
+                        borrowBook.Parameters.AddWithValue("@copyID", copyID)
+                        borrowBook.Parameters.AddWithValue("@borrowerID", borrowerID)
+                        borrowBook.Parameters.AddWithValue("@dateBorrowed", dateBorrowed)
+                        borrowBook.Parameters.AddWithValue("@dueDate", dueDate)
+                        borrowBook.ExecuteNonQuery()
                     End Using
 
                     Using updateCommand As New MySqlCommand("UPDATE tblBorrowers SET borrowLimit = borrowLimit - 1 WHERE borrowerID = @borrowerID", connection)
                         updateCommand.Parameters.AddWithValue("@borrowerID", borrowerID)
                         updateCommand.ExecuteNonQuery()
                     End Using
+
                     Using updateAvailability As New MySqlCommand("UPDATE tblCopies SET status = 'Borrowed' WHERE copyID = @copyID", connection)
                         updateAvailability.Parameters.AddWithValue("@copyID", copyID)
                         updateAvailability.ExecuteNonQuery()
                     End Using
 
-                    Using getPhoneNumber As New MySqlCommand("SELECT b.guardianContact, CONCAT(b.firstName, ' ', b.lastName) AS fullName, 
-                                                                     bk.bookTitle 
-                                                              FROM tblBorrowers b 
-                                                              JOIN tblTransactions t ON b.borrowerID = t.borrowerID
-                                                              JOIN tblBorrowedBooks bb ON t.transactionID = bb.transactionID 
-                                                              JOIN tblCopies c ON bb.copyID = c.copyID
-                                                              JOIN tblBooks bk ON c.bookID = bk.bookID
-                                                              WHERE b.borrowerID = @borrowerID", connection)
-                        getPhoneNumber.Parameters.AddWithValue("@borrowerID", borrowerID)
-                        Dim reader As MySqlDataReader = getPhoneNumber.ExecuteReader()
+                    'Using getPhoneNumber As New MySqlCommand("SELECT b.guardianContact, CONCAT(b.firstName, ' ', b.lastName) AS fullName
+                    '                      FROM tblBorrowers b
+                    '                      WHERE b.borrowerID = @borrowerID", connection)
+                    '    getPhoneNumber.Parameters.AddWithValue("@borrowerID", borrowerID)
+                    '    Dim reader As MySqlDataReader = getPhoneNumber.ExecuteReader()
 
-                        If reader.Read() Then
-                            Dim number As String = reader("guardianContact").ToString()
-                            Dim fullName As String = reader("fullName").ToString()
-                            Dim title As String = reader("bookTitle").ToString()
-                            SMSNotif(number, $"{fullName} has borrowed {title} from St. Mark Academy of Primarosa, Inc.")
-                        End If
-                    End Using
+                    '    If reader.Read() Then
+                    '        Dim number As String = reader("guardianContact").ToString()
+                    '        Dim fullName As String = reader("fullName").ToString()
+                    '        SMSNotif(number, $"{fullName} has borrowed from St. Mark Academy of Primarosa, Inc.")
+                    '    End If
+                    'End Using
 
-
-                    MessageBox.Show("The book has been borrowed successfully.")
                     Dim dtBorrowed As DataTable = DisplayBorrowedBooks()
                     frmIssueReturn.dgBorrowed.DataSource = dtBorrowed
 
@@ -201,9 +191,8 @@ Module mdlBorrowSetup
         End Using
     End Sub
 
-
     Private Function CalculateDueDate(dateBorrowed As DateTime) As DateTime
-        Dim dueDate As DateTime = dateBorrowed.AddDays(7)
+        Dim dueDate As DateTime = dateBorrowed.AddDays(9)
         While dueDate.DayOfWeek = DayOfWeek.Saturday OrElse dueDate.DayOfWeek = DayOfWeek.Sunday
             dueDate = dueDate.AddDays(1)
         End While
@@ -212,17 +201,18 @@ Module mdlBorrowSetup
 
     Public Function DisplayBorrowedBooks() As DataTable
         Using connection As MySqlConnection = ConnectionOpen()
-            Using command As New MySqlCommand("SELECT t.transactionID, bb.borrowID, bb.copyID, t.borrowerID,
-                                                      CONCAT(b.firstName, ' ', b.lastName) AS Fullname, b.borrowerType, 
-                                                      bk.bookTitle,
-                                                      a.authorName,
-                                                      t.dateBorrowed, t.dueDate 
+            Using command As New MySqlCommand("SELECT bb.borrowID, bb.copyID, bb.borrowerID,
+                                                      CONCAT(b.firstName, ' ', b.lastName) AS FullName,
+                                                      b.borrowerType, b.studentID, b.firstName, b.lastName, 
+                                                      bk.bookTitle, bk.ISBN, a.authorName, 
+                                                      c.accessionNo, 
+                                                      bb.dateBorrowed, bb.dueDate
                                                FROM tblBorrowedBooks bb
-                                               JOIN tblCopies cp ON bb.copyID = cp.copyID
-                                               JOIN tblBooks bk ON cp.bookID = bk.bookID
-                                               JOIN tblAuthors a ON bk.authorID = a.authorID
-                                               JOIN tblTransactions t ON bb.transactionID = t.transactionID
-                                               JOIN tblBorrowers b ON t.borrowerID = b.borrowerID", connection)
+                                               INNER JOIN tblCopies c ON bb.copyID = c.copyID
+                                               INNER JOIN tblBooks bk ON c.bookID = bk.bookID
+                                               INNER JOIN tblAuthors a ON bk.authorID = a.authorID 
+                                               INNER JOIN tblBorrowers b ON bb.borrowerID = b.borrowerID 
+                                               WHERE bb.borrowStatus = 'Not Returned'", connection)
                 Using adapter As New MySqlDataAdapter(command)
                     Dim dt As New DataTable
                     adapter.Fill(dt)
@@ -231,5 +221,120 @@ Module mdlBorrowSetup
             End Using
         End Using
     End Function
+
+    Public Sub ReturnBookInGood(borrowID As Integer, copyID As Integer, studentID As String)
+        Using connection As MySqlConnection = ConnectionOpen()
+
+            Using updateCommand As New MySqlCommand("UPDATE tblBorrowers SET borrowLimit = borrowLimit + 1 WHERE studentID = @studentID", connection)
+                updateCommand.Parameters.AddWithValue("@studentID", studentID)
+                updateCommand.ExecuteNonQuery()
+            End Using
+
+            Using updateAvailability As New MySqlCommand("UPDATE tblCopies SET status = 'Borrowed' WHERE copyID = @copyID", connection)
+                updateAvailability.Parameters.AddWithValue("@copyID", copyID)
+                updateAvailability.ExecuteNonQuery()
+            End Using
+
+            Using updateBorrowStatus As New MySqlCommand("UPDATE tblBorrowedBooks SET borrowStatus = 'Returned' WHERE borrowID = @borrowID", connection)
+                updateBorrowStatus.Parameters.AddWithValue("@borrowID", borrowID)
+                updateBorrowStatus.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Book has been returned in good condition.")
+            Dim dtBorrowed As DataTable = DisplayBorrowedBooks()
+            frmIssueReturn.dgBorrowed.DataSource = dtBorrowed
+        End Using
+    End Sub
+
+
+    Public Sub ReturnOverdue(borrowID As Integer, penalty As Decimal)
+        MessageBox.Show("before connection open")
+        Using connection As MySqlConnection = ConnectionOpen()
+            MessageBox.Show("after connection open")
+            Using insertCommand As New MySqlCommand("INSERT INTO tblpullout (borrowID, status, penalty) VALUES (@borrowID, @status, @penalty)", connection)
+                insertCommand.Parameters.AddWithValue("@borrowID", borrowID)
+                insertCommand.Parameters.AddWithValue("@status", "Not Paid/Replaced")
+                insertCommand.Parameters.AddWithValue("@penalty", penalty)
+                MessageBox.Show("before execute")
+                insertCommand.ExecuteNonQuery()
+                MessageBox.Show("after execute")
+            End Using
+
+            MessageBox.Show("Book has been added to pullout.")
+        End Using
+    End Sub
+    Public Sub CalculateInOverdue(borrowID As Integer, textbox As Guna2TextBox)
+        Dim currentDate As DateTime = DateTime.Now
+        Dim dueDate As DateTime
+        Dim dateBorrowed As DateTime
+
+        Try
+            Using connection As MySqlConnection = ConnectionOpen()
+                Using selectCommand As New MySqlCommand("SELECT dueDate, dateBorrowed FROM tblBorrowedBooks WHERE borrowID = @borrowID", connection)
+                    selectCommand.Parameters.AddWithValue("@borrowID", borrowID)
+
+                    Using reader As MySqlDataReader = selectCommand.ExecuteReader()
+                        If reader.Read() Then
+                            dueDate = Convert.ToDateTime(reader("dueDate"))
+                            dateBorrowed = Convert.ToDateTime(reader("dateBorrowed"))
+                        End If
+                    End Using
+                End Using
+            End Using
+
+            Dim overDue As Integer = (currentDate - dueDate).Days
+
+            ' Check if the book is overdue
+            If overDue > 0 Then
+                ' Calculate penalty based on the number of days overdue
+                Dim totalPenalty As Integer = overDue * 20 ' Assuming penalty rate is $20 per day
+                textbox.Text = totalPenalty.ToString()
+                textbox.ReadOnly = True
+
+                ' Optionally, handle the case where the book is considered lost
+                If overDue > 7 Then
+                    ' Implement logic for handling lost books
+                    ' For example, mark the book as lost in the database
+                End If
+            Else
+                textbox.Text = ""
+                textbox.ReadOnly = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Error: {ex.Message}")
+        End Try
+    End Sub
+
+    Public Function IsBookOverdue(borrowID As Integer) As Boolean
+        Dim currentDate As DateTime = DateTime.Now
+        Dim dueDate As DateTime
+
+        Try
+            Using connection As MySqlConnection = ConnectionOpen()
+                Using selectCommand As New MySqlCommand("SELECT dueDate FROM tblBorrowedBooks WHERE borrowID = @borrowID", connection)
+                    selectCommand.Parameters.AddWithValue("@borrowID", borrowID)
+
+                    Dim reader As MySqlDataReader = selectCommand.ExecuteReader()
+
+                    If reader.Read() Then
+                        dueDate = Convert.ToDateTime(reader("dueDate"))
+                        ' Check if the book is overdue
+                        If currentDate > dueDate Then
+                            Return True
+                        Else
+                            Return False ' The book is not overdue
+                        End If
+                    Else
+                        MessageBox.Show("Error: No record found for the given borrowID.")
+                        Return False
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"Error: {ex.Message}")
+            Return False
+        End Try
+    End Function
+
 #End Region
 End Module

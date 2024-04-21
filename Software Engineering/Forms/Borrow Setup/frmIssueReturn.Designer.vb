@@ -43,11 +43,15 @@ Partial Class frmIssueReturn
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.borrowedID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.transactionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.acn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.firstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lastName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.studentID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.copyID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.borrowerID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.author = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.authorName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.fullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dateBorrowed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dueDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -119,7 +123,7 @@ Partial Class frmIssueReturn
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgBorrowed.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgBorrowed.ColumnHeadersHeight = 40
-        Me.dgBorrowed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowedID, Me.transactionID, Me.copyID, Me.borrowerID, Me.bookTitle, Me.author, Me.fullName, Me.dateBorrowed, Me.dueDate, Me.borrowerType})
+        Me.dgBorrowed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowedID, Me.acn, Me.ISBN, Me.firstName, Me.lastName, Me.studentID, Me.copyID, Me.borrowerID, Me.bookTitle, Me.authorName, Me.fullName, Me.dateBorrowed, Me.dueDate, Me.borrowerType})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -133,6 +137,7 @@ Partial Class frmIssueReturn
         Me.dgBorrowed.Location = New System.Drawing.Point(0, 50)
         Me.dgBorrowed.MultiSelect = False
         Me.dgBorrowed.Name = "dgBorrowed"
+        Me.dgBorrowed.ReadOnly = True
         Me.dgBorrowed.RowHeadersVisible = False
         Me.dgBorrowed.RowHeadersWidth = 51
         Me.dgBorrowed.RowTemplate.Height = 24
@@ -151,7 +156,7 @@ Partial Class frmIssueReturn
         Me.dgBorrowed.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
         Me.dgBorrowed.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgBorrowed.ThemeStyle.HeaderStyle.Height = 40
-        Me.dgBorrowed.ThemeStyle.ReadOnly = False
+        Me.dgBorrowed.ThemeStyle.ReadOnly = True
         Me.dgBorrowed.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
         Me.dgBorrowed.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgBorrowed.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -300,12 +305,48 @@ Partial Class frmIssueReturn
         Me.borrowedID.ReadOnly = True
         Me.borrowedID.Visible = False
         '
-        'transactionID
+        'acn
         '
-        Me.transactionID.DataPropertyName = "transactionID"
-        Me.transactionID.HeaderText = "Transaction ID"
-        Me.transactionID.MinimumWidth = 6
-        Me.transactionID.Name = "transactionID"
+        Me.acn.DataPropertyName = "accessionNo"
+        Me.acn.HeaderText = "Accession No."
+        Me.acn.MinimumWidth = 6
+        Me.acn.Name = "acn"
+        Me.acn.ReadOnly = True
+        Me.acn.Visible = False
+        '
+        'ISBN
+        '
+        Me.ISBN.DataPropertyName = "isbn"
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        Me.ISBN.ReadOnly = True
+        '
+        'firstName
+        '
+        Me.firstName.DataPropertyName = "firstName"
+        Me.firstName.HeaderText = "Firstname"
+        Me.firstName.MinimumWidth = 6
+        Me.firstName.Name = "firstName"
+        Me.firstName.ReadOnly = True
+        Me.firstName.Visible = False
+        '
+        'lastName
+        '
+        Me.lastName.DataPropertyName = "lastName"
+        Me.lastName.HeaderText = "Lastname"
+        Me.lastName.MinimumWidth = 6
+        Me.lastName.Name = "lastName"
+        Me.lastName.ReadOnly = True
+        Me.lastName.Visible = False
+        '
+        'studentID
+        '
+        Me.studentID.DataPropertyName = "studentID"
+        Me.studentID.HeaderText = "StudentID"
+        Me.studentID.MinimumWidth = 6
+        Me.studentID.Name = "studentID"
+        Me.studentID.ReadOnly = True
         '
         'copyID
         '
@@ -333,14 +374,14 @@ Partial Class frmIssueReturn
         Me.bookTitle.Name = "bookTitle"
         Me.bookTitle.ReadOnly = True
         '
-        'author
+        'authorName
         '
-        Me.author.DataPropertyName = "authorName"
-        Me.author.HeaderText = "Author"
-        Me.author.MinimumWidth = 6
-        Me.author.Name = "author"
-        Me.author.ReadOnly = True
-        Me.author.Visible = False
+        Me.authorName.DataPropertyName = "authorName"
+        Me.authorName.HeaderText = "Author"
+        Me.authorName.MinimumWidth = 6
+        Me.authorName.Name = "authorName"
+        Me.authorName.ReadOnly = True
+        Me.authorName.Visible = False
         '
         'fullName
         '
@@ -376,6 +417,7 @@ Partial Class frmIssueReturn
         Me.borrowerType.HeaderText = "Borrower Type"
         Me.borrowerType.MinimumWidth = 6
         Me.borrowerType.Name = "borrowerType"
+        Me.borrowerType.ReadOnly = True
         '
         'frmIssueReturn
         '
@@ -410,11 +452,15 @@ Partial Class frmIssueReturn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents status As DataGridViewTextBoxColumn
     Friend WithEvents borrowedID As DataGridViewTextBoxColumn
-    Friend WithEvents transactionID As DataGridViewTextBoxColumn
+    Friend WithEvents acn As DataGridViewTextBoxColumn
+    Friend WithEvents ISBN As DataGridViewTextBoxColumn
+    Friend WithEvents firstName As DataGridViewTextBoxColumn
+    Friend WithEvents lastName As DataGridViewTextBoxColumn
+    Friend WithEvents studentID As DataGridViewTextBoxColumn
     Friend WithEvents copyID As DataGridViewTextBoxColumn
     Friend WithEvents borrowerID As DataGridViewTextBoxColumn
     Friend WithEvents bookTitle As DataGridViewTextBoxColumn
-    Friend WithEvents author As DataGridViewTextBoxColumn
+    Friend WithEvents authorName As DataGridViewTextBoxColumn
     Friend WithEvents fullName As DataGridViewTextBoxColumn
     Friend WithEvents dateBorrowed As DataGridViewTextBoxColumn
     Friend WithEvents dueDate As DataGridViewTextBoxColumn

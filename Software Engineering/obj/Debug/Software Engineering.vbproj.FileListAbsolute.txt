@@ -49,3 +49,4 @@ C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Deb
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\bin\Debug\MySql.Data.xml
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.Form1.resources
 C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmAttendanceMonitoring.resources
+C:\Users\Clifford\source\repos\Software Engineering\Software Engineering\obj\Debug\Software_Engineering.frmReturnBooks.resources
