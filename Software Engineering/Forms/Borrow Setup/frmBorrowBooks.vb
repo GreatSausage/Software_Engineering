@@ -41,8 +41,41 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim copyID As Integer = GetCopyIDFunction(txtAcn.Text)
-        BorrowBooks(copyID, getBorrowerID)
+        For Each row As DataGridViewRow In dgBooks.Rows
+            Dim isbn As String = row.Cells("distinctISBN").Value.ToString()
+            Dim author As String = row.Cells("distinctAuthor").Value.ToString()
+            Dim title As String = row.Cells("distinctTitle").Value.ToString()
+            Dim accessionNo As String = row.Cells("acnNo").Value.ToString()
+
+            Dim copyID As Integer = GetCopyIDFunction(accessionNo)
+
+            BorrowBooks(copyID, getBorrowerID)
+        Next
+
         Me.Close()
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim borrowLimit As Integer = GetBorrowLimit(getBorrowerID)
+
+        If dgBooks.Rows.Count >= borrowLimit Then
+            MessageBox.Show("You have reached the maximum limit.")
+            Return
+        ElseIf borrowLimit = 0 Then
+            MessageBox.Show("This borrower has reached its borrow limit.")
+            Return
+        End If
+
+        Dim isbn As String = txtISBN.Text
+        Dim author As String = txtAuthors.Text
+        Dim title As String = txtTitle.Text
+        Dim acn As String = txtAcn.Text
+
+        Dim newRow As DataGridViewRow = dgBooks.Rows(dgBooks.Rows.Add())
+
+        newRow.Cells("distinctISBN").Value = isbn
+        newRow.Cells("distinctAuthor").Value = author
+        newRow.Cells("distinctTitle").Value = title
+        newRow.Cells("acnNo").Value = acn
     End Sub
 End Class

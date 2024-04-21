@@ -43,6 +43,7 @@ Partial Class frmIssueReturn
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.borrowedID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.transactionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.copyID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.borrowerID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -118,7 +119,7 @@ Partial Class frmIssueReturn
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgBorrowed.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgBorrowed.ColumnHeadersHeight = 40
-        Me.dgBorrowed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowedID, Me.copyID, Me.borrowerID, Me.bookTitle, Me.author, Me.fullName, Me.dateBorrowed, Me.dueDate, Me.borrowerType})
+        Me.dgBorrowed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.borrowedID, Me.transactionID, Me.copyID, Me.borrowerID, Me.bookTitle, Me.author, Me.fullName, Me.dateBorrowed, Me.dueDate, Me.borrowerType})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -299,6 +300,13 @@ Partial Class frmIssueReturn
         Me.borrowedID.ReadOnly = True
         Me.borrowedID.Visible = False
         '
+        'transactionID
+        '
+        Me.transactionID.DataPropertyName = "transactionID"
+        Me.transactionID.HeaderText = "Transaction ID"
+        Me.transactionID.MinimumWidth = 6
+        Me.transactionID.Name = "transactionID"
+        '
         'copyID
         '
         Me.copyID.DataPropertyName = "copyID"
@@ -402,6 +410,7 @@ Partial Class frmIssueReturn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents status As DataGridViewTextBoxColumn
     Friend WithEvents borrowedID As DataGridViewTextBoxColumn
+    Friend WithEvents transactionID As DataGridViewTextBoxColumn
     Friend WithEvents copyID As DataGridViewTextBoxColumn
     Friend WithEvents borrowerID As DataGridViewTextBoxColumn
     Friend WithEvents bookTitle As DataGridViewTextBoxColumn
